@@ -1,0 +1,36 @@
+{
+  "name": "responsive-layouts",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "main": "src/index.js",
+  "dependencies": {
+    "@instructure/ui-a11y": "6.0.0",
+    "@instructure/ui-breadcrumb": "6.1.0",
+    "@instructure/ui-buttons": "6.0.0",
+    "@instructure/ui-elements": "6.0.0",
+    "@instructure/ui-layout": "6.0.0",
+    "@instructure/ui-navigation": "6.1.0",
+    "@instructure/ui-themes": "6.1.0",
+    "@instructure/ui-toggle-details": "6.1.0",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "react-scripts": "2.1.8",
+    "prop-types": "15.7.2"
+  },
+  "devDependencies": {
+    "typescript": "3.3.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
