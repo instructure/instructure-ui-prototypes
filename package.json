@@ -1,0 +1,27 @@
+{
+  "name": "instructure-ui-prototypes",
+  "description": "UI Prototypes for Instructure Product Design",
+  "private": true,
+  "author": "Instructure, Inc. Engineering and Product Design",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/instructure/instructure-ui-prototypes.git"
+  },
+  "homepage": "https://github.com/instructure/instructure-ui-prototypes#readme",
+  "bugs": {
+    "url": "https://github.com/instructure/instructure-ui-prototypes/issues"
+  },
+  "workspaces": {
+    "packages": [
+      "shared/*"
+    ]
+  },
+  "scripts": {
+    "open:sandbox": "ui-scripts open-sandbox --repo instructure-ui-prototypes --username instructure"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@instructure/ui-scripts": "^6.4.0",
+    "lerna": "^3.0.0-beta.21"
+  }
+}

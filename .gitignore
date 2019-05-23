@@ -1,2 +1,15 @@
-**/node_modules/**
-**.DS_Store
+node_modules/
+npm-debug.log
+yarn-error.log
+lerna-debug.log
+package-lock.json
+.yarnclean
+.babel-cache
+.vscode
+.idea
+.DS_Store
+.viminfo
+.npmrc
+.env
+.env.test
+.tmp/
