@@ -1,0 +1,52 @@
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+.App {
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(225px, 300px) minmax(225px, 300px) 1fr;
+  overflow: hidden;
+}
+
+.AppDemo {
+  height: 100%;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+.AppDemo__Mover {
+}
+
+.AppDemo__Info {
+}
+
+.Mover {
+  height: 100%;
+  position: relative;
+}
+
+.Mover__MovingThing {
+  box-sizing: border-box;
+}
+
+.Mover__Positioning {
+  display: inline-flex;
+  position: absolute;
+}
+
+.Mover__Button {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+}
