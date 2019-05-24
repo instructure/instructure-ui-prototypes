@@ -4,20 +4,26 @@ body {
   margin: 0;
 }
 
+.App {
+  position: relative;
+}
+
 .mainNav {
-  grid-area: nav;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1111;
+}
+
+.mainContent--Minimized {
+  position: relative;
+  margin-left: 3.375rem;
   height: 100vh;
 }
 
-.mainContent {
-  grid-area: content;
-}
-
-.App {
-  display: grid;
-  grid-template-areas: "nav" "content";
-  grid-template-columns: [nav] auto [content] 11fr;
-  grid-template-rows: 100% 100%;
-  justify-content: stretch;
-  align-content: stretch;
+.mainContent--Expanded {
+  position: relative;
+  margin-left: 5.25rem;
+  height: 100vh;
 }

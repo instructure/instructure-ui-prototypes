@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Navigation } from "@instructure/ui-navigation";
 import { Avatar } from "@instructure/ui-elements";
 import { Badge } from "@instructure/ui-elements";
@@ -12,24 +13,22 @@ import {
   IconInboxLine,
   IconQuestionLine
 } from "@instructure/ui-icons";
-import AdminTray from "./AdminTray";
 
 import "./styles.css";
 
 export default class MainNav extends React.Component {
-  state = {
-    showAdmin: false
+  static propTypes = {
+    onRequestShowAdmin: PropTypes.func,
+    isMinimized: PropTypes.bool,
+    onMinimized: PropTypes.func
   };
-  handleShowAdmin = () => {
-    console.log("hey you got clicked");
-    this.setState({
-      showAdmin: true
-    });
+  static defaultProps = {
+    onRequestShowAdmin: () => {},
+    isMinimized: false,
+    onMinimized: () => {}
   };
-  handleHideAdmin = () => {
-    this.setState({
-      showAdmin: false
-    });
+  handleAdminClick = () => {
+    this.props.onRequestShowAdmin();
   };
 
   render() {
@@ -40,6 +39,8 @@ export default class MainNav extends React.Component {
           expandedLabel: "Minimize Navigation",
           minimizedLabel: "Expand Navigation"
         }}
+        minimized={this.props.isMinimized}
+        onMinimized={this.props.onMinimized}
       >
         <Navigation.Item
           icon={<IconInstructureLine size="small" />}
@@ -52,13 +53,8 @@ export default class MainNav extends React.Component {
         <Navigation.Item
           icon={<IconAdminLine />}
           label="Admin"
-          onClick={this.handleShowAdmin}
-        >
-          <AdminTray
-            showAdmin={this.state.showAdmin}
-            onRequestHideAdmin={this.handleHideAdmin}
-          />
-        </Navigation.Item>
+          onClick={this.handleAdminClick}
+        />
         <Navigation.Item
           icon={<IconDashboardLine />}
           label="Dashboard"
@@ -84,7 +80,11 @@ export default class MainNav extends React.Component {
           label="Inbox"
           href="#"
         />
-        <Navigation.Item icon={<IconQuestionLine />} label="Help" href="#" />
+        <Navigation.Item 
+          icon={<IconQuestionLine />} 
+          label="Help" 
+          href="#" 
+        />
       </Navigation>
     );
   }
