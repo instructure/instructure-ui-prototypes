@@ -17,10 +17,14 @@ import {
 import "./styles.css";
 
 export default class MainNav extends React.Component {
+  state = {
+    adminSelected: false,
+    coursesSelected: true
+  };
   static propTypes = {
     onRequestShowAdmin: PropTypes.func,
     isMinimized: PropTypes.bool,
-    onMinimized: PropTypes.func
+    onMinimized: PropTypes.func,
   };
   static defaultProps = {
     onRequestShowAdmin: () => {},
@@ -29,6 +33,10 @@ export default class MainNav extends React.Component {
   };
   handleAdminClick = () => {
     this.props.onRequestShowAdmin();
+    this.setState({
+      adminSelected: true,
+      coursesSelected: false
+    });
   };
 
   render() {
@@ -39,7 +47,6 @@ export default class MainNav extends React.Component {
           expandedLabel: "Minimize Navigation",
           minimizedLabel: "Expand Navigation"
         }}
-        minimized={this.props.isMinimized}
         onMinimized={this.props.onMinimized}
       >
         <Navigation.Item
@@ -54,6 +61,8 @@ export default class MainNav extends React.Component {
           icon={<IconAdminLine />}
           label="Admin"
           onClick={this.handleAdminClick}
+          selected={this.state.adminSelected}
+
         />
         <Navigation.Item
           icon={<IconDashboardLine />}
@@ -61,10 +70,10 @@ export default class MainNav extends React.Component {
           href="#"
         />
         <Navigation.Item
-          selected
           icon={<IconCoursesLine />}
           label="Courses"
           href="#"
+          selected={this.state.coursesSelected}
         />
         <Navigation.Item
           icon={<IconCalendarMonthLine />}
@@ -83,7 +92,7 @@ export default class MainNav extends React.Component {
         <Navigation.Item 
           icon={<IconQuestionLine />} 
           label="Help" 
-          href="#" 
+          href="#"
         />
       </Navigation>
     );
