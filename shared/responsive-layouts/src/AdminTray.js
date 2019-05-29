@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { View, Flex } from "@instructure/ui-layout";
-import { Heading, List, Link } from "@instructure/ui-elements";
+import { Heading, List } from "@instructure/ui-elements";
 import { Button } from "@instructure/ui-buttons";
 import { ScreenReaderContent } from "@instructure/ui-a11y";
 import { IconXLine } from "@instructure/ui-icons";
@@ -41,24 +41,23 @@ export default class AdminTray extends React.Component {
           </Flex.Item>
         </Flex>
         <View borderWidth="small 0">
-          <List variant="unstyled" itemSpacing="small">
+          <List variant="unstyled" itemSpacing="x-small">
             <List.Item>
-              <Link href="#">Super University</Link>
+              <Button variant="link" href="#">Super University</Button>
             </List.Item>
             <List.Item>
-              <Link href="#">Mega University</Link>
+              <Button variant="link" href="#">Mega University</Button>
               </List.Item>
             <List.Item>
-              <Link href="#">User Sandbox</Link>
+              <Button variant="link" href="#">User Sandbox</Button>
               </List.Item>
             <List.Item>
-              <Link href="#">Site Admin</Link>
-              </List.Item>
-            <View as="div" borderWidth="small 0 0 0" margin="medium 0 0 0" padding="medium 0 0 0">
-              <List.Item>
-                <Link href="#">Super University</Link>
-              </List.Item>
-            </View>
+              <Button variant="link" href="#">Site Admin</Button>
+            </List.Item>
+            <hr/>
+            <List.Item>
+              <Button variant="link" href="#">Super University</Button>
+            </List.Item>
           </List>
         </View>
       </View>

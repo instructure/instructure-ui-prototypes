@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Button } from "@instructure/ui-buttons";
 import { View, Flex } from "@instructure/ui-layout";
-import { Heading, List, Link } from "@instructure/ui-elements";
+import { Heading, List } from "@instructure/ui-elements";
 import { ScreenReaderContent } from "@instructure/ui-a11y";
 import { IconXLine } from "@instructure/ui-icons";
 
@@ -41,51 +41,51 @@ export default class CourseNav extends React.Component {
             </Button>
           </Flex.Item>
         </Flex>
-        <List variant="unstyled" itemSpacing="small">
+        <List variant="unstyled" itemSpacing="x-small">
           <List.Item>
-            <Link href="https://www.canvaslms.com/try-canvas">Home</Link>
+            <Button variant="link" href="https://www.canvaslms.com/try-canvas">Home</Button>
           </List.Item>
           <List.Item>
-            <Link href="https://www.getbridge.com">Announcements</Link>
+            <Button variant="link" href="https://www.getbridge.com">Announcements</Button>
           </List.Item>
           <List.Item>
-            <Link href="https://www.arcmedia.com">Assignments</Link>
+            <Button variant="link" href="https://www.arcmedia.com">Assignments</Button>
           </List.Item>
           <List.Item>
-            <Link href="https://www.canvaslms.com/try-canvas">Discussions</Link>
+            <Button variant="link" href="https://www.canvaslms.com/try-canvas">Discussions</Button>
           </List.Item>
           <List.Item>
-            <Link href="https://www.getbridge.com">Grades</Link>
+            <Button variant="link" href="https://www.getbridge.com">Grades</Button>
           </List.Item>
           <List.Item>
-            <Link href="https://www.arcmedia.com">People</Link>
+            <Button variant="link" href="https://www.arcmedia.com">People</Button>
           </List.Item>
           <List.Item>
-            <Link href="https://www.canvaslms.com/try-canvas">Pages</Link>
+            <Button variant="link" href="https://www.canvaslms.com/try-canvas">Pages</Button>
           </List.Item>
           <List.Item>
-            <Link href="https://www.getbridge.com">Files</Link>
+            <Button variant="link" href="https://www.getbridge.com">Files</Button>
           </List.Item>
           <List.Item>
-            <Link href="https://www.arcmedia.com">Syllabus</Link>
+            <Button variant="link" href="https://www.arcmedia.com">Syllabus</Button>
           </List.Item>
           <List.Item>
-            <Link href="https://www.canvaslms.com/try-canvas">Outcomes</Link>
+            <Button variant="link" href="https://www.canvaslms.com/try-canvas">Outcomes</Button>
           </List.Item>
           <List.Item>
-            <Link href="https://www.getbridge.com">Quizzes</Link>
+            <Button variant="link" href="https://www.getbridge.com">Quizzes</Button>
           </List.Item>
           <List.Item>
-            <Link href="https://www.arcmedia.com">Modules</Link>
+            <Button variant="link" href="https://www.arcmedia.com">Modules</Button>
           </List.Item>
           <List.Item>
-            <Link href="https://www.canvaslms.com/try-canvas">Conferences</Link>
+            <Button variant="link" href="https://www.canvaslms.com/try-canvas">Conferences</Button>
           </List.Item>
           <List.Item>
-            <Link href="https://www.getbridge.com">Collaborations</Link>
+            <Button variant="link" href="https://www.getbridge.com">Collaborations</Button>
           </List.Item>
           <List.Item>
-            <Link href="https://www.arcmedia.com">Settings</Link>
+            <Button variant="link" href="https://www.arcmedia.com">Settings</Button>
           </List.Item>
         </List>
       </View>

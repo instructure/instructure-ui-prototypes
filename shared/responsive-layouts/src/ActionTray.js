@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { View, Flex } from "@instructure/ui-layout";
-import { Heading, List, Link } from "@instructure/ui-elements";
+import { Heading, List } from "@instructure/ui-elements";
 import { Button } from "@instructure/ui-buttons";
 import { ScreenReaderContent } from "@instructure/ui-a11y";
 import {
@@ -51,44 +51,44 @@ export default class ActionTray extends React.Component {
         <List variant="unstyled">
           <List.Item>
             <View display="block" borderWidth="0 0 small 0" padding="small 0">
-              <Link icon={IconCommonsLine} href="#">
+              <Button variant="link" icon={IconCommonsLine} href="#">
                 Share to Commons
-              </Link>
+              </Button>
             </View>
           </List.Item>
           <List.Item>
             <View display="block" borderWidth="0 0 small 0" padding="small 0">
-              <Link icon={IconAnnouncementLine} href="#">
+              <Button variant="link" icon={IconAnnouncementLine} href="#">
                 Student View
-              </Link>
+              </Button>
             </View>
           </List.Item>
           <List.Item>
             <View display="block" borderWidth="0 0 small 0" padding="small 0">
-              <Link icon={IconAnalyticsLine} href="#">
+              <Button variant="link" icon={IconAnalyticsLine} href="#">
                 Course Statistics
-              </Link>
+              </Button>
             </View>
           </List.Item>
           <List.Item>
             <View display="block" borderWidth="0 0 small 0" padding="small 0">
-              <Link icon={IconCalendarDayLine} href="#">
+              <Button variant="link" icon={IconCalendarDayLine} href="#">
                 Course Calendar
-              </Link>
+              </Button>
             </View>
           </List.Item>
           <List.Item>
             <View display="block" borderWidth="0 0 small 0" padding="small 0">
-              <Link icon={IconLockLine} href="#">
+              <Button variant="link" icon={IconLockLine} href="#">
                 Conclude this Course
-              </Link>
+              </Button>
             </View>
           </List.Item>
           <List.Item>
             <View display="block" borderWidth="0 0 small 0" padding="small 0">
-              <Link icon={IconTrashLine} href="#">
+              <Button variant="link" icon={IconTrashLine} href="#">
                 Delete this Course
-              </Link>
+              </Button>
             </View>
           </List.Item>
         </List>
