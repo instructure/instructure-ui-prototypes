@@ -28,7 +28,7 @@ export default class AdminTray extends React.Component {
       >
         <Flex justifyItems="space-between" margin="0 0 medium 0">
           <Flex.Item grow>
-            <Heading level="h4">Admin</Heading>
+            <Heading level="h4" margin="0 0 0 small">Admin</Heading>
           </Flex.Item>
           <Flex.Item>
             <Button
@@ -41,7 +41,7 @@ export default class AdminTray extends React.Component {
           </Flex.Item>
         </Flex>
         <View borderWidth="small 0">
-          <List variant="unstyled" itemSpacing="x-small">
+          <List variant="unstyled" itemSpacing="xx-small">
             <List.Item>
               <Button variant="link" href="#">Super University</Button>
             </List.Item>

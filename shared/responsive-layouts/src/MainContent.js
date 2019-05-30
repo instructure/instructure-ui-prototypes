@@ -49,8 +49,9 @@ export default class MainContent extends React.Component {
           padding="small 0"
           borderWidth="0 0 small 0"
           margin="0 medium"
+          minHeight="4rem"
         >
-          <Flex wrapItems>
+          <Flex>
             {this.props.onRequestShowBurgerBtn ? (
               <Flex.Item padding="0 medium 0 0">
                 <Button

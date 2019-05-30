@@ -29,7 +29,7 @@ export default class CourseNav extends React.Component {
       >
         <Flex justifyItems="space-between" margin="0 0 medium 0">
           <Flex.Item grow>
-            <Heading level="h4">Course Menu</Heading>
+            <Heading level="h4" margin="0 0 0 small">Course Menu</Heading>
           </Flex.Item>
           <Flex.Item>
             <Button
@@ -41,7 +41,7 @@ export default class CourseNav extends React.Component {
             </Button>
           </Flex.Item>
         </Flex>
-        <List variant="unstyled" itemSpacing="x-small">
+        <List variant="unstyled" itemSpacing="xx-small">
           <List.Item>
             <Button variant="link" href="https://www.canvaslms.com/try-canvas">Home</Button>
           </List.Item>
