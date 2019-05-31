@@ -13,17 +13,19 @@ body {
   top: 0;
   left: 0;
   bottom: 0;
-  z-index: 1111;
+  z-index: 999;
 }
 
 .mainContent--Minimized {
   position: relative;
   margin-left: 3.375rem;
   height: 100vh;
+  z-index: 1;
 }
 
 .mainContent--Expanded {
   position: relative;
   margin-left: 5.25rem;
   height: 100vh;
+  z-index: 1;
 }
