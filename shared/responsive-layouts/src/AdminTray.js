@@ -54,7 +54,7 @@ export default class AdminTray extends React.Component {
             <List.Item>
               <Button variant="link" href="#">Site Admin</Button>
             </List.Item>
-            <hr/>
+            <List.Item><hr/></List.Item>
             <List.Item>
               <Button variant="link" href="#">Super University</Button>
             </List.Item>
