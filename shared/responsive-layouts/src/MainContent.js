@@ -47,7 +47,8 @@ export default class MainContent extends React.Component {
       <View as="div">
         <View
           as="div"
-          padding="small medium"
+          margin="0 medium"
+          padding="small 0"
           borderWidth="0 0 small 0"
           minHeight="4rem"
         >
@@ -65,7 +66,7 @@ export default class MainContent extends React.Component {
                 </Button>
               </Flex.Item>
             ) : null}
-            <Flex.Item grow padding="0">
+            <Flex.Item grow shrink padding="0">
               <Breadcrumb label="You are here:">
                 <Breadcrumb.Link href="https://instructure.github.io/instructure-ui/">
                   English 204
