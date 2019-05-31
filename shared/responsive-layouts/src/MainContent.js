@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { View, Flex } from "@instructure/ui-layout";
+import { View, Flex, Responsive } from "@instructure/ui-layout";
 import { ToggleGroup } from "@instructure/ui-toggle-details";
 import { Breadcrumb } from "@instructure/ui-breadcrumb";
 import { Heading, Pill, TruncateText } from "@instructure/ui-elements";
@@ -10,6 +10,7 @@ import {
   IconExportLine,
   IconAddLine,
   IconCompleteSolid,
+  IconEyeLine,
   IconHamburgerLine,
   IconMoveStartLine
 } from "@instructure/ui-icons";
@@ -88,19 +89,52 @@ export default class MainContent extends React.Component {
           </Flex>
         </View>
         <View as="div" margin="small auto" padding="0 medium" maxWidth="948px">
-          <Flex justifyItems="end" margin="medium 0 small 0" wrapItems>
-            <Flex.Item margin="0 x-small x-small 0">
-              <Button>View Progress</Button>
-            </Flex.Item>
-            <Flex.Item margin="0 x-small x-small 0">
-              <Button icon={IconExportLine}>Export Course</Button>
-            </Flex.Item>
-            <Flex.Item margin="0 0 x-small 0">
-              <Button variant="primary" icon={IconAddLine}>
-                Module
-              </Button>
-            </Flex.Item>
-          </Flex>
+          <Responsive
+            query={{
+              narrow: { maxWidth: 479 },
+              wide: { minWidth: 480 }
+            }}
+          >
+            {(props, matches) => {
+              if (matches.includes('wide')) {
+                return (
+                  <Flex justifyItems="end" margin="medium 0 small 0" wrapItems>
+                    <Flex.Item margin="0 x-small x-small 0">
+                      <Button icon={<IconEyeLine title="View" />}>Progress</Button>
+                    </Flex.Item>
+                    <Flex.Item margin="0 x-small x-small 0">
+                      <Button icon={<IconExportLine title="Export" />}>Course</Button>
+                    </Flex.Item>
+                    <Flex.Item margin="0 0 x-small 0">
+                      <Button variant="primary" icon={<IconAddLine title="Add" />}>
+                        Module
+                      </Button>
+                    </Flex.Item>
+                  </Flex>
+                )
+              } else {
+                return (
+                  <Flex justifyItems="end" margin="medium 0 small 0" wrapItems>
+                    <Flex.Item margin="0 x-small x-small 0">
+                      <Button icon={IconEyeLine}>
+                        <ScreenReaderContent>View Progress</ScreenReaderContent>
+                      </Button>
+                    </Flex.Item>
+                    <Flex.Item margin="0 x-small x-small 0">
+                      <Button icon={IconExportLine}>
+                        <ScreenReaderContent>Export Course</ScreenReaderContent>
+                      </Button>
+                    </Flex.Item>
+                    <Flex.Item margin="0 0 x-small 0">
+                      <Button variant="primary" icon={IconAddLine}>
+                        <ScreenReaderContent>Add Module</ScreenReaderContent>
+                      </Button>
+                    </Flex.Item>
+                  </Flex> 
+                )
+              }
+            }}
+          </Responsive>
 
           <ToggleGroup
             toggleLabel="Expand Week 1 Modules"

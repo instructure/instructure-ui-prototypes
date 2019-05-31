@@ -48,48 +48,36 @@ export default class ActionTray extends React.Component {
             </Button>
           </Flex.Item>
         </Flex>
-        <List variant="unstyled">
+        <List variant="unstyled" itemSpacing="xx-small">
           <List.Item>
-            <View display="block" borderWidth="0 0 small 0" padding="small 0">
-              <Button variant="link" icon={IconCommonsLine} href="#">
-                Share to Commons
-              </Button>
-            </View>
+            <Button variant="link" icon={IconCommonsLine} href="#">
+              Share to Commons
+            </Button>
           </List.Item>
           <List.Item>
-            <View display="block" borderWidth="0 0 small 0" padding="small 0">
-              <Button variant="link" icon={IconAnnouncementLine} href="#">
-                Student View
-              </Button>
-            </View>
+            <Button variant="link" icon={IconAnnouncementLine} href="#">
+              Student View
+            </Button>
           </List.Item>
           <List.Item>
-            <View display="block" borderWidth="0 0 small 0" padding="small 0">
-              <Button variant="link" icon={IconAnalyticsLine} href="#">
-                Course Statistics
-              </Button>
-            </View>
+            <Button variant="link" icon={IconAnalyticsLine} href="#">
+              Course Statistics
+            </Button>
           </List.Item>
           <List.Item>
-            <View display="block" borderWidth="0 0 small 0" padding="small 0">
-              <Button variant="link" icon={IconCalendarDayLine} href="#">
-                Course Calendar
-              </Button>
-            </View>
+            <Button variant="link" icon={IconCalendarDayLine} href="#">
+              Course Calendar
+            </Button>
           </List.Item>
           <List.Item>
-            <View display="block" borderWidth="0 0 small 0" padding="small 0">
-              <Button variant="link" icon={IconLockLine} href="#">
-                Conclude this Course
-              </Button>
-            </View>
+            <Button variant="link" icon={IconLockLine} href="#">
+              Conclude this Course
+            </Button>
           </List.Item>
           <List.Item>
-            <View display="block" borderWidth="0 0 small 0" padding="small 0">
-              <Button variant="link" icon={IconTrashLine} href="#">
-                Delete this Course
-              </Button>
-            </View>
+            <Button variant="link" icon={IconTrashLine} href="#">
+              Delete this Course
+            </Button>
           </List.Item>
         </List>
       </View>
