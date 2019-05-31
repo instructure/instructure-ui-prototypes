@@ -29,7 +29,7 @@ export default class CourseNav extends React.Component {
       >
         <Flex justifyItems="space-between" margin="0 0 medium 0">
           <Flex.Item grow>
-            <Heading level="h4" margin="0 0 0 small">Course Menu</Heading>
+            <Heading level="h3" margin="0 0 0 small">Course Menu</Heading>
           </Flex.Item>
           <Flex.Item>
             <Button
