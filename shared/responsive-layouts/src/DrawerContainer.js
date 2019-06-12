@@ -61,7 +61,7 @@ export default class DrawerContainer extends React.Component {
     return (
       <View as="div" height="100vh" width="100%" margin="0 auto">
         <div className="mainNav" id="cake">
-          <MainNav 
+          <MainNav
             onRequestShowAdmin={this.handleShowAdmin}
             isMinimized={this.state.isMinimized}
             onMinimized={this.handleNavToggle}
@@ -73,9 +73,7 @@ export default class DrawerContainer extends React.Component {
               label="Admin"
               open={this.state.showAdmin}
               placement="start"
-              onDismiss={() => {
-                this.setState({ showAdmin: false });
-              }}
+              onDismiss={this.handleHideAdmin}
             >
               <AdminTray onRequestHideAdmin={this.handleHideAdmin} />
             </DrawerLayout.Tray>
@@ -85,9 +83,7 @@ export default class DrawerContainer extends React.Component {
                     label="Course Actions"
                     open={this.state.showActions}
                     placement="end"
-                    onDismiss={() => {
-                      this.setState({ showActions: false });
-                    }}
+                    onDismiss={this.handleHideActions}
                   >
                     <ActionTray onRequestHideActions={this.handleHideActions} />
                   </DrawerLayout.Tray>
@@ -97,9 +93,7 @@ export default class DrawerContainer extends React.Component {
                         label="Course Navigation"
                         open={this.state.showCourseNav}
                         placement="start"
-                        onDismiss={() => {
-                          this.setState({ showCourseNav: false });
-                        }}
+                        onDismiss={this.handleHideCourseNav}
                       >
                         <CourseNav onRequestHideCourseNav={this.handleHideCourseNav} />
                       </DrawerLayout.Tray>
