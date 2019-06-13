@@ -1,0 +1,13 @@
+.minimized {
+  position: relative;
+  margin-inline-start: var(--minimizedMargin);
+  height: 100vh;
+  z-index: var(--zIndex);
+}
+
+.expanded {
+  position: relative;
+  margin-inline-start: var(--expandedMargin);
+  height: 100vh;
+  z-index: var(--zIndex);
+}

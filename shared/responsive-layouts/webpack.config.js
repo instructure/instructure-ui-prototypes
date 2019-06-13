@@ -22,45 +22,27 @@
  * SOFTWARE.
  */
 
-import React from 'react'
-import { Button } from '@instructure/ui-buttons'
-import { ScreenReaderContent } from '@instructure/ui-a11y'
-import { Menu } from '@instructure/ui-menu'
-import {
-  IconMoreLine,
-  IconIndentLine,
-  IconEditLine,
-  IconDuplicateLine,
-  IconUpdownLine,
-  IconTrashLine
-} from '@instructure/ui-icons'
+const path = require('path')
+const baseConfig = require('@instructure/ui-webpack-config')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-export default function settingsMenu() {
-  return (
-    <Menu
-      placement="bottom"
-      trigger={
-        <Button variant="icon" icon={IconMoreLine} size="small">
-          <ScreenReaderContent>Settings Menu</ScreenReaderContent>
-        </Button>
-      }
-      mountNode={() => document.getElementById("main")}
-    >
-      <Menu.Item value="indent">
-        <IconIndentLine /> Increase Indent
-      </Menu.Item>
-      <Menu.Item value="edit">
-        <IconEditLine /> Edit
-      </Menu.Item>
-      <Menu.Item value="duplicate">
-        <IconDuplicateLine /> Duplicate
-      </Menu.Item>
-      <Menu.Item value="move">
-        <IconUpdownLine /> Move To...
-      </Menu.Item>
-      <Menu.Item value="remove">
-        <IconTrashLine /> Remove
-      </Menu.Item>
-    </Menu>
-  )
+const outputPath = path.resolve(__dirname, '__build__')
+
+module.exports = {
+  ...baseConfig,
+  entry: './src/index.js',
+  output: {
+    path: outputPath,
+    filename: '[name].js'
+  },
+  devServer: {
+    contentBase: outputPath,
+    host: '0.0.0.0'
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+      favicon: './favicon.ico'
+    })
+  ]
 }
