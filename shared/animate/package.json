@@ -1,7 +1,6 @@
 {
   "name": "animate",
   "version": "1.0.0",
-  "private": "true",
   "scripts": {
     "start": "ui-build --bundle --watch -p 3000",
     "build": "ui-build --bundle",
