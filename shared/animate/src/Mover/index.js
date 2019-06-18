@@ -1,15 +1,40 @@
-import React, { Component } from "react";
-// import ReactDOM from "react-dom";
-import PropTypes from "prop-types";
-import color from "tinycolor2";
-import "@instructure/canvas-theme";
-import "./styles.css";
+/*
+ * The MIT License (MIT)
+ *
+ * Copyright (c) 2015 - present Instructure, Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
 
-import { View } from "@instructure/ui-layout";
-// import { ScreenReaderContent } from "@instructure/ui-a11y";
-import { Button } from "@instructure/ui-buttons";
-import { IconPlayLine } from "@instructure/ui-icons";
-import { IconResetLine } from "@instructure/ui-icons";
+import React, { Component } from "react"
+
+import PropTypes from "prop-types"
+import color from "tinycolor2"
+
+import { View } from "@instructure/ui-layout"
+
+import { Button } from "@instructure/ui-buttons"
+import { IconPlayLine, IconResetLine } from "@instructure/ui-icons"
+
+import { themeable } from "@instructure/ui-themeable"
+
+import styles from "./styles.css"
 
 class Mover extends Component {
   static propTypes = {
@@ -48,48 +73,59 @@ class Mover extends Component {
       shiftLarge: PropTypes.number,
       shiftComplete: PropTypes.number
     })
-  };
+  }
+
+  static defaultProps = {
+    shadow: true,
+    fill: 'lightgray',
+    border: 'gray',
+    textColor: undefined,
+    width: 300,
+    height: 200,
+    type: "all",
+    atoms: {}
+  }
 
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       moved: false
-    };
+    }
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.type !== this.props.type) {
-      this.setState({ moved: false });
+      this.setState({ moved: false })
     }
   }
 
   get fill() {
-    const { type, atoms, fill } = this.props;
+    const { type, atoms, fill } = this.props
 
     if (type === "tintLighten") {
       if (this.state.moved) {
         return color(fill)
           .lighten(atoms.shiftSmall * 100)
-          .toString();
+          .toString()
       } else {
-        return fill;
+        return fill
       }
     } else if (type === "tintDarken") {
       if (this.state.moved) {
         return color(fill)
           .darken(atoms.shiftSmall * 100)
-          .toString();
+          .toString()
       } else {
-        return fill;
+        return fill
       }
     } else {
-      return fill;
+      return fill
     }
   }
 
-  get opacity() {
-    const { type, atoms } = this.props;
+  get opacity () {
+    const { type, atoms } = this.props
 
     if (
       type === "slideIn" ||
@@ -98,9 +134,9 @@ class Mover extends Component {
       type === "scaleInFun"
     ) {
       if (this.state.moved) {
-        return "1";
+        return "1"
       } else {
-        return "0";
+        return "0"
       }
     } else if (
       type === "slideOut" ||
@@ -109,69 +145,73 @@ class Mover extends Component {
       type === "scaleOutFun"
     ) {
       if (this.state.moved) {
-        return "0";
+        return "0"
       } else {
-        return "1";
+        return "1"
       }
     } else if (type === "fade") {
       if (this.state.moved) {
-        return "0";
+        return "0"
       } else {
-        return "1";
+        return "1"
       }
     } else if (type === "alpha") {
       if (this.state.moved) {
-        return "1";
+        return "1"
       } else {
-        return `${1 - atoms.shiftLarge}`;
+        return `${1 - atoms.shiftLarge}`
       }
+    } else {
+      return null
     }
   }
 
-  get transform() {
-    const { type, atoms } = this.props;
+  get transform () {
+    const { type, atoms } = this.props
 
     if (type === "slideIn" || type === "slideInFun") {
       if (this.state.moved) {
-        return "translate3d(0, 0, 0)";
+        return "translate3d(0, 0, 0)"
       } else {
-        return `translate3d(-${atoms.shiftComplete * 100}%, 0, 0)`;
+        return `translate3d(-${atoms.shiftComplete * 100}%, 0, 0)`
       }
     } else if (type === "slideOut" || type === "slideOutFun") {
       if (this.state.moved) {
-        return `translate3d(-${atoms.shiftComplete * 100}%, 0, 0)`;
+        return `translate3d(-${atoms.shiftComplete * 100}%, 0, 0)`
       } else {
-        return "translate3d(0, 0, 0)";
+        return "translate3d(0, 0, 0)"
       }
     } else if (type === "scaleIn") {
       if (this.state.moved) {
-        return "scale(1)";
+        return "scale(1)"
       } else {
-        return `scale(${1 - atoms.shiftSmall})`;
+        return `scale(${1 - atoms.shiftSmall})`
       }
     } else if (type === "scaleInFun") {
       if (this.state.moved) {
-        return "scale(1)";
+        return "scale(1)"
       } else {
-        return `scale(${1 - atoms.shiftLarge})`;
+        return `scale(${1 - atoms.shiftLarge})`
       }
     } else if (type === "scaleOut") {
       if (this.state.moved) {
-        return `scale(${1 - atoms.shiftSmall})`;
+        return `scale(${1 - atoms.shiftSmall})`
       } else {
-        return "scale(1)";
+        return "scale(1)"
       }
     } else if (type === "scaleOutFun") {
       if (this.state.moved) {
-        return `scale(${1 - atoms.shiftLarge})`;
+        return `scale(${1 - atoms.shiftLarge})`
       } else {
-        return "scale(1)";
+        return "scale(1)"
       }
+    } else {
+      return null
     }
   }
 
   get duration() {
-    const { type, atoms } = this.props;
+    const { type, atoms } = this.props
 
     if (
       type === "slideIn" ||
@@ -180,55 +220,55 @@ class Mover extends Component {
       type === "scaleIn" ||
       type === "fade"
     ) {
-      return atoms.durMed;
+      return atoms.durMed
     } else if (
       type === "scaleInFun" ||
       type === "scaleOutFun" ||
       type === "slideOutFun" ||
       type === "slideInFun"
     ) {
-      return atoms.durLong;
+      return atoms.durLong
     } else {
-      return atoms.durShort;
+      return atoms.durShort
     }
   }
 
   get ease() {
-    const { type, atoms } = this.props;
+    const { type, atoms } = this.props
 
     if (type === "slideIn" || type === "scaleIn") {
-      return atoms.easeEnter;
+      return atoms.easeEnter
     } else if (type === "slideOut" || type === "scaleOut") {
-      return atoms.easeExit;
+      return atoms.easeExit
     } else if (type === "slideInFun" || type === "scaleInFun") {
-      return atoms.easeFunEnter;
+      return atoms.easeFunEnter
     } else if (type === "slideOutFun" || type === "scaleOutFun") {
-      return atoms.easeFunExit;
+      return atoms.easeFunExit
     } else {
-      return atoms.easeLinear;
+      return atoms.easeLinear
     }
   }
 
   get transition() {
-    const transition = `all ${this.duration}ms ${this.ease}`;
+    const transition = `all ${this.duration}ms ${this.ease}`
     if (
       this.props.type === "fade" ||
       this.props.type === "alpha" ||
       this.props.type === "tintLighten" ||
       this.props.type === "tintDarken"
     ) {
-      return transition;
+      return transition
     } else {
       if (this.state.moved) {
-        return transition;
+        return transition
       } else {
-        return null;
+        return null
       }
     }
   }
 
   get positioning() {
-    const { type } = this.props;
+    const { type } = this.props
     if (
       type === "slideIn" ||
       type === "slideInFun" ||
@@ -238,26 +278,26 @@ class Mover extends Component {
       return {
         top: "0",
         left: "0"
-      };
+      }
     } else {
       return {
         top: "50%",
         left: "50%",
         transform: "translate3d(-50%, -50%, 0)"
-      };
+      }
     }
   }
 
   handleClick = () => {
     this.setState({
       moved: !this.state.moved
-    });
-  };
+    })
+  }
 
   render() {
-    const { type } = this.props;
+    const { type } = this.props
 
-    const styles = {
+    const movingStyles = {
       height: `${this.props.height}px`,
       width: `${this.props.width}px`,
       transform: this.transform,
@@ -267,9 +307,9 @@ class Mover extends Component {
       transition: this.transition,
       color: this.props.textColor,
       boxShadow: this.props.shadow ? "0 0 1rem rgba(0, 0, 0, 0.2)" : null
-    };
+    }
 
-    const positioningStyles = { ...this.positioning };
+    const positioningStyles = { ...this.positioning }
 
     const buttonWords =
       type === "fade" ||
@@ -277,19 +317,19 @@ class Mover extends Component {
       type === "tintLighten" ||
       type === "tintDarken"
         ? "Reverse"
-        : "Reset";
+        : "Reset"
 
     return (
-      <div className="Mover">
-        <div className="Mover__Positioning" style={positioningStyles}>
+      <div className={styles.root}>
+        <div className={styles.positioning} style={positioningStyles}>
           {this.props.type !== "all" ? (
-            <div className="Mover__MovingThing" style={styles} />
+            <div className={styles.movingThing} style={movingStyles} />
           ) : (
             <View>Choose an animation</View>
           )}
         </div>
         {this.props.type !== "all" && (
-          <div className="Mover__Button">
+          <div className={styles.button}>
             <Button
               icon={this.state.moved ? IconResetLine : IconPlayLine}
               onClick={this.handleClick}
@@ -299,8 +339,8 @@ class Mover extends Component {
           </div>
         )}
       </div>
-    );
+    )
   }
 }
 
-export default Mover;
+export default themeable(null, styles)(Mover)

@@ -22,12 +22,6 @@
  * SOFTWARE.
  */
 
-import React from 'react'
-import ReactDOM from 'react-dom'
-
-import '@instructure/canvas-theme'
-
-import App from './App'
-
-const rootElement = document.getElementById('app')
-ReactDOM.render(<App />, rootElement)
+module.exports = {
+  presets: [require('@instructure/ui-babel-preset')]
+}

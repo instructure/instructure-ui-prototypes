@@ -1,0 +1,13 @@
+.root {
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(225px, 300px) minmax(225px, 300px) 1fr; /* stylelint-disable-line unit-blacklist */
+  overflow: hidden;
+}
+
+.demo {
+  height: 100%;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}

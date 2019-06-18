@@ -1,18 +1,18 @@
-.Mover {
+.root {
   height: 100%;
   position: relative;
 }
 
-.Mover__MovingThing {
+.movingThing {
   box-sizing: border-box;
 }
 
-.Mover__Positioning {
+.positioning {
   display: inline-flex;
   position: absolute;
 }
 
-.Mover__Button {
+.button {
   position: fixed;
   top: 1rem;
   right: 1rem;
