@@ -34,6 +34,7 @@ import { Billboard } from '@instructure/ui-billboard'
 import { IconEyeLine, IconOffLine, IconLinkLine, IconQuizSolid } from '@instructure/ui-icons'
 
 import SingleSelect from '../SingleSelect'
+import UrlInput from '../UrlInput'
 import PreviewCard from '../PreviewCard'
 import theme from './theme'
 import styles from './styles.css'
@@ -93,10 +94,7 @@ class DetailsTab extends React.Component {
             />
         </View>
         <View as="div" width="28.125rem" padding="medium 0 0">
-          <TextInput 
-            renderLabel="URL Listing Path" 
-            placeholder="/course-title" 
-            messages={[{ text: 'Lower-case letter, numbers and dashes', type: 'hint' }]} />
+              <UrlInput />
         </View>
         <View as="div" width="28.125rem" padding="medium 0 0">
           <SingleSelect

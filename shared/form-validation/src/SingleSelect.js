@@ -33,7 +33,7 @@ export default class SingleSelect extends React.Component {
   }
 
   state = {
-    inputValue: this.props.options[0].label,
+    inputValue: this.props.selectPlaceholder ? '' : this.props.options[0].label,
     isShowingOptions: false,
     highlightedOptionId: null,
     announcement: null
