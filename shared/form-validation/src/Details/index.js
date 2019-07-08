@@ -26,6 +26,7 @@ import React from 'react'
 import { themeable } from '@instructure/ui-themeable'
 import { Heading } from '@instructure/ui-elements'
 import { Flex, View } from '@instructure/ui-layout'
+import { Button } from '@instructure/ui-buttons'
 import { Checkbox, FileDrop, TextArea } from '@instructure/ui-forms'
 import { NumberInput } from '@instructure/ui-number-input'
 import { TextInput } from '@instructure/ui-text-input'
@@ -33,6 +34,7 @@ import { Billboard } from '@instructure/ui-billboard'
 import { IconEyeLine, IconOffLine, IconLinkLine, IconQuizSolid } from '@instructure/ui-icons'
 
 import SingleSelect from '../SingleSelect'
+import PreviewCard from '../PreviewCard'
 import theme from './theme'
 import styles from './styles.css'
 
@@ -40,6 +42,7 @@ class DetailsTab extends React.Component {
   
   render() {
     return (
+    <div>
     <Flex alignItems="start" justifyItems="space-between">
       <Flex.Item grow>
         <Flex margin="medium 0 0 0" alignItems="end">
@@ -141,10 +144,14 @@ class DetailsTab extends React.Component {
       </Flex.Item>
       <Flex.Item margin="0 0 0 xx-large">
         <Heading level="h3" margin="medium 0">Preview</Heading>
-        <View as="div" width="18.75rem" height="30rem" borderWidth="small" margin="medium 0 0">
-        </View>
+        <PreviewCard/>
       </Flex.Item>
     </Flex>
+    <View as="div" borderWidth="small 0 0 0" textAlign="end" margin="large 0 medium 0">
+      <Button margin="small">Delete</Button>
+      <Button variant="primary">Save</Button>
+    </View>
+    </div>
     )
   }
 }
