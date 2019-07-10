@@ -29,14 +29,21 @@ import { Select } from '@instructure/ui-select'
 export default class SingleSelect extends React.Component {
   static propTypes = {
     selectLabel: PropTypes.string,
-    selectPlaceholder: PropTypes.string
+    selectPlaceholder: PropTypes.string,
+    selectedOptionId: PropTypes.string
   }
 
-  state = {
-    inputValue: this.props.selectPlaceholder ? '' : this.props.options[0].label,
-    isShowingOptions: false,
-    highlightedOptionId: null,
-    announcement: null
+  constructor (props) {
+    super(props)
+    const defaultOption = this.getOptionById(this.props.selectedOptionId)
+
+    this.state = {
+      inputValue: defaultOption ? defaultOption.label : '',
+      isShowingOptions: false,
+      highlightedOptionId: null,
+      announcement: null,
+      selectedOptionId: this.props.selectedOptionId
+    }
   }
 
   getOptionById (queryId) {
@@ -51,11 +58,11 @@ export default class SingleSelect extends React.Component {
 
   handleHideOptions = (event) => {
     const { selectedOptionId } = this.state
-    const option = this.getOptionById(selectedOptionId).label
+    const option = this.getOptionById(selectedOptionId)
     this.setState({
       isShowingOptions: false,
       highlightedOptionId: null,
-      inputValue: selectedOptionId ? option : ''
+      inputValue: selectedOptionId ? option.label : ''
     })
   }
 
@@ -72,16 +79,16 @@ export default class SingleSelect extends React.Component {
     const option = this.getOptionById(id).label
     this.setState((state) => ({
       highlightedOptionId: id,
-      inputValue: event.type === 'keydown' ? option : state.inputValue,
+      inputValue: event.type === 'keydown' ? option.label : state.inputValue,
       announcement: `${option} ${nowOpen}`
     }))
   }
 
   handleSelectOption = (event, { id }) => {
-    const option = this.getOptionById(id).label
+    const option = this.getOptionById(id)
     this.setState({
       selectedOptionId: id,
-      inputValue: option,
+      inputValue: option ? option.label : '',
       isShowingOptions: false,
       announcement: `"${option}" selected. List collapsed.`
     })
@@ -96,6 +103,8 @@ export default class SingleSelect extends React.Component {
       announcement
     } = this.state
 
+    const option = this.getOptionById(selectedOptionId)
+
     return (
       <div>
         <Select
@@ -104,11 +113,13 @@ export default class SingleSelect extends React.Component {
           assistiveText="Use arrow keys to navigate options."
           inputValue={inputValue}
           isShowingOptions={isShowingOptions}
+          inputRef={(el) => this.inputRef = el}
           onBlur={this.handleBlur}
           onRequestShowOptions={this.handleShowOptions}
           onRequestHideOptions={this.handleHideOptions}
           onRequestHighlightOption={this.handleHighlightOption}
           onRequestSelectOption={this.handleSelectOption}
+          renderBeforeInput={option ? option.icon : null}
         >
           {this.props.options.map((option) => {
             return (
@@ -117,7 +128,7 @@ export default class SingleSelect extends React.Component {
                 key={option.id}
                 isHighlighted={option.id === highlightedOptionId}
                 isSelected={option.id === selectedOptionId}
-                renderBeforeInput={option.icon}
+                renderBeforeLabel={option.icon}
               >
                 { option.label }
               </Select.Option>

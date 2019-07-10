@@ -23,7 +23,7 @@
  */
 
 
-// 1 do something when user clicks away (console.log) [onBlur give an event]
+// 1 do something when user clicks away (console.log) [onBlur give an event] - done = handleBlur
 // 2 figure out if the user has entered anything in the input and what that value is [event.target.value]
 // 3 based on input value - is there an error [regular expression determine capital, etc...]
 // 4 set state based on error
@@ -60,21 +60,23 @@ export default class UrlInput extends React.Component {
     })
   
     handleBlur = (e) => {
-      this.setState({
-        value: null,
-        messages: [{ text: 'Lower-case letter, numbers and dashes', type: 'error'}],
-        renderAfterInput:
-          <Tooltip
-            constrain="parent"
-            tip="Create a unique URL Listing Path"
-            placement="end"
-            on={['click', 'hover', 'focus']}
-          >
-            <Button variant="icon" size="small" icon={<IconWarningLine color="error"/>}>
-              <ScreenReaderContent>toggle tooltip</ScreenReaderContent>
-            </Button>
-          </Tooltip>
-      })
+      const valid = !this.state.value || /[a-z0-9\-\/]+$/.test(this.state.value)
+      if (!valid) {
+        this.setState({
+          messages: [{ text: 'Lower-case letter, numbers and dashes', type: 'error'}],
+          renderAfterInput:
+            <Tooltip
+              constrain="parent"
+              tip="Create a unique URL Listing Path"
+              placement="end"
+              on={['click', 'hover', 'focus']}
+            >
+              <Button variant="icon" size="small" icon={<IconWarningLine color="error"/>}>
+                <ScreenReaderContent>toggle tooltip</ScreenReaderContent>
+              </Button>
+            </Tooltip>
+        })
+      }
     }
   
     render () {

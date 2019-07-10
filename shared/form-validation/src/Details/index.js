@@ -44,45 +44,46 @@ class DetailsTab extends React.Component {
   render() {
     return (
     <div>
-    <Flex alignItems="start" justifyItems="space-between">
+    <Flex alignItems="start" justifyItems="space-between" wrapItems>
       <Flex.Item grow>
-        <Flex margin="medium 0 0 0" alignItems="end">
-          <Flex.Item margin="0 small 0 0" >
+        <Flex margin="medium 0 0 0" alignItems="end" wrapItems>
+          <Flex.Item margin="0 small small 0" >
             <SingleSelect
               selectLabel="Visibility"
+              selectedOptionId="1"
               options={[
-                { id: '1', label: 'Visible', icon: {IconEyeLine} },
-                { id: '2', label: 'Hidden', icon: {IconOffLine} },
-                { id: '3', label: 'Private Link', icon: {IconLinkLine} }
+                { id: '1', label: 'Visible', icon: <IconEyeLine inline={false} /> },
+                { id: '2', label: 'Hidden', icon: <IconOffLine inline={false} /> },
+                { id: '3', label: 'Private Link', icon: <IconLinkLine inline={false} /> }
               ]}
             />
           </Flex.Item>
-          <Flex.Item>
+          <Flex.Item margin="0 0 small 0">
             <Checkbox label="Open For Enrollment" value="open" variant="toggle" />
           </Flex.Item>
         </Flex>
-        <Flex margin="medium 0" alignItems="center">
-          <Flex.Item margin="0 small 0 0">
+        <Flex margin="medium 0" alignItems="center" wrapItems>
+          <Flex.Item margin="0 small small 0">
             <NumberInput renderLabel="Student Cap" placeholder="0 (Unlimited)" />
           </Flex.Item>
-          <Flex.Item margin="0 small 0 0">
+          <Flex.Item margin="0 small small 0">
             <NumberInput renderLabel="Enrollment Fee" placeholder="$0.00 (Free)" />
           </Flex.Item>
-          <Flex.Item align="end">
+          <Flex.Item align="end" margin="0 0 small 0">
             <div className={styles.formAlignment}>
               <Checkbox label="Display 'Free' Banner" value="free" />
             </div>
           </Flex.Item>
         </Flex>
-        <Flex margin="medium 0" alignItems="center">
-          <Flex.Item margin="0 small 0 0">
+        <Flex margin="medium 0" alignItems="center" wrapItems>
+          <Flex.Item margin="0 small small 0">
             <NumberInput renderLabel="Days to Complete" placeholder="0 (self-paced)" />
           </Flex.Item>
-          <Flex.Item>
+          <Flex.Item margin="0 0 small 0">
             <NumberInput renderLabel="Credits" placeholder="0" />
           </Flex.Item>
         </Flex>
-        <View as="div" width="28.125rem">
+        <View as="div" width="28.125rem" margin="0 0 small 0">
           <SingleSelect
               selectLabel="Catalog"
               selectPlaceholder="Select a Catalog"
@@ -93,10 +94,10 @@ class DetailsTab extends React.Component {
               ]}
             />
         </View>
-        <View as="div" width="28.125rem" padding="medium 0 0">
+        <View as="div" width="28.125rem" padding="medium 0 0" margin="0 0 small 0">
               <UrlInput />
         </View>
-        <View as="div" width="28.125rem" padding="medium 0 0">
+        <View as="div" width="28.125rem" padding="medium 0 0" margin="0 0 small 0">
           <SingleSelect
               selectLabel="Section for New Enrollments"
               selectPlaceholder="Select a Section"
@@ -107,26 +108,26 @@ class DetailsTab extends React.Component {
               ]}
             />
         </View>
-        <View as="div" width="13.625rem" padding="medium 0 0">
+        <View as="div" width="13.625rem" padding="medium 0 0" margin="0 0 small 0">
           <NumberInput renderLabel="List Order" placeholder="0" />
         </View>
-        <View as="div" padding="medium 0 0">
+        <View as="div" padding="medium 0 0" margin="0 0 small 0">
           <TextArea
             label="Full Description"
             height="15rem"
           />
         </View>
-        <View as="div" padding="medium 0 0">
+        <View as="div" padding="medium 0 0" margin="0 0 small 0">
           <TextArea
             label="Teaser"
             messages={[{ text: 'A brief paragraph summarizing the listing', type: 'hint' }]}
             height="10rem"
           />
         </View>
-        <View as="div" padding="medium 0 0">
+        <View as="div" padding="medium 0 0" margin="0 0 small 0">
           <Checkbox label="Use first 50 words from description" value="mini-description" />
         </View>
-        <View as="div" padding="medium 0 0">
+        <View as="div" padding="medium 0 0" margin="0 0 small 0">
           <FileDrop
             label={
               <Billboard
