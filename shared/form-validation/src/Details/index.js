@@ -29,18 +29,17 @@ import { Flex, View } from '@instructure/ui-layout'
 import { Button } from '@instructure/ui-buttons'
 import { Checkbox, FileDrop, TextArea } from '@instructure/ui-forms'
 import { NumberInput } from '@instructure/ui-number-input'
-import { TextInput } from '@instructure/ui-text-input'
 import { Billboard } from '@instructure/ui-billboard'
 import { IconEyeLine, IconOffLine, IconLinkLine, IconQuizSolid } from '@instructure/ui-icons'
 
 import SingleSelect from '../SingleSelect'
-import UrlInput from '../UrlInput'
+import ValidatedInput from '../ValidatedInput'
 import PreviewCard from '../PreviewCard'
 import theme from './theme'
 import styles from './styles.css'
 
 class DetailsTab extends React.Component {
-  
+
   render() {
     return (
     <div>
@@ -95,7 +94,9 @@ class DetailsTab extends React.Component {
             />
         </View>
         <View as="div" width="28.125rem" padding="medium 0 0" margin="0 0 small 0">
-              <UrlInput />
+              <ValidatedInput
+
+              />
         </View>
         <View as="div" width="28.125rem" padding="medium 0 0" margin="0 0 small 0">
           <SingleSelect
@@ -109,7 +110,10 @@ class DetailsTab extends React.Component {
             />
         </View>
         <View as="div" width="13.625rem" padding="medium 0 0" margin="0 0 small 0">
-          <NumberInput renderLabel="List Order" placeholder="0" />
+          <NumberInput
+            renderLabel="List Order"
+            placeholder="0"
+          />
         </View>
         <View as="div" padding="medium 0 0" margin="0 0 small 0">
           <TextArea
