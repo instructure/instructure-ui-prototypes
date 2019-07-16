@@ -23,6 +23,7 @@
  */
 
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import { View } from '@instructure/ui-layout'
 import { AppNav } from '@instructure/ui-navigation'
@@ -31,6 +32,24 @@ import SelectableText from '../SelectableText'
 import Listing from '../Listing'
 
 export default class Wrapper extends React.Component {
+  static childContextTypes = {
+    persistErrors: PropTypes.bool
+  }
+
+  getChildContext () {
+    return {
+      persistErrors: this.state.persistErrors
+    }
+  }
+
+  state = {
+    persistErrors: false
+  }
+
+  handleToggleClick = (e) => {
+    this.setState(state => ({ persistErrors: !state.persistErrors}))
+  }
+
   render () {
     return (
       <View
@@ -38,6 +57,11 @@ export default class Wrapper extends React.Component {
         margin="medium 0"
         padding="medium"
       >
+        <button
+          style={{position: 'absolute', right: 20}}
+          onClick={this.handleToggleClick}>
+          Toggle tooltip UI
+        </button>
         <AppNav
             screenReaderLabel="App navigation"
         >

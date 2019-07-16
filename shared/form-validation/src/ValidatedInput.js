@@ -30,18 +30,28 @@ import { TextInput } from '@instructure/ui-text-input'
 import { Button } from '@instructure/ui-buttons'
 import { IconWarningLine } from '@instructure/ui-icons'
 import { ScreenReaderContent } from '@instructure/ui-a11y'
-import { Tooltip } from '@instructure/ui-overlays'
+import { Tooltip2 as Tooltip } from './Tooltip2'
 
 export default class ValidatedInput extends React.Component {
   static propTypes = {
-    invalid: PropTypes.bool,
-    hint: PropTypes.string
+    label: PropTypes.string.isRequired,
+    placeholder: PropTypes.string,
+    hint: PropTypes.string,
+    error: PropTypes.string.isRequired,
+    pattern: PropTypes.instanceOf(RegExp)
   }
 
   static defaultProps = {
-    invalid: false,
-    hint: 'Lower-case letter, numbers and dashes'
+    placeholder: null,
+    hint: null,
+    pattern: /.+/
   }
+
+  static contextTypes = {
+    persistErrors: PropTypes.bool
+  }
+
+  _inputContainer = null
 
   constructor (props) {
     super(props)
@@ -49,12 +59,12 @@ export default class ValidatedInput extends React.Component {
     this.state = {
       value: '',
       invalid: false,
-      messages: [{ text: this.props.hint, type: 'hint' }],
+      messages: [{ text: this.props.hint, type: 'hint' }]
     }
   }
 
   validate () {
-    if (!this.state.value || /^[a-z0-9\-\/]*$/.test(this.state.value)) {
+    if (!this.state.value || this.props.pattern.test(this.state.value)) {
       this.setState({
         invalid: false,
         messages: [{ text: this.props.hint, type: 'hint' }]
@@ -86,11 +96,12 @@ export default class ValidatedInput extends React.Component {
     return (
       <TextInput
         value={this.state.value}
-        renderLabel="URL Listing Path"
-        placeholder="/course-title"
+        placeholder={this.props.placeholder}
+        renderLabel={this.props.label}
         messages={this.state.messages}
         onBlur={this.handleBlur}
         onChange={this.handleChange}
+        inputContainerRef={(el) => this._inputContainer = el}
         {...invalidProps}
       />
     )
@@ -100,10 +111,12 @@ export default class ValidatedInput extends React.Component {
     if (this.state.invalid) {
       return (
         <Tooltip
-          constrain="parent"
-          tip="Create a unique URL Listing Path"
+          show={this.context.persistErrors ? true : undefined}
+          tip={this.props.error}
           placement="end"
-          on={['hover', 'focus']}
+          on={['hover','focus']}
+          offsetX={4}
+          positionTarget={() => this._inputContainer}
         >
           {this.renderInput()}
         </Tooltip>

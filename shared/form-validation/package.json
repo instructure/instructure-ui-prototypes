@@ -17,6 +17,7 @@
 				"@instructure/ui-forms": "^6.6.0",
 				"@instructure/ui-icons": "^6.6.0",
 				"@instructure/ui-layout": "^6.6.0",
+        "@instructure/ui-overlays": "^6.6.0",
 				"@instructure/ui-navigation": "^6.6.0",
 				"@instructure/ui-number-input": "^6.6.0",
 				"@instructure/ui-select": "^6.6.0",

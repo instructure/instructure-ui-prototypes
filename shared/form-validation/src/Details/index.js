@@ -94,9 +94,13 @@ class DetailsTab extends React.Component {
             />
         </View>
         <View as="div" width="28.125rem" padding="medium 0 0" margin="0 0 small 0">
-              <ValidatedInput
-
-              />
+          <ValidatedInput
+            label="URL Listing Path"
+            placeholder="/course-title"
+            hint="Lower-case letter, numbers and dashes"
+            error="Create a unique URL Listing Path"
+            pattern={/^[a-z0-9\-/]*$/}
+          />
         </View>
         <View as="div" width="28.125rem" padding="medium 0 0" margin="0 0 small 0">
           <SingleSelect
@@ -108,6 +112,14 @@ class DetailsTab extends React.Component {
                 { id: '3', label: 'Section Three' }
               ]}
             />
+        </View>
+        <View as="div" width="28.125rem" padding="medium 0 0" margin="0 0 small 0">
+          <ValidatedInput
+            label="List Order"
+            error="Provide a list order integer"
+            placeholder="0"
+            pattern={/^[0-9]*$/}
+          />
         </View>
         <View as="div" width="13.625rem" padding="medium 0 0" margin="0 0 small 0">
           <NumberInput
