@@ -113,7 +113,7 @@ export default class ValidatedInput extends React.Component {
         <Tooltip
           show={this.context.persistErrors ? true : undefined}
           tip={this.props.error}
-          placement="end"
+          placement="top end"
           on={['hover','focus']}
           offsetX={4}
           positionTarget={() => this._inputContainer}
