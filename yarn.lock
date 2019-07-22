@@ -1265,6 +1265,14 @@
     "@babel/runtime" "^7"
     "@instructure/ui-themeable" "^6.6.0"
 
+"@instructure/canvas-theme@^6.7.0":
+  version "6.7.0"
+  resolved "https://registry.yarnpkg.com/@instructure/canvas-theme/-/canvas-theme-6.7.0.tgz#eb4501d555a2664460692ba0a17ead9f3dbd3664"
+  integrity sha512-BDLmCGTtNFkyFXcZ8jKt8lHtFIHaj2hsnnmBF8+rPzJItL3PXzUT1kdjkti2KeZNYJVOHpa0XWNotZdseP97FQ==
+  dependencies:
+    "@babel/runtime" "^7"
+    "@instructure/ui-themeable" "^6.7.0"
+
 "@instructure/command-utils@^6.6.0":
   version "6.6.0"
   resolved "https://registry.yarnpkg.com/@instructure/command-utils/-/command-utils-6.6.0.tgz#c6b67e3a834ae7e1a2e68343134e1ef40b2d41f8"

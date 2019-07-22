@@ -48,7 +48,6 @@ export default class HelpTray extends React.Component {
       <View
         as="div"
         height="100%"
-        width="16em"
         padding="medium"
         textAlign="start"
       >
@@ -93,34 +92,38 @@ export default class HelpTray extends React.Component {
                 <List.Item>
                   <Button
                     variant="link"
-                  >
+                    theme={{mediumPadding: '0', mediumHeight: '1.5rem'}}
+                    >
                     Search the Canvas Guides
                   </Button>
-                  <Text as="div" size="small">Find answers to common questions</Text>
+                  <Text as="div">Find answers to common questions</Text>
                 </List.Item>
                 <List.Item>
                   <Button
                     variant="link"
+                    theme={{mediumPadding: '0', mediumHeight: '1.5rem'}}
                   >
                     Canvas 101 in 10 minutes
                   </Button>
-                  <Text as="div" size="small">Join this Course</Text>
+                  <Text as="div">Join this Course</Text>
                 </List.Item>
                 <List.Item>
                   <Button
                     variant="link"
+                    theme={{mediumPadding: '0', mediumHeight: '1.5rem'}}
                   >
                     Submit a Feature Idea
                   </Button>
-                  <Text as="div" size="small">Have an idea to improve Canvas?</Text>
+                  <Text as="div">Have an idea to improve Canvas?</Text>
                 </List.Item>
                 <List.Item>
                   <Button
                     variant="link"
+                    theme={{mediumPadding: '0', mediumHeight: '1.5rem'}}
                   >
                     Report a Problem
                   </Button>
-                  <Text as="div" size="small">If Canvas misbehaves, tell us about it</Text>
+                  <Text as="div">If Canvas misbehaves, tell us about it</Text>
                 </List.Item>
             </List>
           </List.Item>

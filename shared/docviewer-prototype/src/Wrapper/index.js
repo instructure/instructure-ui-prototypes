@@ -36,7 +36,7 @@ class Wrapper extends Component {
         padding="0"
       >
         <Flex alignItems="start">
-          <Flex.Item width="75%">
+          <Flex.Item grow>
             <View
               background="light"
               padding="large"
@@ -50,7 +50,7 @@ class Wrapper extends Component {
               Docviewer
             </View>
           </Flex.Item>
-          <Flex.Item width="25%">
+          <Flex.Item width="20rem">
             <RightSide />
           </Flex.Item>
         </Flex>

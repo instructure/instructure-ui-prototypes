@@ -23,7 +23,6 @@
  */
 
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import { Text } from '@instructure/ui-elements'
 import { View, Flex } from '@instructure/ui-layout'
 import { Button } from '@instructure/ui-buttons'
@@ -42,13 +41,18 @@ import {
 
 import SingleSelect from '../SingleSelect'
 import HelpTray from '../HelpTray'
+import CommentLibrary from '../CommentLibrary'
+import AssignmentTray from '../AssignmentTray'
+import StudentTray from '../StudentTray'
 
 class RightSide extends Component {
-
-  constructor (props) {
-    super(props)
+  constructor() {
+    super()
     this.state = {
-      showHelp: false
+      showHelp: false,
+      showLibrary: false,
+      showStudents: false,
+      showAssignments: false
     }
   }
 
@@ -64,42 +68,120 @@ class RightSide extends Component {
     })
   }
 
+  handleShowLibrary = () => {
+    this.setState({
+      showLibrary: true
+    })
+  }
+
+  handleHideLibrary = () => {
+    this.setState({
+      showLibrary: false
+    })
+  }
+
+  handleShowAssignments = () => {
+    this.setState({
+      showAssignments: true
+    })
+  }
+
+  handleHideAssignments = () => {
+    this.setState({
+      showAssignments: false
+    })
+  }
+
+  handleShowStudents = () => {
+    this.setState({
+      showStudents: true
+    })
+  }
+
+  handleHideStudents = () => {
+    this.setState({
+      showStudents: false
+    })
+  }
+
   render () {
     return (
       <View
         as="aside"
         minHeight="100vh"
+        width="20rem"
         padding="small medium"
         borderWidth="0 0 0 small"
       >
         <View as="div" textAlign="center" margin="auto" padding="small 0">
-          <Button variant="icon" icon={IconGradebookLine} margin="x-small">
+          <Button
+            variant="icon"
+            icon={IconGradebookLine}
+            margin="x-small"
+            onClick={this.handleShowAssignments}
+          >
               <ScreenReaderContent>Gradebook</ScreenReaderContent>
           </Button>
-          <Button variant="icon" icon={IconQuizStatsTimeLine} margin="x-small">
+          <Tray
+            label="Assignments"
+            open={this.state.showAssignments}
+            placement="end"
+            size="small"
+            onDismiss={this.handleHideAssignments}
+          >
+            <AssignmentTray onRequestHideAssignments={this.handleHideAssignments} />
+          </Tray>
+          <Button
+            variant="icon"
+            icon={IconQuizStatsTimeLine}
+            margin="x-small"
+            onClick={this.handleShowStudents}
+          >
               <ScreenReaderContent>Submissions</ScreenReaderContent>
           </Button>
+          <Tray
+            label="Students"
+            open={this.state.showStudents}
+            placement="end"
+            size="small"
+            onDismiss={this.handleHideStudents}
+          >
+            <StudentTray onRequestHideStudents={this.handleHideStudents} />
+          </Tray>
           <Button
             variant="icon"
             icon={IconQuestionLine} 
             margin="x-small"
-            onClick={() => { this.setState({ showHelp: true }) }}
+            onClick={this.handleShowHelp}
             >
             <ScreenReaderContent>Help</ScreenReaderContent>
           </Button>
           <Tray
-            label="Help"
-            size="small"
+            label="Canvas Help"
+            open={this.state.showHelp}
             placement="end"
-            open={this.handleShowHelp}
-            shouldCloseOnDocumentClick
+            size="small"
+            onDismiss={this.handleHideHelp}
           >
             <HelpTray onRequestHideHelp={this.handleHideHelp} />
           </Tray>
-
-          <Button variant="icon" icon={IconCommentLine} margin="x-small">
-              <ScreenReaderContent>Comments</ScreenReaderContent>
+          <Button
+            variant="icon"
+            icon={IconCommentLine}
+            margin="x-small"
+            onClick={this.handleShowLibrary}
+          >
+            <ScreenReaderContent>Comments</ScreenReaderContent>
           </Button>
+          <Tray
+            label="Canvas Help"
+            open={this.state.showLibrary}
+            placement="end"
+            size="regular"
+            onDismiss={this.handleHideLibrary}
+          >
+            <CommentLibrary onRequestHideLibrary={this.handleHideLibrary} />
+          </Tray>
         </View>
         <View
           as="div"
@@ -120,7 +202,7 @@ class RightSide extends Component {
                 options={[
                   { id: '1', label: 'FileX.PDF' },
                   { id: '2', label: 'FileY.PDF' },
-                  { id: '3', label: 'FileZ.PDF Link' }
+                  { id: '3', label: 'FileZ.PDF' }
                 ]}
                 message={[
                   { text: 'Submitted Sep 12 at 9:08 am', type: 'hint' }
