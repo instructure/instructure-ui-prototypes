@@ -44,6 +44,7 @@ import HelpTray from '../HelpTray'
 import CommentLibrary from '../CommentLibrary'
 import AssignmentTray from '../AssignmentTray'
 import StudentTray from '../StudentTray'
+import RubricTray from '../RubricTray'
 
 class RightSide extends Component {
   constructor() {
@@ -52,7 +53,8 @@ class RightSide extends Component {
       showHelp: false,
       showLibrary: false,
       showStudents: false,
-      showAssignments: false
+      showAssignments: false,
+      showRubric: false
     }
   }
 
@@ -101,6 +103,18 @@ class RightSide extends Component {
   handleHideStudents = () => {
     this.setState({
       showStudents: false
+    })
+  }
+
+  handleShowRubric = () => {
+    this.setState({
+      showRubric: true
+    })
+  }
+
+  handleHideRubric = () => {
+    this.setState({
+      showRubric: false
     })
   }
 
@@ -171,7 +185,7 @@ class RightSide extends Component {
             margin="x-small"
             onClick={this.handleShowLibrary}
           >
-            <ScreenReaderContent>Comments</ScreenReaderContent>
+            <ScreenReaderContent>Comment Library</ScreenReaderContent>
           </Button>
           <Tray
             label="Canvas Help"
@@ -239,9 +253,21 @@ class RightSide extends Component {
                 />
               </Flex.Item>
               <Flex.Item align="end">
-                <Button icon={IconRubricLine}>
+                <Button
+                  icon={IconRubricLine}
+                  onClick={this.handleShowRubric}
+                >
                   <ScreenReaderContent>Download Submission</ScreenReaderContent>
                 </Button>
+                <Tray
+                  label="Rubric"
+                  open={this.state.showRubric}
+                  placement="end"
+                  size="regular"
+                  onDismiss={this.handleHideRubric}
+                >
+                  <RubricTray onRequestHideRubric={this.handleHideRubric} />
+                </Tray>
               </Flex.Item>
             </Flex>
             <TextArea

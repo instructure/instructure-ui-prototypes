@@ -87,7 +87,7 @@ export default class AssignmentTray extends React.Component {
               <List.Item>
                 <Flex>
                   <Flex.Item grow shrink margin="0 small 0 0">
-                    <Text>Week 2: Write a short story with five characters</Text>
+                    <Button variant="link" fluidWidth>Week 2: Write a short story with five characters</Button>
                   </Flex.Item>
                   <Flex.Item>
                     <Badge
@@ -101,7 +101,7 @@ export default class AssignmentTray extends React.Component {
               <List.Item>
                 <Flex>
                   <Flex.Item grow shrink margin="0 small 0 0">
-                    <Text>Week 3: Creating a story outline</Text>
+                    <Button variant="link" fluidWidth>Week 3: Creating a story outline</Button>
                   </Flex.Item>
                   <Flex.Item>
                     <Badge
@@ -115,7 +115,7 @@ export default class AssignmentTray extends React.Component {
               <List.Item>
                 <Flex>
                   <Flex.Item grow shrink margin="0 small 0 0">
-                    <Text>Pre-Test</Text>
+                    <Button variant="link" fluidWidth>Pre-Test</Button>
                   </Flex.Item>
                   <Flex.Item>
                     <Badge
@@ -136,7 +136,7 @@ export default class AssignmentTray extends React.Component {
               <List.Item>
                 <Flex>
                   <Flex.Item grow shrink margin="0 small 0 0">
-                    <Text>Week 2: Grammar basics</Text>
+                    <Button variant="link" fluidWidth>Week 2: Grammar basics</Button>
                   </Flex.Item>
                   <Flex.Item>
                     <Badge
@@ -150,7 +150,7 @@ export default class AssignmentTray extends React.Component {
               <List.Item>
                 <Flex>
                   <Flex.Item grow shrink margin="0 small 0 0">
-                    <Text>Group Discussion</Text>
+                    <Button variant="link" fluidWidth>Group Discussion</Button>
                   </Flex.Item>
                   <Flex.Item>
                     <Badge

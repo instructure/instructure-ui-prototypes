@@ -28,9 +28,9 @@ import { Select } from '@instructure/ui-select'
 
 export default class SingleSelect extends React.Component {
   static propTypes = {
-    selectLabel: PropTypes.string,
-    selectPlaceholder: PropTypes.string,
-    selectedOptionId: PropTypes.string
+    selectLabel: PropTypes.string.isRequired,
+    selectPlaceholder: PropTypes.string.isRequired,
+    selectedOptionId: PropTypes.string.isRequired
   }
 
   constructor (props) {
