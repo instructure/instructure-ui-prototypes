@@ -208,8 +208,8 @@ class RightSide extends Component {
           <View as="div" height="10rem" textAlign="center">
             Avatar Plus Name Carousel
           </View>
-          <Flex justifyItems="space-between" wrapItems>
-            <Flex.Item padding="0 x-small 0 0" grow>
+          <Flex justifyItems="space-between">
+            <Flex.Item margin="0 x-small 0 0" grow shrink>
               <SingleSelect
                 selectLabel="Submissions"
                 selectedOptionId="1"
@@ -230,24 +230,24 @@ class RightSide extends Component {
             </Flex.Item>
           </Flex>
           <Flex justifyItems="space-between" padding="medium 0 x-small 0">
-            <Flex.Item padding="0 xx-small 0 0">
+            <Flex.Item margin="0 xx-small 0 0">
               <Text>Items Graded</Text>
             </Flex.Item>
-            <Flex.Item align="end">
+            <Flex.Item>
               <Text weight="bold">4 of 31</Text>
             </Flex.Item>
           </Flex>
           <Flex justifyItems="space-between" padding="x-small 0 small 0">
-            <Flex.Item padding="0 xx-small 0 0">
+            <Flex.Item margin="0 xx-small 0 0">
               <Text>Average Grade</Text>
             </Flex.Item>
-            <Flex.Item align="end">
+            <Flex.Item>
               <Text weight="bold">72</Text>
             </Flex.Item>
           </Flex>
           <View as="div" borderWidth="small 0 0 0" padding="small 0" margin="small 0">
-            <Flex justifyItems="space-between" padding="small 0 medium 0" wrapItems>
-              <Flex.Item padding="0 x-small 0 0" grow>
+            <Flex justifyItems="space-between" padding="small 0 medium 0">
+              <Flex.Item margin="0 x-small 0 0" grow shrink>
                 <NumberInput
                   renderLabel="Grade Out of 100"
                 />
