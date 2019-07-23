@@ -85,7 +85,7 @@ export default class RubricTray extends React.Component {
           <RubricCriteria
             rubricLabel="Dialogue"
             rubricDescription="Exceptional"
-            rubricSummary="There is an appropriate amount of dialogue to bring the characters to life and it isn't always clear which character is speaking."
+            rubricSummary="There is an appropriate amount of dialogue to bring the characters to life and it's always clear which character is speaking."
           />
         </View>
         <View as="div" padding="small 0" margin="x-small 0">
