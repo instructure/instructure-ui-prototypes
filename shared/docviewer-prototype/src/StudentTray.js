@@ -80,14 +80,14 @@ export default class StudentTray extends React.Component {
             ]}
           />
         </View>
-        <List variant="unstyled" itemSpacing="medium">
+        <List variant="unstyled" itemSpacing="small">
           <List.Item>
             <Flex>
               <Flex.Item width="1.5em">
                 <IconCheckLine color="success" inline={false} />
               </Flex.Item>
               <Flex.Item grow shrink>
-                Charlie Butler
+                <Button variant="link" href="#">Charlie Butler</Button>
               </Flex.Item>
               <Flex.Item>
 
@@ -100,7 +100,7 @@ export default class StudentTray extends React.Component {
                 <IconCheckLine color="success" inline={false} />
               </Flex.Item>
               <Flex.Item grow shrink>
-                Beulah Dean
+                <Button variant="link" href="#">Beulah Dean</Button>
               </Flex.Item>
               <Flex.Item>
 
@@ -113,7 +113,7 @@ export default class StudentTray extends React.Component {
 
               </Flex.Item>
               <Flex.Item grow shrink>
-                Addie Lindsey
+                <Button variant="link" href="#">Addie Lindsey</Button>
               </Flex.Item>
               <Flex.Item>
                 <Pill
@@ -129,7 +129,7 @@ export default class StudentTray extends React.Component {
 
               </Flex.Item>
               <Flex.Item grow shrink>
-                Mabelle Thompson
+                <Button variant="link" href="#">Mabelle Thompson</Button>
               </Flex.Item>
               <Flex.Item>
 
@@ -142,7 +142,7 @@ export default class StudentTray extends React.Component {
 
               </Flex.Item>
               <Flex.Item grow shrink>
-                Sophia Moss
+                <Button variant="link" href="#">Sophia Moss</Button>
               </Flex.Item>
               <Flex.Item>
 
@@ -155,7 +155,7 @@ export default class StudentTray extends React.Component {
 
               </Flex.Item>
               <Flex.Item grow shrink>
-                Rosa Welch
+                <Button variant="link" href="#">Rosa Welch</Button>
               </Flex.Item>
               <Flex.Item>
 
@@ -168,7 +168,7 @@ export default class StudentTray extends React.Component {
 
               </Flex.Item>
               <Flex.Item grow shrink>
-                Mable Norris
+                <Button variant="link" href="#">Mable Norris</Button>
               </Flex.Item>
               <Flex.Item>
 
@@ -181,7 +181,7 @@ export default class StudentTray extends React.Component {
 
               </Flex.Item>
               <Flex.Item grow shrink>
-                Gordon Doyle
+                <Button variant="link" href="#">Gordon Doyle</Button>
               </Flex.Item>
               <Flex.Item>
 
@@ -194,23 +194,7 @@ export default class StudentTray extends React.Component {
 
               </Flex.Item>
               <Flex.Item grow shrink>
-                Roy Norton
-              </Flex.Item>
-              <Flex.Item>
-                <Pill
-                  variant="warning"
-                  text="Late"
-                  />
-              </Flex.Item>
-            </Flex>
-          </List.Item>
-          <List.Item>
-            <Flex>
-              <Flex.Item width="1.5em">
-
-              </Flex.Item>
-              <Flex.Item grow shrink>
-                Conner Simmons
+                <Button variant="link" href="#">Roy Norton</Button>
               </Flex.Item>
               <Flex.Item>
                 <Pill
@@ -226,7 +210,23 @@ export default class StudentTray extends React.Component {
 
               </Flex.Item>
               <Flex.Item grow shrink>
-                Randall Hernandez
+                <Button variant="link" href="#">Conner Simmons</Button>
+              </Flex.Item>
+              <Flex.Item>
+                <Pill
+                  variant="warning"
+                  text="Late"
+                  />
+              </Flex.Item>
+            </Flex>
+          </List.Item>
+          <List.Item>
+            <Flex>
+              <Flex.Item width="1.5em">
+
+              </Flex.Item>
+              <Flex.Item grow shrink>
+                <Button variant="link" href="#">Randall Hernandez</Button>
               </Flex.Item>
               <Flex.Item>
 
@@ -239,7 +239,7 @@ export default class StudentTray extends React.Component {
 
               </Flex.Item>
               <Flex.Item grow shrink>
-                Nancy Hampton
+                <Button variant="link" href="#">Nancy Hampton</Button>
               </Flex.Item>
               <Flex.Item>
 
@@ -252,7 +252,7 @@ export default class StudentTray extends React.Component {
 
               </Flex.Item>
               <Flex.Item grow shrink>
-                Johanna Reynolds
+                <Button variant="link" href="#">Johanna Reynolds</Button>
               </Flex.Item>
               <Flex.Item>
                 <Pill
@@ -268,7 +268,7 @@ export default class StudentTray extends React.Component {
                 <IconCheckLine color="success" inline={false} />
               </Flex.Item>
               <Flex.Item grow shrink>
-                Ralph Rhodes
+                <Button variant="link" href="#">Ralph Rhodes</Button>
               </Flex.Item>
               <Flex.Item>
 
@@ -281,7 +281,7 @@ export default class StudentTray extends React.Component {
 
               </Flex.Item>
               <Flex.Item grow shrink>
-                Gene Russell
+                <Button variant="link" href="#">Gene Russell</Button>
               </Flex.Item>
               <Flex.Item>
                 <Pill
@@ -297,7 +297,7 @@ export default class StudentTray extends React.Component {
 
               </Flex.Item>
               <Flex.Item grow shrink>
-                Clara Huff
+                <Button variant="link" href="#">Clara Huff</Button>
               </Flex.Item>
               <Flex.Item>
 
@@ -310,7 +310,7 @@ export default class StudentTray extends React.Component {
 
               </Flex.Item>
               <Flex.Item grow shrink>
-                Gertrude Hammond
+                <Button variant="link" href="#">Gertrude Hammond</Button>
               </Flex.Item>
               <Flex.Item>
 
@@ -323,7 +323,7 @@ export default class StudentTray extends React.Component {
 
               </Flex.Item>
               <Flex.Item grow shrink>
-                Jackson Padilla
+                <Button variant="link" href="#">Jackson Padilla</Button>
               </Flex.Item>
               <Flex.Item>
 
