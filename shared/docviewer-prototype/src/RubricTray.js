@@ -27,8 +27,9 @@ import PropTypes from 'prop-types'
 import { View, Flex } from '@instructure/ui-layout'
 import { Heading, Text } from '@instructure/ui-elements'
 import { Button } from '@instructure/ui-buttons'
+import { ToggleDetails } from '@instructure/ui-toggle-details'
 import { ScreenReaderContent } from '@instructure/ui-a11y'
-import { IconXLine } from '@instructure/ui-icons'
+import { IconXLine, IconNoteLine } from '@instructure/ui-icons'
 
 import RubricCriteria from './RubricCriteria'
 
@@ -67,35 +68,200 @@ export default class RubricTray extends React.Component {
             </Button>
           </Flex.Item>
         </Flex>
-        <View as="div" borderWidth="0 0 small 0" padding="small 0" margin="x-small 0">
+        <View as="div" borderWidth="0 0 small 0" margin="medium 0">
+          <ToggleDetails
+            fluidWidth
+            summary={
+              <Flex padding="small 0">
+                <Flex.Item grow>
+                  <Text weight="bold" size="large">Setting</Text>
+                </Flex.Item>
+                <Flex.Item>
+                  <View 
+                    background="inverse"
+                    borderWidth="small"
+                    borderRadius="medium"
+                    padding="x-small small"
+                  >
+                    3/4
+                  </View>
+                </Flex.Item>
+              </Flex>
+            }
+          >
+            <View as="div" padding="small 0">
+              <Text>How well can the student describe the setting of their story. This relates to location, time period and moods and attitudes of the socal structure.</Text>
+            </View>
+            <RubricCriteria
+              rubricValue={4}
+              rubricDescription="Exceptional"
+              rubricSummary="Many vivid, descriptive words are used to tell when and where the story took place."
+            />
+            <RubricCriteria
+              rubricValue={3}
+              rubricDescription="Good"
+              rubricSummary="Some vivid, descriptive words are used to tell the audience when and where the story took place."
+            />
+            <RubricCriteria
+              rubricValue={2}
+              rubricDescription="Fair"
+              rubricSummary="The reader can figure out when and where the story took place, but the author didn't supply much detail."
+            />
+            <RubricCriteria
+              rubricValue={1}
+              rubricDescription="Poor"
+              rubricSummary="The reader has trouble figuring out when and where the story took place."
+            />
+            <View as="div" margin="small 0 medium 0" padding="0 0 0 small">
+              <IconNoteLine />
+            </View>
+          </ToggleDetails>
+        </View>
+        <View as="div" borderWidth="0 0 small 0" padding="small 0">
+          <ToggleDetails fluidWidth
+            summary={
+              <Flex padding="small 0">
+                <Flex.Item grow>
+                  <Text weight="bold" size="large">Characters</Text>
+                </Flex.Item>
+                <Flex.Item>
+                  <View 
+                    background="light"
+                    borderWidth="small"
+                    borderRadius="medium"
+                    padding="x-small small"
+                  >
+                    -/4
+                  </View>
+                </Flex.Item>
+              </Flex>
+            }
+          >
+            <View as="div" padding="small 0">
+              <Text>How well can the student describe the setting of their story. This relates to location, time period and moods and attitudes of the socal structure.</Text>
+            </View>
+            <RubricCriteria
+              rubricValue={4}
+              rubricDescription="Exceptional"
+              rubricSummary="Many vivid, descriptive words are used to tell when and where the story took place."
+            />
+            <RubricCriteria
+              rubricValue={3}
+              rubricDescription="Good"
+              rubricSummary="Some vivid, descriptive words are used to tell the audience when and where the story took place."
+            />
+            <RubricCriteria
+              rubricValue={2}
+              rubricDescription="Fair"
+              rubricSummary="The reader can figure out when and where the story took place, but the author didn't supply much detail."
+            />
+            <RubricCriteria
+              rubricValue={1}
+              rubricDescription="Poor"
+              rubricSummary="The reader has trouble figuring out when and where the story took place."
+            />
+            <View as="div" margin="small 0 medium 0" padding="0 0 0 small">
+              <IconNoteLine />
+            </View>
+          </ToggleDetails>
+        </View>
+        <View as="div" borderWidth="0 0 small 0" padding="small 0">
+          <ToggleDetails fluidWidth
+            summary={
+              <Flex padding="small 0">
+                <Flex.Item grow>
+                  <Text weight="bold" size="large">Dialogue</Text>
+                </Flex.Item>
+                <Flex.Item>
+                  <View 
+                    background="light"
+                    borderWidth="small"
+                    borderRadius="medium"
+                    padding="x-small small"
+                  >
+                    -/4
+                  </View>
+                </Flex.Item>
+              </Flex>
+            }
+          >
+            <View as="div" padding="small 0">
+              <Text>How well can the student describe the setting of their story. This relates to location, time period and moods and attitudes of the socal structure.</Text>
+            </View>
+            <RubricCriteria
+              rubricValue={4}
+              rubricDescription="Exceptional"
+              rubricSummary="Many vivid, descriptive words are used to tell when and where the story took place."
+            />
+            <RubricCriteria
+              rubricValue={3}
+              rubricDescription="Good"
+              rubricSummary="Some vivid, descriptive words are used to tell the audience when and where the story took place."
+            />
+            <RubricCriteria
+              rubricValue={2}
+              rubricDescription="Fair"
+              rubricSummary="The reader can figure out when and where the story took place, but the author didn't supply much detail."
+            />
+            <RubricCriteria
+              rubricValue={1}
+              rubricDescription="Poor"
+              rubricSummary="The reader has trouble figuring out when and where the story took place."
+            />
+            <View as="div" margin="small 0 medium 0" padding="0 0 0 small">
+              <IconNoteLine />
+            </View>
+          </ToggleDetails>
+        </View>
+        <View as="div" padding="small 0">
+        <ToggleDetails fluidWidth
+          summary={
+            <Flex padding="small 0">
+              <Flex.Item grow>
+                <Text weight="bold" size="large">Organization</Text>
+              </Flex.Item>
+              <Flex.Item>
+                <View 
+                  background="light"
+                  borderWidth="small"
+                  borderRadius="medium"
+                  padding="x-small small"
+                >
+                  -/4
+                </View>
+              </Flex.Item>
+            </Flex>
+          }
+        >
+          <View as="div" padding="small 0">
+            <Text>How well can the student describe the setting of their story. This relates to location, time period and moods and attitudes of the socal structure.</Text>
+          </View>
           <RubricCriteria
-            rubricLabel="Setting"
+            rubricValue={4}
             rubricDescription="Exceptional"
             rubricSummary="Many vivid, descriptive words are used to tell when and where the story took place."
           />
-        </View>
-        <View as="div" borderWidth="0 0 small 0" padding="small 0" margin="x-small 0">
           <RubricCriteria
-            rubricLabel="Characters"
-            rubricDescription="Exceptional"
-            rubricSummary="The main characters are named and clearly described. Most readers could describe the characters accurately."
+            rubricValue={3}
+            rubricDescription="Good"
+            rubricSummary="Some vivid, descriptive words are used to tell the audience when and where the story took place."
           />
-        </View>
-        <View as="div" borderWidth="0 0 small 0" padding="small 0" margin="x-small 0">
           <RubricCriteria
-            rubricLabel="Dialogue"
-            rubricDescription="Exceptional"
-            rubricSummary="There is an appropriate amount of dialogue to bring the characters to life and it's always clear which character is speaking."
+            rubricValue={2}
+            rubricDescription="Fair"
+            rubricSummary="The reader can figure out when and where the story took place, but the author didn't supply much detail."
           />
-        </View>
-        <View as="div" padding="small 0" margin="x-small 0">
           <RubricCriteria
-            rubricLabel="Organization"
-            rubricDescription="Exceptional"
-            rubricSummary="The story is very well orgained. One idea or scene follows another in a logical sequence with clear transitions."
+            rubricValue={1}
+            rubricDescription="Poor"
+            rubricSummary="The reader has trouble figuring out when and where the story took place."
           />
-        </View>
+          <View as="div" margin="small 0 medium 0" padding="0 0 0 small">
+            <IconNoteLine />
+          </View>
+        </ToggleDetails>
       </View>
+    </View>
     )
   }
 }

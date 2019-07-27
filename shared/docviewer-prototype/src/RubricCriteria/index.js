@@ -31,94 +31,43 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { View, Flex } from '@instructure/ui-layout'
+import { Flex } from '@instructure/ui-layout'
 import { Text } from '@instructure/ui-elements'
 import { Button } from '@instructure/ui-buttons'
-import { ScreenReaderContent } from '@instructure/ui-a11y'
-import { 
-  IconInfoLine,
-  IconNoteLine,
-  IconAddLine } from '@instructure/ui-icons'
 
 export default class RubricCriteria extends React.Component {
   static propTypes = {
-    rubricLabel: PropTypes.string.isRequired,
+    rubricValue: PropTypes.number.isRequired,
     rubricDescription: PropTypes.string.isRequired,
     rubricSummary: PropTypes.string.isRequired
   }
 
   render() {
     const {
-      rubricLabel,
+      rubricValue,
       rubricDescription,
       rubricSummary
     } = this.props
 
     return (
       <div>
-        <Text size="large">
-          {rubricLabel}&nbsp;&nbsp;<IconInfoLine />
-        </Text>
         <Flex padding="small 0">
-          <Flex.Item>
-            <Button
-              variant="circle-primary"
-              margin="0 small 0 0"
-            >
-              4
-            </Button>
-          </Flex.Item>
-          <Flex.Item>
+          <Flex.Item align="start">
             <Button
               variant="circle-default"
               margin="0 small 0 0"
             >
-              3
+              {rubricValue}
             </Button>
           </Flex.Item>
-          <Flex.Item>
-            <Button
-              variant="circle-default"
-              margin="0 small 0 0"
-            >
-              2
-            </Button>
-          </Flex.Item>
-          <Flex.Item>
-            <Button
-              variant="circle-default"
-              margin="0 small 0 0"
-            >
-              1
-            </Button>
-          </Flex.Item>
-          <Flex.Item>
-            <Button
-              variant="circle-default"
-              icon={IconAddLine}
-              margin="0 small 0 0"
-            >
-              <ScreenReaderContent>Add a new value</ScreenReaderContent>
-            </Button>
-          </Flex.Item>
-          <Flex.Item>
-            <Button
-              variant="icon"
-              icon={IconNoteLine}
-            >
-              <ScreenReaderContent>Edit description</ScreenReaderContent>
-            </Button>
+          <Flex.Item shrink grow>
+            <Text as="div">
+              <Text weight="bold" as="div">{rubricDescription}</Text>
+              {rubricSummary}
+            </Text>
           </Flex.Item>
         </Flex>
-        <View>
-          <Text weight="bold" as="div">
-            {rubricDescription}
-          </Text>
-          <p>
-            {rubricSummary}
-          </p>
-        </View>
-      </div>
+      </div>    
     )
   }
 }

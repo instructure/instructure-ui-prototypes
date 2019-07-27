@@ -29,7 +29,7 @@ import { Select } from '@instructure/ui-select'
 export default class SingleSelect extends React.Component {
   static propTypes = {
     selectLabel: PropTypes.string.isRequired,
-    selectPlaceholder: PropTypes.string.isRequired,
+    selectPlaceholder: PropTypes.string,
     selectedOptionId: PropTypes.string.isRequired
   }
 
