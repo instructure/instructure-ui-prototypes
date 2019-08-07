@@ -1,0 +1,19 @@
+.Mover {
+  height: 100%;
+  position: relative;
+}
+
+.Mover__MovingThing {
+  box-sizing: border-box;
+}
+
+.Mover__Positioning {
+  display: inline-flex;
+  position: absolute;
+}
+
+.Mover__Button {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+}
