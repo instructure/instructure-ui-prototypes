@@ -164,9 +164,7 @@ class AppNav extends Component {
         </ul>
         <br />
         <p>These are the items that will get rendered in the menu</p>
-        <ul>
-          {hiddenChildren.map((child, i) => <li key={i}>{child}</li>)}
-        </ul>
+        {hiddenChildren.map((child, i) => <em key={i}>{child}</em>)}
       </div>
     )
   }

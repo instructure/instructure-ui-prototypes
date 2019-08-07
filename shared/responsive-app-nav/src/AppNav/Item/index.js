@@ -25,8 +25,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import { uid } from '@instructure/uid'
-import { getBoundingClientRect } from '@instructure/ui-dom-utils'
 import { themeable } from '@instructure/ui-themeable'
 
 import styles from './styles.css'
@@ -34,59 +32,15 @@ import styles from './styles.css'
 class Item extends Component {
   static propTypes = {
     children: PropTypes.node,
-    elementRef: PropTypes.func,
-    onUpdateWidth: PropTypes.func,
-    onUnmount: PropTypes.func,
-    id: PropTypes.oneOf([PropTypes.string, PropTypes.number])
+    elementRef: PropTypes.func
   }
 
   static defaultProps = {
     children: null,
-    elementRef: (el) => {},
-    onUpdateWidth: () => {},
-    onUnmount: () => {},
-    id: null
-  }
-
-  constructor (props) {
-    super(props)
-
-    this._width = 0
-    this._id = props.id || uid('Item')
-    this._item = null
-  }
-
-  componentDidMount () {
-    this.measure()
-  }
-
-  componentDidUpdate () {
-    this.measure()
-  }
-
-  componentWillUnmount () {
-    this.props.onUnmount({ id: this._id })
-  }
-
-  get id () {
-    return this._id
-  }
-
-  get width () {
-    return this._width
-  }
-
-  measure = () => {
-    const { width } = getBoundingClientRect(this._item)
-
-    if (width !== this._width) {
-      this._width = width
-      this.props.onUpdateWidth({ id: this._id, width })
-    }
+    elementRef: (el) => {}
   }
 
   handleElementRef = (el) => {
-    this._item = el
     this.props.elementRef(el)
   }
 
