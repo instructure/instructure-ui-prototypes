@@ -114,7 +114,7 @@ class AppNav extends Component {
       let currentWidth = 0
 
       for (let i = 0; i < itemWidths.length; i++) {
-        currentWidth = currentWidth + itemWidths[i]
+        currentWidth += itemWidths[i]
 
         if (currentWidth <= navWidth) {
           visibleItemsCount++
