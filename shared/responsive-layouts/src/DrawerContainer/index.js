@@ -29,7 +29,7 @@ import { themeable } from '@instructure/ui-themeable'
 import CourseNav from '../CourseNav'
 import ActionTray from '../ActionTray'
 import AdminTray from '../AdminTray'
-import MainContent from '../MainContent'
+import AdminSettingContent from '../AdminSettingContent'
 import MainNav from '../MainNav'
 
 import theme from './theme'
@@ -130,7 +130,7 @@ class DrawerContainer extends React.Component {
                         <CourseNav onRequestHideCourseNav={this.handleHideCourseNav} />
                       </DrawerLayout.Tray>
                       <DrawerLayout.Content label="Drawer content example containing a responsive ">
-                        <MainContent
+                        <AdminSettingContent
                           onRequestShowCourseNav={this.handleShowCourseNav}
                           onRequestShowActions={this.handleShowActions}
                           onRequestShowBurgerBtn={this.state.showBurgerBtn}
