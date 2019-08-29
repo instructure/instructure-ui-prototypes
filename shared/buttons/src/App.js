@@ -23,10 +23,10 @@
  */
 
 import React from 'react'
-import Banner from './Banner'
+import { Examples } from './Examples'
 
 import '@instructure/canvas-theme'
 
-const App = () => <Banner />
+const App = () => <Examples />
 
 export default App

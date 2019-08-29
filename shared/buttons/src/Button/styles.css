@@ -1,0 +1,149 @@
+/* stylelint-disable selector-max-class, selector-max-type, no-descending-specificity */
+
+button.root,
+button.root[type="submit"],
+button.root[type="button"],
+button.root[type="reset"],
+a.root,
+.root {
+  appearance: none;
+  box-sizing: border-box;
+  max-width: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  overflow: visible;
+  direction: inherit;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  width: auto;
+  text-decoration: none; /* for links styled as buttons */
+  user-select: none;
+  touch-action: manipulation;
+  transition: background 0.2s, transform 0.2s;
+  background: none;
+  transform: var(--transform);
+  font-family: var(--fontFamily);
+  font-weight: var(--fontWeight);
+  text-transform: var(--textTransform);
+  letter-spacing: var(--letterSpacing);
+  border-style: var(--borderStyle);
+  border-width: var(--borderWidth);
+
+  &.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  &:hover {
+    transform: var(--hoverTransform);
+  }
+
+  &.size--small {
+    font-size: var(--smallFontSize);
+    padding-left: var(--smallPadding); /* stylelint-disable-line property-blacklist */
+    padding-right: var(--smallPadding); /* stylelint-disable-line property-blacklist */
+
+    /* subtract the top and bottom border */
+    line-height: calc(var(--smallHeight) - (var(--borderWidth) * 2));
+
+    .iconSVG {
+      font-size: var(--iconSizeSmall);
+    }
+  }
+
+  &.size--medium {
+    font-size: var(--mediumFontSize);
+    padding-left: var(--mediumPadding); /* stylelint-disable-line property-blacklist */
+    padding-right: var(--mediumPadding); /* stylelint-disable-line property-blacklist */
+
+    /* subtract the top and bottom border */
+    line-height: calc(var(--mediumHeight) - (var(--borderWidth) * 2));
+
+    .iconSVG {
+      font-size: var(--iconSizeMedium);
+    }
+  }
+
+  &.size--large {
+    font-size: var(--largeFontSize);
+    padding-left: var(--largePadding); /* stylelint-disable-line property-blacklist */
+    padding-right: var(--largePadding); /* stylelint-disable-line property-blacklist */
+
+    /* subtract the top and bottom border */
+    line-height: calc(var(--largeHeight) - (var(--borderWidth) * 2));
+
+    .iconSVG {
+      font-size: var(--iconSizeLarge);
+    }
+  }
+
+  &.background--primary {
+    color: var(--primaryColor);
+    background: var(--primaryBackground);
+  }
+
+  &.background--brand {
+    color: var(--brandColor);
+    background: var(--brandBackground);
+  }
+
+  &::-moz-focus-inner {
+    border: 0; /* removes default dotted focus outline in Firefox */
+  }
+
+  /*
+  * Ensures that button or link is always the event target.
+  */
+  * { /* stylelint-disable-line selector-max-universal */
+    pointer-events: none;
+  }
+}
+
+button.border--primary,
+button.border--primary[type="submit"],
+button.border--primary[type="button"],
+button.border--primary[type="reset"],
+a.border--primary,
+.border--primary {
+  border-color: var(--primaryBorderColorWithContrast);
+
+  &:hover {
+    background: var(--primaryHoverBackground);
+  }
+
+  &:active {
+    background: var(--primaryActiveBackground);
+    box-shadow: var(--primaryActiveBoxShadow);
+  }
+}
+
+button.border--brand,
+button.border--brand[type="submit"],
+button.border--brand[type="button"],
+button.border--brand[type="reset"],
+a.border--brand,
+.border--brand {
+  border-color: var(--brandBorderColorWithContrast);
+
+  &:hover {
+    background: var(--brandHoverBackground);
+  }
+
+  &:active {
+    background: var(--brandActiveBackground);
+    box-shadow: var(--brandActiveBoxShadow);
+  }
+}
+
+button.background--transparent,
+button.background--transparent[type="submit"],
+button.background--transparent[type="button"],
+button.background--transparent[type="reset"],
+a.background--transparent,
+.background--transparent {
+
+}
+
+/* stylelint-enable selector-max-class, selector-max-type, no-descending-specificity */

@@ -22,6 +22,35 @@
  * SOFTWARE.
  */
 
-export default ({ spacing }) => ({
-  marginTop: spacing.medium
-})
+import React from 'react'
+
+import { View } from '@instructure/ui-view'
+
+import { Button } from '../Button'
+
+// eslint-disable-next-line react/display-name
+const Examples = () => (
+  <View
+    as="div"
+    margin="large"
+  >
+    <View
+      as="div"
+      margin="large"
+    >
+      <Button margin="small" size="small">Hello</Button>
+      <Button margin="small" size="medium">Hello</Button>
+      <Button margin="small" size="large">Hello</Button>
+    </View>
+    <View
+      as="div"
+      margin="large"
+    >
+      <Button background="brand" borderColor="brand" margin="small" size="small">Hello</Button>
+      <Button background="brand" borderColor="brand" margin="small" size="medium">Hello</Button>
+      <Button background="brand" borderColor="brand" margin="small" size="large">Hello</Button>
+    </View>
+  </View>
+)
+
+export { Examples }
