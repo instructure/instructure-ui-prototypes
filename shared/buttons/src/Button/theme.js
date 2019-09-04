@@ -22,19 +22,23 @@
  * SOFTWARE.
  */
 
-import { darken } from '@instructure/ui-color-utils'
+import { alpha, darken } from '@instructure/ui-color-utils'
 
 const activeShadow = 'inset 0 0 0.1875rem 0.0625rem'
 
-const generateButtonThemeVars = function ({ style, mainColor, textColor }) {
+const generateButtonThemeVars = function ({ style, backgroundColor, borderColor, textColor }) {
   return {
-    [`${style}Background`]: mainColor,
-    [`${style}BorderColor`]: mainColor,
-    [`${style}BorderColorWithContrast`]: darken(mainColor, 10),
     [`${style}Color`]: textColor,
-    [`${style}HoverBackground`]: darken(mainColor, 10),
-    [`${style}ActiveBackground`]: darken(mainColor, 10),
-    [`${style}ActiveBoxShadow`]: `${activeShadow} ${darken(mainColor, 20, 0.45)}`
+    [`${style}Background`]: backgroundColor,
+    [`${style}HoverBackground`]: darken(backgroundColor, 10),
+    [`${style}ActiveBackground`]: darken(backgroundColor, 10),
+    [`${style}GhostBackground`]: 'transparent',
+    [`${style}GhostActiveBackground`]: 'transparent',
+    [`${style}GhostHoverBackground`]: alpha(textColor, 10),
+    [`${style}BorderColor`]: darken(borderColor, 10),
+    [`${style}GhostBorderColor`]: textColor,
+    [`${style}ActiveBoxShadow`]: `${activeShadow} ${darken(borderColor, 20, 0.45)}`,
+    [`${style}GhostActiveBoxShadow`]: `${activeShadow} ${alpha(textColor, 20)}`
   }
 }
 
@@ -61,15 +65,42 @@ export default ({ borders, colors, forms, spacing, typography }) => {
     largePadding: spacing.medium,
     largeFontSize: typography.fontSizeLarge,
 
+    iconSizeSmall: '1rem',
+    iconSizeMedium: '1.25rem',
+    iconSizeLarge: '1.625rem',
+
     ...generateButtonThemeVars({
       style: 'primary',
-      mainColor: colors.backgroundLight,
+      backgroundColor: colors.backgroundLight,
+      borderColor: colors.borderLight,
       textColor: colors.textDarkest
     }),
 
     ...generateButtonThemeVars({
       style: 'brand',
-      mainColor: colors.backgroundBrand,
+      backgroundColor: colors.backgroundBrand,
+      borderColor: colors.borderBrand,
+      textColor: colors.textBrand
+    }),
+
+    ...generateButtonThemeVars({
+      style: 'success',
+      backgroundColor: colors.backgroundSuccess,
+      borderColor: colors.borderSuccess,
+      textColor: colors.textSuccess
+    }),
+
+    ...generateButtonThemeVars({
+      style: 'danger',
+      backgroundColor: colors.backgroundDanger,
+      borderColor: colors.borderDanger,
+      textColor: colors.textDanger
+    }),
+
+    ...generateButtonThemeVars({
+      style: 'primaryInverse',
+      backgroundColor: colors.backgroundLightest,
+      borderColor: colors.borderLightest,
       textColor: colors.textLightest
     })
   }

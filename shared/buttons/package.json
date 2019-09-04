@@ -11,6 +11,8 @@
 	},
 	"dependencies": {
 		"@instructure/canvas-theme": "^6.10.0",
+		"@instructure/ui-a11y": "^6.10.0",
+		"@instructure/ui-buttons": "^6.10.0",
 		"@instructure/ui-color-utils": "^6.10.0",
 		"@instructure/ui-elements": "^6.10.0",
 		"@instructure/ui-focusable": "^6.10.0",
@@ -18,6 +20,7 @@
 		"@instructure/ui-layout": "^6.10.0",
 		"@instructure/ui-react-utils": "^6.10.0",
 		"@instructure/ui-svg-images": "^6.10.0",
+		"@instructure/ui-table": "^6.10.0",
 		"@instructure/ui-themeable": "^6.10.0",
 		"@instructure/ui-view": "^6.10.1-rc.0",
 		"classnames": "^2.2.6",

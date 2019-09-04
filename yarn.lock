@@ -2530,6 +2530,23 @@
     classnames "^2"
     prop-types "^15"
 
+"@instructure/ui-form-field@^6.10.0":
+  version "6.10.0"
+  resolved "https://registry.yarnpkg.com/@instructure/ui-form-field/-/ui-form-field-6.10.0.tgz#7553015d0d7d8ace7dc4cc6cf91daf0060d696fc"
+  integrity sha512-phWpHFLIFKACsQkFhggotAmIbGtnNSHN2TftGxuyduzdXjsPC3Hozeb0p4GNcA9Fp+YqyOHRFrunBl2BxLUrAA==
+  dependencies:
+    "@babel/runtime" "^7"
+    "@instructure/console" "^6.10.0"
+    "@instructure/ui-a11y" "^6.10.0"
+    "@instructure/ui-icons" "^6.10.0"
+    "@instructure/ui-layout" "^6.10.0"
+    "@instructure/ui-react-utils" "^6.10.0"
+    "@instructure/ui-themeable" "^6.10.0"
+    "@instructure/ui-utils" "^6.10.0"
+    "@instructure/uid" "^6.10.0"
+    classnames "^2"
+    prop-types "^15"
+
 "@instructure/ui-form-field@^6.6.0":
   version "6.6.0"
   resolved "https://registry.yarnpkg.com/@instructure/ui-form-field/-/ui-form-field-6.6.0.tgz#a08c91a0c750c06c137e7b14f42a68acb5c44fb2"
@@ -2562,6 +2579,37 @@
     "@instructure/ui-utils" "^6.7.0"
     "@instructure/uid" "^6.7.0"
     classnames "^2"
+    prop-types "^15"
+
+"@instructure/ui-forms@^6.10.0":
+  version "6.10.0"
+  resolved "https://registry.yarnpkg.com/@instructure/ui-forms/-/ui-forms-6.10.0.tgz#b7fbdf55b31e61886c5c0048475ca73ea0c2acfb"
+  integrity sha512-tDCgTuEdHryW+44ZHeXetz5gsO25BNakg7EBNWUWrCqvFp1u3Hd5Sxx57Tt+8tQFrxRO95PqjFv9mvUU8beT7Q==
+  dependencies:
+    "@babel/runtime" "^7"
+    "@instructure/console" "^6.10.0"
+    "@instructure/debounce" "^6.10.0"
+    "@instructure/ui-a11y" "^6.10.0"
+    "@instructure/ui-buttons" "^6.10.0"
+    "@instructure/ui-dom-utils" "^6.10.0"
+    "@instructure/ui-elements" "^6.10.0"
+    "@instructure/ui-form-field" "^6.10.0"
+    "@instructure/ui-i18n" "^6.10.0"
+    "@instructure/ui-icons" "^6.10.0"
+    "@instructure/ui-layout" "^6.10.0"
+    "@instructure/ui-number-input" "^6.10.0"
+    "@instructure/ui-overlays" "^6.10.0"
+    "@instructure/ui-prop-types" "^6.10.0"
+    "@instructure/ui-react-utils" "^6.10.0"
+    "@instructure/ui-svg-images" "^6.10.0"
+    "@instructure/ui-testable" "^6.10.0"
+    "@instructure/ui-text-input" "^6.10.0"
+    "@instructure/ui-themeable" "^6.10.0"
+    "@instructure/ui-utils" "^6.10.0"
+    "@instructure/uid" "^6.10.0"
+    classnames "^2"
+    deep-equal "^1.0.1"
+    keycode "^2"
     prop-types "^15"
 
 "@instructure/ui-forms@^6.6.0":
@@ -2946,6 +2994,23 @@
     "@instructure/ui-themeable" "^6.9.0"
     "@instructure/ui-utils" "^6.9.0"
     classnames "^2"
+    prop-types "^15"
+
+"@instructure/ui-number-input@^6.10.0":
+  version "6.10.0"
+  resolved "https://registry.yarnpkg.com/@instructure/ui-number-input/-/ui-number-input-6.10.0.tgz#9a5e64d601ed396b63a7382504ca58701aa55484"
+  integrity sha512-WrNh0J/E4ZXu2YCP5ZT46hGgQphjxaMGXXWocSRztXnN0RzcUPSi5xYAjN8PvDhx4D++wvEMpc9xRRb+lavQfQ==
+  dependencies:
+    "@babel/runtime" "^7"
+    "@instructure/ui-form-field" "^6.10.0"
+    "@instructure/ui-icons" "^6.10.0"
+    "@instructure/ui-react-utils" "^6.10.0"
+    "@instructure/ui-testable" "^6.10.0"
+    "@instructure/ui-themeable" "^6.10.0"
+    "@instructure/ui-utils" "^6.10.0"
+    "@instructure/uid" "^6.10.0"
+    classnames "^2"
+    keycode "^2"
     prop-types "^15"
 
 "@instructure/ui-number-input@^6.6.0":
@@ -3669,6 +3734,25 @@
     classnames "^2"
     prop-types "^15"
 
+"@instructure/ui-table@^6.10.0":
+  version "6.10.0"
+  resolved "https://registry.yarnpkg.com/@instructure/ui-table/-/ui-table-6.10.0.tgz#afc0508f4e536d2051f0daf03a8d7b14b42bff19"
+  integrity sha512-e16Kt0IqU1IGlDra3r27MYP8vKHprqSbbbmleZszMnBKoOnxqnSdwpcvOKplCTutSxrjFR5vWl+lyMaGfF/+bQ==
+  dependencies:
+    "@babel/runtime" "^7"
+    "@instructure/ui-a11y" "^6.10.0"
+    "@instructure/ui-forms" "^6.10.0"
+    "@instructure/ui-icons" "^6.10.0"
+    "@instructure/ui-layout" "^6.10.0"
+    "@instructure/ui-prop-types" "^6.10.0"
+    "@instructure/ui-react-utils" "^6.10.0"
+    "@instructure/ui-testable" "^6.10.0"
+    "@instructure/ui-themeable" "^6.10.0"
+    "@instructure/ui-utils" "^6.10.0"
+    classnames "^2"
+    prop-types "^15"
+    react "^15 || ^16"
+
 "@instructure/ui-tabs@^6.6.0":
   version "6.6.0"
   resolved "https://registry.yarnpkg.com/@instructure/ui-tabs/-/ui-tabs-6.6.0.tgz#aa967008c5187946ac3569fd0e033ccadf7189cb"
@@ -3738,6 +3822,26 @@
   integrity sha512-MZ8RlifyjOpytYMqfcw5bZkpGnRv9YfKqaC28bPlk0KZ8/5znKnH56wNhZwaQqsGrPZCqi/Zj7TWtfZLYpPQag==
   dependencies:
     "@instructure/ui-decorator" "^6.9.0"
+
+"@instructure/ui-text-input@^6.10.0":
+  version "6.10.0"
+  resolved "https://registry.yarnpkg.com/@instructure/ui-text-input/-/ui-text-input-6.10.0.tgz#b031302441b5461facde72ad41fadd8e182e7c6f"
+  integrity sha512-Yy2koEy+7oQqKRhMvw6a7qS/vrws3u+BjpZ/A75zWA8ckzpjezGilsMeQP0m28g54+7glbOZF5FOv/c3roVvKA==
+  dependencies:
+    "@babel/runtime" "^7"
+    "@instructure/ui-dom-utils" "^6.10.0"
+    "@instructure/ui-form-field" "^6.10.0"
+    "@instructure/ui-icons" "^6.10.0"
+    "@instructure/ui-layout" "^6.10.0"
+    "@instructure/ui-prop-types" "^6.10.0"
+    "@instructure/ui-react-utils" "^6.10.0"
+    "@instructure/ui-testable" "^6.10.0"
+    "@instructure/ui-themeable" "^6.10.0"
+    "@instructure/ui-utils" "^6.10.0"
+    "@instructure/uid" "^6.10.0"
+    classnames "^2"
+    prop-types "^15"
+    react "^15 || ^16"
 
 "@instructure/ui-text-input@^6.6.0":
   version "6.6.0"

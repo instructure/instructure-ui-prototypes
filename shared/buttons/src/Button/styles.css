@@ -10,13 +10,11 @@ a.root,
   box-sizing: border-box;
   max-width: 100%;
   display: inline-block;
-  vertical-align: middle;
   position: relative;
   overflow: visible;
   direction: inherit;
   margin: 0;
   padding: 0;
-  height: auto;
   width: auto;
   text-decoration: none; /* for links styled as buttons */
   user-select: none;
@@ -30,6 +28,7 @@ a.root,
   letter-spacing: var(--letterSpacing);
   border-style: var(--borderStyle);
   border-width: var(--borderWidth);
+  border-radius: var(--borderRadius);
 
   &.disabled {
     pointer-events: none;
@@ -79,11 +78,6 @@ a.root,
     }
   }
 
-  &.background--primary {
-    color: var(--primaryColor);
-    background: var(--primaryBackground);
-  }
-
   &.background--brand {
     color: var(--brandColor);
     background: var(--brandBackground);
@@ -101,49 +95,231 @@ a.root,
   }
 }
 
-button.border--primary,
-button.border--primary[type="submit"],
-button.border--primary[type="button"],
-button.border--primary[type="reset"],
-a.border--primary,
-.border--primary {
-  border-color: var(--primaryBorderColorWithContrast);
+button.iconSVG,
+button.iconSVG[type="submit"],
+button.iconSVG[type="button"],
+button.iconSVG[type="reset"],
+a.iconSVG,
+.iconSVG {
+  display: flex;
+  align-items: center;
+}
 
-  &:hover {
-    background: var(--primaryHoverBackground);
+button.hasOnlyIconVisible,
+button.hasOnlyIconVisible[type="submit"],
+button.hasOnlyIconVisible[type="button"],
+button.hasOnlyIconVisible[type="reset"],
+a.hasOnlyIconVisible,
+.hasOnlyIconVisible {
+  text-decoration: none;
+  text-align: center;
+  line-height: 1;
+
+  &:focus,
+  &:hover,
+  &:active {
+    text-decoration: none;
   }
 
-  &:active {
-    background: var(--primaryActiveBackground);
-    box-shadow: var(--primaryActiveBoxShadow);
+  &.size--small {
+    padding-left: 0; /* stylelint-disable-line property-blacklist */
+    padding-right: 0; /* stylelint-disable-line property-blacklist */
+    height: var(--smallHeight);
+    width: var(--smallHeight);
+  }
+
+  &.size--medium {
+    padding-left: 0; /* stylelint-disable-line property-blacklist */
+    padding-right: 0; /* stylelint-disable-line property-blacklist */
+    height: var(--mediumHeight);
+    width: var(--mediumHeight);
+  }
+
+  &.size--large {
+    padding-left: 0; /* stylelint-disable-line property-blacklist */
+    padding-right: 0; /* stylelint-disable-line property-blacklist */
+    height: var(--largeHeight);
+    width: var(--largeHeight);
   }
 }
 
-button.border--brand,
-button.border--brand[type="submit"],
-button.border--brand[type="button"],
-button.border--brand[type="reset"],
-a.border--brand,
-.border--brand {
-  border-color: var(--brandBorderColorWithContrast);
+button.shape--circle,
+button.shape--circle[type="submit"],
+button.shape--circle[type="button"],
+button.shape--circle[type="reset"],
+a.shape--circle,
+.shape--circle {
+  border-radius: 50%;
+}
 
-  &:hover {
-    background: var(--brandHoverBackground);
+button.withBackground,
+button.withBackground[type="submit"],
+button.withBackground[type="button"],
+button.withBackground[type="reset"],
+a.withBackground,
+.withBackground {
+  &.color--primary {
+    color: var(--primaryColor);
+    background: var(--primaryBackground);
+    border-color: var(--primaryBorderColor);
+
+    &:hover {
+      background: var(--primaryHoverBackground);
+    }
+
+    &:active {
+      background: var(--primaryActiveBackground);
+      box-shadow: var(--primaryActiveBoxShadow);
+    }
   }
 
-  &:active {
-    background: var(--brandActiveBackground);
-    box-shadow: var(--brandActiveBoxShadow);
+  &.color--primary-inverse {
+    color: var(--primaryColor);
+    background: var(--primaryInverseBackground);
+    border-color: var(--primaryInverseBorderColor);
+
+    &:hover {
+      background: var(--primaryInverseHoverBackground);
+    }
+
+    &:active {
+      background: var(--primaryInverseActiveBackground);
+      box-shadow: var(--primaryInverseActiveBoxShadow);
+    }
+  }
+
+  &.color--brand {
+    color: var(--primaryInverseColor);
+    background: var(--brandBackground);
+    border-color: var(--brandBorderColor);
+
+    &:hover {
+      background: var(--brandHoverBackground);
+    }
+
+    &:active {
+      background: var(--brandActiveBackground);
+      box-shadow: var(--brandActiveBoxShadow);
+    }
+  }
+
+  &.color--success {
+    color: var(--primaryInverseColor);
+    background: var(--successBackground);
+    border-color: var(--successBorderColor);
+
+    &:hover {
+      background: var(--successHoverBackground);
+    }
+
+    &:active {
+      background: var(--successActiveBackground);
+      box-shadow: var(--successActiveBoxShadow);
+    }
+  }
+
+  &.color--danger {
+    color: var(--primaryInverseColor);
+    background: var(--dangerBackground);
+    border-color: var(--dangerBorderColor);
+
+    &:hover {
+      background: var(--dangerHoverBackground);
+    }
+
+    &:active {
+      background: var(--dangerActiveBackground);
+      box-shadow: var(--dangerActiveBoxShadow);
+    }
   }
 }
 
-button.background--transparent,
-button.background--transparent[type="submit"],
-button.background--transparent[type="button"],
-button.background--transparent[type="reset"],
-a.background--transparent,
-.background--transparent {
+button.withoutBackground,
+button.withoutBackground[type="submit"],
+button.withoutBackground[type="button"],
+button.withoutBackground[type="reset"],
+a.withoutBackground,
+.withoutBackground {
+  background: none;
 
+  &.color--primary {
+    color: var(--primaryColor);
+    border-color: var(--primaryGhostBorderColor);
+
+    &:hover {
+      background: var(--primaryGhostHoverBackground);
+    }
+
+    &:active {
+      background: var(--primaryGhostActiveBackground);
+      box-shadow: var(--primaryGhostActiveBoxShadow);
+    }
+  }
+
+  &.color--primary-inverse {
+    color: var(--primaryInverseColor);
+    border-color: var(--primaryInverseGhostBorderColor);
+
+    &:hover {
+      background: var(--primaryInverseGhostHoverBackground);
+    }
+
+    &:active {
+      background: var(--primaryInverseGhostActiveBackground);
+      box-shadow: var(--primaryInverseGhostActiveBoxShadow);
+    }
+  }
+
+  &.color--brand {
+    color: var(--brandColor);
+    border-color: var(--brandGhostBorderColor);
+
+    &:hover {
+      background: var(--brandGhostHoverBackground);
+    }
+
+    &:active {
+      background: var(--brandGhostActiveBackground);
+      box-shadow: var(--brandGhostActiveBoxShadow);
+    }
+  }
+
+  &.color--success {
+    color: var(--successColor);
+    border-color: var(--successGhostBorderColor);
+
+    &:hover {
+      background: var(--successGhostHoverBackground);
+    }
+
+    &:active {
+      background: var(--successGhostActiveBackground);
+      box-shadow: var(--successGhostActiveBoxShadow);
+    }
+  }
+
+  &.color--danger {
+    color: var(--dangerColor);
+    border-color: var(--dangerGhostBorderColor);
+
+    &:hover {
+      background: var(--dangerGhostHoverBackground);
+    }
+
+    &:active {
+      background: var(--dangerGhostActiveBackground);
+      box-shadow: var(--dangerGhostActiveBoxShadow);
+    }
+  }
+}
+
+button.withoutBorder,
+button.withoutBorder[type="submit"],
+button.withoutBorder[type="button"],
+button.withoutBorder[type="reset"],
+a.withoutBorder,
+.withoutBorder {
+  border-style: none;
 }
 
 /* stylelint-enable selector-max-class, selector-max-type, no-descending-specificity */

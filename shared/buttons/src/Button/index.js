@@ -27,10 +27,12 @@ import PropTypes from 'prop-types'
 import classnames from 'classnames'
 
 import { themeable, ThemeablePropTypes } from '@instructure/ui-themeable'
-import { getElementType, passthroughProps } from '@instructure/ui-react-utils'
+import { getElementType, passthroughProps, callRenderProp } from '@instructure/ui-react-utils'
 
+import { hasVisibleChildren } from '@instructure/ui-a11y'
 import { Focusable } from '@instructure/ui-focusable'
 import { View } from '@instructure/ui-view'
+import { Flex } from '@instructure/ui-layout'
 
 import styles from './styles.css'
 import theme from './theme'
@@ -68,29 +70,22 @@ class Button extends Component {
     */
     interaction: PropTypes.oneOf(['enabled', 'disabled', 'readOnly']),
     /**
-    * Specifies the background color of the `Button`.
+    * Specifies the color scheme for the `Button`.
     */
-    background: PropTypes.oneOf([
-      'transparent',
+    color: PropTypes.oneOf([
       'primary',
+      'primary-inverse',
       'brand',
       'success',
       'danger',
-      'warning',
       'light'
     ]),
-    /**
-    * Specifies the border color of the `Button`.
-    */
-    borderColor: PropTypes.oneOf([
-      'transparent',
-      'primary',
-      'brand',
-      'success',
-      'danger',
-      'warning',
-      'light'
+    shape: PropTypes.oneOf([
+      'rectangle',
+      'circle'
     ]),
+    withBackground: PropTypes.bool,
+    withBorder: PropTypes.bool,
     /**
     * Valid values are `0`, `none`, `auto`, `xxx-small`, `xx-small`, `x-small`,
     * `small`, `medium`, `large`, `x-large`, `xx-large`. Apply these values via
@@ -109,7 +104,8 @@ class Button extends Component {
     /**
     * Callback fired when the `Button` is clicked.
     */
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+    renderIcon: PropTypes.oneOf([PropTypes.node, PropTypes.func])
   }
 
   static defaultProps = {
@@ -119,12 +115,15 @@ class Button extends Component {
     elementRef: (el) => { },
     as: 'button',
     interaction: 'enabled',
-    background: 'primary',
-    borderColor: 'primary',
+    color: 'primary',
+    shape: 'rectangle',
+    withBackground: true,
+    withBorder: true,
     margin: '0',
     cursor: 'pointer',
     href: undefined,
-    onClick: undefined
+    onClick: undefined,
+    renderIcon: undefined
   }
 
   handleClick = (event) => {
@@ -141,16 +140,54 @@ class Button extends Component {
     }
   }
 
+  get hasOnlyIconVisible () {
+    const { children, renderIcon } = this.props
+    return renderIcon && !hasVisibleChildren(children)
+  }
+
+  renderChildren () {
+    const { renderIcon, children } = this.props
+
+    if (!renderIcon) {
+      return children
+    }
+
+    const { hasOnlyIconVisible } = this
+    const icon = <span className={styles.iconSVG}>{callRenderProp(renderIcon)}</span>
+
+    const flexChildren = hasOnlyIconVisible ? [
+      <Flex.Item key="wrapper">{icon}{children}</Flex.Item>
+    ] : [
+      <Flex.Item key="icon" padding="0 x-small 0 0">{icon}</Flex.Item>,
+      <Flex.Item key="children" grow shrink>{children}</Flex.Item>
+    ]
+
+    let flexProps = {
+      height: '100%',
+      width: '100%'
+    }
+
+    if (hasOnlyIconVisible) {
+      flexProps = {
+        justifyItems: 'center',
+        ...flexProps
+      }
+    }
+
+    return <Flex {...flexProps}>{flexChildren}</Flex>
+  }
+
   render() {
     const {
-      children,
       type,
       size,
       elementRef,
       as,
       href,
-      background,
-      borderColor,
+      color,
+      shape,
+      withBackground,
+      withBorder,
       margin,
       cursor,
       ...props
@@ -161,8 +198,13 @@ class Button extends Component {
     const classes = classnames({
       [styles.root]: true,
       [styles[`size--${size}`]]: true,
-      [styles[`background--${background}`]]: true,
-      [styles[`border--${borderColor}`]]: true
+      [styles[`color--${color}`]]: true,
+      [styles[`shape--${shape}`]]: true,
+      [styles.withBackground]: withBackground,
+      [styles.withoutBackground]: !withBackground,
+      [styles.withBorder]: withBorder,
+      [styles.withoutBorder]: !withBorder,
+      [styles.hasOnlyIconVisible]: this.hasOnlyIconVisible
     })
 
     const render = ({ focused }) => (
@@ -171,18 +213,22 @@ class Button extends Component {
         ref={elementRef}
         as={elementType}
         isFocused={focused}
-        focusColor="info"
+        focusColor={color.includes('inverse') ? 'inverse' : 'info'}
         position="relative"
-        borderRadius="medium"
+        display="inline-block"
+        borderRadius={shape === 'circle' ? 'circle' : 'medium'}
         background="transparent"
+        padding="none"
+        borderWidth="none"
         margin={margin}
         cursor={cursor}
         href={href}
         type={href ? null : type}
         onClick={this.handleClick}
-        className={classes}
       >
-          {children}
+        <span className={classes}>
+          {this.renderChildren()}
+        </span>
       </View>
     )
 
