@@ -35,7 +35,7 @@ class Wrapper extends Component {
         margin="0"
         padding="0"
       >
-        <Flex alignItems="start">
+        <Flex alignItems="start" height="100vh">
           <Flex.Item grow>
             <View
               background="light"

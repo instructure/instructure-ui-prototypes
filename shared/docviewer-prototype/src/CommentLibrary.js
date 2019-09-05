@@ -22,14 +22,19 @@
  * SOFTWARE.
  */
 
+// TODO: if the comments already have an edit button next to the delete do the
+// titles themselves need to be clickable? if not they would be text color vs
+// the link blue.
+
 import React from 'react'
 import PropTypes from 'prop-types'
 import { View, Flex } from '@instructure/ui-layout'
 import { Heading, List, Text } from '@instructure/ui-elements'
+import { TextArea } from '@instructure/ui-forms'
 import { Button } from '@instructure/ui-buttons'
 import { TextInput } from '@instructure/ui-text-input'
 import { ScreenReaderContent } from '@instructure/ui-a11y'
-import { 
+import {
   IconXLine,
   IconSearchLine,
   IconEditLine,
@@ -43,6 +48,22 @@ export default class CommentLibrary extends React.Component {
 
   static defaultProps = {
     onRequestHideLibrary: () => {}
+  }
+
+state = {
+      showCommentInput: false
+    }
+
+  handleShowCommentInput = () => {
+    this.setState({
+      showCommentInput: true
+    })
+  }
+
+  handleHideCommentInput = () => {
+    this.setState({
+      showCommentInput: false
+    })
   }
 
   handleLibraryClose = () => {
@@ -123,7 +144,7 @@ export default class CommentLibrary extends React.Component {
               <Flex>
                 <Flex.Item grow shrink margin="0 small 0 0">
                   <Button variant="link" fluidWidth>
-                    Thousands Now Have AdWare Removal Who Never Thought They Could
+                    Thousands Now Have Adware Removal Who Never Thought They Could
                   </Button>
                 </Flex.Item>
                 <Flex.Item>
@@ -176,9 +197,38 @@ export default class CommentLibrary extends React.Component {
             </View>
           </List.Item>
         </List>
-        <View as="div" textAlign="center" padding="medium 0">
-          <Button variant="link" icon={<IconAddLine inline={false} />}>New Comment</Button>
-        </View>
+        { !this.state.showCommentInput ? (
+          <View as="div" textAlign="center" padding="medium 0">
+            <Button
+              variant="link"
+              icon={<IconAddLine inline={false} />}
+              onClick={this.handleShowCommentInput}
+            >
+              New Comment
+            </Button>
+          </View>
+        ) : null }
+
+        { this.state.showCommentInput ? (
+          <div>
+            <View as="div" padding="medium 0">
+              <TextArea
+                label="Comment"
+              />
+            </View>
+            <View as="div" padding="small 0" textAlign="end">
+              <Button margin="0 x-small 0 0">
+                Cancel
+              </Button>
+              <Button
+                variant="primary"
+                onClick={this.handleHideCommentInput}
+              >
+                Submit
+              </Button>
+            </View>
+          </div>
+        ) : null }
       </View>
     )
   }

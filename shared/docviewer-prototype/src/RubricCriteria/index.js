@@ -67,7 +67,7 @@ export default class RubricCriteria extends React.Component {
             </Text>
           </Flex.Item>
         </Flex>
-      </div>    
+      </div>
     )
   }
 }

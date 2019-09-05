@@ -22,8 +22,13 @@
  * SOFTWARE.
  */
 
+//  NOTE: with current NumberInput the input width can NOT be narrower than the label
+//  this could be an issue when i18n comes into play and there is a 3-digit width
+//  input but the label after translation goes extremely wide
+
+
 import React, { Component } from 'react'
-import { Text } from '@instructure/ui-elements'
+import { Avatar, Text } from '@instructure/ui-elements'
 import { View, Flex } from '@instructure/ui-layout'
 import { Button } from '@instructure/ui-buttons'
 import { NumberInput } from '@instructure/ui-number-input'
@@ -37,6 +42,9 @@ import {
   IconQuestionLine,
   IconDownloadLine,
   IconRubricLine,
+  IconOutcomesLine,
+  IconArrowOpenStartLine,
+  IconArrowOpenEndLine,
   IconMoreLine } from '@instructure/ui-icons'
 
 import SingleSelect from '../SingleSelect'
@@ -45,6 +53,7 @@ import CommentLibrary from '../CommentLibrary'
 import AssignmentTray from '../AssignmentTray'
 import StudentTray from '../StudentTray'
 import RubricTray from '../RubricTray'
+import OutcomeTray from '../OutcomeTray'
 
 class RightSide extends Component {
   constructor() {
@@ -54,7 +63,8 @@ class RightSide extends Component {
       showLibrary: false,
       showStudents: false,
       showAssignments: false,
-      showRubric: false
+      showRubric: false,
+      showOutcome: false
     }
   }
 
@@ -118,6 +128,18 @@ class RightSide extends Component {
     })
   }
 
+  handleShowOutcome = () => {
+    this.setState({
+      showOutcome: true
+    })
+  }
+
+  handleHideOutcome = () => {
+    this.setState({
+      showOutcome: false
+    })
+  }
+
   render () {
     return (
       <View
@@ -132,39 +154,19 @@ class RightSide extends Component {
             variant="icon"
             icon={IconGradebookLine}
             margin="x-small"
-            onClick={this.handleShowAssignments}
           >
               <ScreenReaderContent>Gradebook</ScreenReaderContent>
           </Button>
-          <Tray
-            label="Assignments"
-            open={this.state.showAssignments}
-            placement="end"
-            size="small"
-            onDismiss={this.handleHideAssignments}
-          >
-            <AssignmentTray onRequestHideAssignments={this.handleHideAssignments} />
-          </Tray>
           <Button
             variant="icon"
             icon={IconQuizStatsTimeLine}
             margin="x-small"
-            onClick={this.handleShowStudents}
           >
               <ScreenReaderContent>Submissions</ScreenReaderContent>
           </Button>
-          <Tray
-            label="Students"
-            open={this.state.showStudents}
-            placement="end"
-            size="small"
-            onDismiss={this.handleHideStudents}
-          >
-            <StudentTray onRequestHideStudents={this.handleHideStudents} />
-          </Tray>
           <Button
             variant="icon"
-            icon={IconQuestionLine} 
+            icon={IconQuestionLine}
             margin="x-small"
             onClick={this.handleShowHelp}
             >
@@ -202,62 +204,102 @@ class RightSide extends Component {
           padding="small 0"
           borderWidth="small 0 0 0"
         >
-          <View as="div" height="5rem" textAlign="center">
-            Assignment Carousel
-          </View>
-          <View as="div" height="10rem" textAlign="center">
-            Avatar Plus Name Carousel
-          </View>
-          <Flex justifyItems="space-between">
-            <Flex.Item margin="0 x-small 0 0" grow shrink>
-              <SingleSelect
-                selectLabel="Submissions"
-                selectedOptionId="1"
-                options={[
-                  { id: '1', label: 'FileX.PDF' },
-                  { id: '2', label: 'FileY.PDF' },
-                  { id: '3', label: 'FileZ.PDF' }
-                ]}
-                message={[
-                  { text: 'Submitted Sep 12 at 9:08 am', type: 'hint' }
-                ]}
-              />
+          <Flex justifyItems="space-between" padding="x-small 0 medium 0">
+            <Flex.Item margin="0 xx-small 0 0">
+              <Text>4/31 Graded</Text>
             </Flex.Item>
-            <Flex.Item align="end">
-              <Button icon={IconDownloadLine}>
-                <ScreenReaderContent>Download Submission</ScreenReaderContent>
+            <Flex.Item>
+              <Text>Avg Grade 14</Text>
+            </Flex.Item>
+          </Flex>
+          <Flex justifyItems="space-between" textAlign="center" margin="small 0 medium 0">
+            <Flex.Item>
+              <Button variant="icon" size="small" icon={<IconArrowOpenStartLine color="brand" />}>
+                <ScreenReaderContent>Previous Assignment</ScreenReaderContent>
+              </Button>
+            </Flex.Item>
+            <Flex.Item grow shrink>
+              <Button fluidWidth variant="link" onClick={this.handleShowAssignments}>
+                <View as="div" textAlign="center">Week 2: Write a short story with five characters</View>
+              </Button>
+              <Tray
+                label="Assignments"
+                open={this.state.showAssignments}
+                placement="end"
+                size="small"
+                onDismiss={this.handleHideAssignments}
+              >
+                <AssignmentTray onRequestHideAssignments={this.handleHideAssignments} />
+              </Tray>
+            </Flex.Item>
+            <Flex.Item>
+              <Button variant="icon" size="small" icon={<IconArrowOpenEndLine color="brand" />}>
+                <ScreenReaderContent>Next Assignment</ScreenReaderContent>
               </Button>
             </Flex.Item>
           </Flex>
-          <Flex justifyItems="space-between" padding="medium 0 x-small 0">
-            <Flex.Item margin="0 xx-small 0 0">
-              <Text>Items Graded</Text>
+          <Flex justifyItems="space-between" textAlign="center" margin="medium 0">
+            <Flex.Item>
+              <Button variant="icon" size="small" icon={<IconArrowOpenStartLine color="brand" />}>
+                <ScreenReaderContent>Previous Student</ScreenReaderContent>
+              </Button>
+            </Flex.Item>
+            <Flex.Item grow shrink>
+              <Button variant="link" onClick={this.handleShowStudents}>
+                <Avatar name="Mabelle Thompson" size="x-large" src="https://source.unsplash.com/random" />
+                <Text as="div">Mabelle Thompson</Text>
+              </Button>
+              <Tray
+                label="Students"
+                open={this.state.showStudents}
+                placement="end"
+                size="small"
+                onDismiss={this.handleHideStudents}
+              >
+                <StudentTray onRequestHideStudents={this.handleHideStudents} />
+              </Tray>
             </Flex.Item>
             <Flex.Item>
-              <Text weight="bold">4 of 31</Text>
-            </Flex.Item>
-          </Flex>
-          <Flex justifyItems="space-between" padding="x-small 0 small 0">
-            <Flex.Item margin="0 xx-small 0 0">
-              <Text>Average Grade</Text>
-            </Flex.Item>
-            <Flex.Item>
-              <Text weight="bold">72</Text>
+              <Button variant="icon" size="small" icon={<IconArrowOpenEndLine color="brand" />}>
+                <ScreenReaderContent>Next Student</ScreenReaderContent>
+              </Button>
             </Flex.Item>
           </Flex>
           <View as="div" borderWidth="small 0 0 0" padding="small 0" margin="small 0">
-            <Flex justifyItems="space-between" padding="small 0 medium 0">
-              <Flex.Item margin="0 x-small 0 0" grow shrink>
-                <NumberInput
-                  renderLabel="Grade Out of 100"
+            <Flex justifyItems="space-between">
+              <Flex.Item padding="small x-small small 0" grow shrink>
+                <SingleSelect
+                  selectLabel="Submissions"
+                  selectedOptionId="1"
+                  options={[
+                    { id: '1', label: 'FileX.PDF' },
+                    { id: '2', label: 'FileY.PDF' },
+                    { id: '3', label: 'FileZ.PDF' }
+                  ]}
+                  selectMessage={[
+                    { text: 'Submitted Sep 12 at 9:08 am', type: 'hint' }
+                  ]}
                 />
               </Flex.Item>
-              <Flex.Item align="end">
+              <Flex.Item >
+                <Button icon={IconDownloadLine}>
+                  <ScreenReaderContent>Download Submission</ScreenReaderContent>
+                </Button>
+              </Flex.Item>
+            </Flex>
+            <Flex padding="small 0">
+              <Flex.Item margin="0 x-small 0 0">
+                <NumberInput
+                  width="8rem"
+                  renderLabel="Grade Out of 16"
+                />
+              </Flex.Item>
+              <Flex.Item margin="0 x-small 0 0" align="end">
                 <Button
                   icon={IconRubricLine}
                   onClick={this.handleShowRubric}
                 >
-                  <ScreenReaderContent>Download Submission</ScreenReaderContent>
+                  <ScreenReaderContent>View Rubric</ScreenReaderContent>
                 </Button>
                 <Tray
                   label="Rubric"
@@ -269,14 +311,46 @@ class RightSide extends Component {
                   <RubricTray onRequestHideRubric={this.handleHideRubric} />
                 </Tray>
               </Flex.Item>
+              <Flex.Item align="end">
+                <Button
+                  icon={IconOutcomesLine}
+                  onClick={this.handleShowOutcome}
+                >
+                  <ScreenReaderContent>View Outcome</ScreenReaderContent>
+                </Button>
+                <Tray
+                  label="Rubric"
+                  open={this.state.showOutcome}
+                  placement="end"
+                  size="regular"
+                  onDismiss={this.handleHideOutcome}
+                >
+                  <OutcomeTray onRequestHideOutcome={this.handleHideOutcome} />
+                </Tray>
+              </Flex.Item>
             </Flex>
-            <TextArea
-              label="Comments"
-            />
+            <View as="div" padding="small 0">
+              <SingleSelect
+                    selectLabel="Set Status"
+                    selectedOptionId="1"
+                    options={[
+                      { id: '1', label: 'None' },
+                      { id: '2', label: 'Closed' },
+                      { id: '3', label: 'Open' }
+                    ]}
+                  />
+            </View>
+            <View as="div" padding="small 0">
+              <TextArea
+                label="Comments"
+              />
+            </View>
             <View as="div" padding="small 0" textAlign="end">
-              <Button margin="0 x-small 0 0">Submit</Button>
-              <Button margin="0 0 0 0" icon={IconMoreLine}>
-                <ScreenReaderContent>More Options</ScreenReaderContent>
+              <Button margin="0 x-small 0 0" icon={IconMoreLine}>
+                <ScreenReaderContent>Show Options</ScreenReaderContent>
+              </Button>
+              <Button margin="0 0 0 0">
+                Add Comment
               </Button>
             </View>
           </View>

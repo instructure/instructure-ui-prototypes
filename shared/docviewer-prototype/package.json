@@ -14,6 +14,7 @@
 				"@instructure/ui-a11y": "^6.7.0",
 				"@instructure/ui-buttons": "^6.7.0",
 				"@instructure/ui-elements": "^6.7.0",
+				"@instructure/ui-form-field": "^6.10.0",
 				"@instructure/ui-forms": "^6.7.0",
 				"@instructure/ui-icons": "^6.7.0",
 				"@instructure/ui-layout": "^6.7.0",

@@ -77,7 +77,7 @@ export default class RubricTray extends React.Component {
                   <Text weight="bold" size="large">Setting</Text>
                 </Flex.Item>
                 <Flex.Item>
-                  <View 
+                  <View
                     background="inverse"
                     borderWidth="small"
                     borderRadius="medium"
@@ -125,7 +125,7 @@ export default class RubricTray extends React.Component {
                   <Text weight="bold" size="large">Characters</Text>
                 </Flex.Item>
                 <Flex.Item>
-                  <View 
+                  <View
                     background="light"
                     borderWidth="small"
                     borderRadius="medium"
@@ -173,7 +173,7 @@ export default class RubricTray extends React.Component {
                   <Text weight="bold" size="large">Dialogue</Text>
                 </Flex.Item>
                 <Flex.Item>
-                  <View 
+                  <View
                     background="light"
                     borderWidth="small"
                     borderRadius="medium"
@@ -221,7 +221,7 @@ export default class RubricTray extends React.Component {
                 <Text weight="bold" size="large">Organization</Text>
               </Flex.Item>
               <Flex.Item>
-                <View 
+                <View
                   background="light"
                   borderWidth="small"
                   borderRadius="medium"

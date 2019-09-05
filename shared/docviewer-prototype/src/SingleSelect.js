@@ -24,13 +24,15 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
+import { FormPropTypes } from '@instructure/ui-form-field'
 import { Select } from '@instructure/ui-select'
 
 export default class SingleSelect extends React.Component {
   static propTypes = {
     selectLabel: PropTypes.string.isRequired,
     selectPlaceholder: PropTypes.string,
-    selectedOptionId: PropTypes.string.isRequired
+    selectedOptionId: PropTypes.string.isRequired,
+    selectMessage: PropTypes.arrayOf(FormPropTypes.message)
   }
 
   constructor (props) {
@@ -119,6 +121,7 @@ export default class SingleSelect extends React.Component {
           onRequestHighlightOption={this.handleHighlightOption}
           onRequestSelectOption={this.handleSelectOption}
           renderBeforeInput={option ? option.icon : null}
+          messages={this.props.selectMessage}
         >
           {this.props.options.map((option) => {
             return (
