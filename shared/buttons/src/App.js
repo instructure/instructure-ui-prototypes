@@ -26,7 +26,7 @@ import React, { useState } from 'react'
 import { Tabs } from '@instructure/ui-tabs'
 
 import { AllExamples } from './AllExamples'
-import { ToggleButtonExamples } from './ToggleButtonExample'
+import { ToggleButtonExamples } from './ToggleButtonExamples'
 
 import '@instructure/canvas-theme'
 
