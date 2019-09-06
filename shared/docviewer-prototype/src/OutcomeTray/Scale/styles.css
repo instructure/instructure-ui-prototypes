@@ -1,0 +1,57 @@
+/* stylelint-disable selector-max-type, unit-blacklist, color-no-hex, property-blacklist */
+
+input[type="radio"] {
+  display: none;
+}
+
+label {
+  line-height: 4;
+
+  input[type="radio"] + span {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin: -2px 6px 0 0;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 2px solid #c7cdd1;
+    position: relative;
+
+    svg {
+      fill: #fff;
+      position: absolute;
+      top: 27%;
+      left: 30%;
+    }
+  }
+}
+
+.exceeded {
+  input[type="radio"]:checked + span {
+    background-color: #008ee2;
+    border: 2px solid #008ee2;
+  }
+}
+
+.achieved {
+  input[type="radio"]:checked + span {
+    background-color: #00ac18;
+    border: 2px solid #00ac18;
+  }
+}
+
+.nearing {
+  input[type="radio"]:checked + span {
+    background-color: #ffd700;
+    border: 2px solid #ffd700;
+  }
+}
+
+.below {
+  input[type="radio"]:checked + span {
+    background-color: #ee0612;
+    border: 2px solid #ee0612;
+  }
+}

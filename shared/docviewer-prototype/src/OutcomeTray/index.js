@@ -30,13 +30,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { View, Flex } from '@instructure/ui-layout'
 import { Heading, Text } from '@instructure/ui-elements'
-import { TextArea } from '@instructure/ui-forms'
 import { Button } from '@instructure/ui-buttons'
 import { ToggleDetails } from '@instructure/ui-toggle-details'
 import { ScreenReaderContent } from '@instructure/ui-a11y'
-import { IconXLine, IconNoteLine } from '@instructure/ui-icons'
+import { IconXLine } from '@instructure/ui-icons'
 
-import styles from './styles.css'
+import { Scale } from './Scale'
 
 export default class OutcomeTray extends React.Component {
   static propTypes = {
@@ -45,22 +44,6 @@ export default class OutcomeTray extends React.Component {
 
   static defaultProps = {
     onRequestHideOutcome: () => {}
-  }
-
-  state = {
-    showNoteInput: false
-  }
-
-  handleShowNoteInput = () => {
-    this.setState({
-      showNoteInput: true
-    })
-  }
-
-  handleHideNoteInput = () => {
-    this.setState({
-      showNoteInput: false
-    })
   }
 
   handleOutcomeClose = () => {
@@ -89,8 +72,9 @@ export default class OutcomeTray extends React.Component {
             </Button>
           </Flex.Item>
         </Flex>
-        <View as="div" borderWidth="0 0 small 0" margin="small 0">
+        <View as="div" borderWidth="0 0 small 0" padding="medium 0" margin="small 0">
           <ToggleDetails
+            defaultExpanded
             fluidWidth
             summary={
               <Text weight="bold" size="large" transform="uppercase">ccss.ela-literacy.rl.5.1</Text>
@@ -99,55 +83,36 @@ export default class OutcomeTray extends React.Component {
             <View as="div" padding="small 0">
               <Text>Quote accurately from a text when explaining what the text says explicitly and when drawing inferences from the text.</Text>
             </View>
-            <View as="form" padding="small 0" onSubmit={this.handleSubmit}>
-              <div>
-                <label className={styles.root}>
-                  <input type="radio" name="mastery" value="exceeded" />
-                  Mastery Exceeded
-                </label>
-              </div>
-              <div>
-                <label className={styles.root}>
-                  <input type="radio" name="mastery" value="achieved" />
-                  Mastery Achieved
-                </label>
-              </div>
-              <div>
-                <label className={styles.root}>
-                  <input type="radio" name="mastery" value="nearing" />
-                  Nearing Mastery
-                </label>
-              </div>
-              <div>
-                <label className={styles.root}>
-                  <input type="radio" name="mastery" value="below" />
-                  Well Below Mastery
-                </label>
-              </div>
-              { !this.state.showNoteInput ? (
-                    <View as="div" textAlign="center" padding="medium 0">
-                      <Button
-                        variant="icon"
-                        icon={IconNoteLine}
-                        onClick={this.handleShowNoteInput}
-                      >
-                        <ScreenReaderContent>Rating Note</ScreenReaderContent>
-                      </Button>
-                    </View>
-                  ) : null }
-            </View>
-            { this.state.showNoteInput ? (
-              <div>
-                <View as="div" padding="medium 0">
-                  <TextArea
-                    label="Rating Note"
-                  />
-                </View>
-              </div>
-            ) : null }
+            <Scale />
           </ToggleDetails>
         </View>
-    </View>
+        <View as="div" borderWidth="0 0 small 0" padding="medium 0" margin="small 0">
+          <ToggleDetails
+            fluidWidth
+            summary={
+              <Text weight="bold" size="large" transform="uppercase">ccss.ela-literacy.rl.5.2</Text>
+            }
+          >
+            <View as="div" padding="small 0">
+              <Text>Quote accurately from a text when explaining what the text says explicitly and when drawing inferences from the text.</Text>
+            </View>
+            <Scale />
+          </ToggleDetails>
+        </View>
+        <View as="div" borderWidth="0 0 small 0" padding="medium 0" margin="small 0">
+          <ToggleDetails
+            fluidWidth
+            summary={
+              <Text weight="bold" size="large" transform="uppercase">ccss.ela-literacy.rl.5.3</Text>
+            }
+          >
+            <View as="div" padding="small 0">
+              <Text>Quote accurately from a text when explaining what the text says explicitly and when drawing inferences from the text.</Text>
+            </View>
+            <Scale />
+          </ToggleDetails>
+        </View>
+      </View>
     )
   }
 }

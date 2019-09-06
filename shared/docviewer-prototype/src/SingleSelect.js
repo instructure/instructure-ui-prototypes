@@ -35,6 +35,10 @@ export default class SingleSelect extends React.Component {
     selectMessage: PropTypes.arrayOf(FormPropTypes.message)
   }
 
+  static defaultProps = {
+    selectPlaceholder: undefined,
+    selectMessage: undefined
+  }
   constructor (props) {
     super(props)
     const defaultOption = this.getOptionById(this.props.selectedOptionId)

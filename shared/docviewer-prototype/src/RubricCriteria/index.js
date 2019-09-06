@@ -31,43 +31,72 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Flex } from '@instructure/ui-layout'
-import { Text } from '@instructure/ui-elements'
-import { Button } from '@instructure/ui-buttons'
 
-export default class RubricCriteria extends React.Component {
+import { themeable } from '@instructure/ui-themeable'
+import styles from './styles.css'
+
+class RubricCriteria extends React.Component {
   static propTypes = {
-    rubricValue: PropTypes.number.isRequired,
-    rubricDescription: PropTypes.string.isRequired,
-    rubricSummary: PropTypes.string.isRequired
+    label: PropTypes.node.isRequired,
+    value: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number
+    ]),
+    id: PropTypes.string,
+    name: PropTypes.string,
+    summary: PropTypes.string
+  }
+
+  static defaultProps = {
+    id: undefined,
+    name: undefined,
+    summary: undefined,
+    value: undefined
+  }
+
+  state = {
+    showNoteInput: false
+  }
+
+  handleShowNoteInput = () => {
+    this.setState({
+      showNoteInput: true
+    })
+  }
+
+  handleHideNoteInput = () => {
+    this.setState({
+      showNoteInput: false
+    })
   }
 
   render() {
     const {
-      rubricValue,
-      rubricDescription,
-      rubricSummary
+      label,
+      value,
+      name,
+      summary,
     } = this.props
 
     return (
-      <div>
-        <Flex padding="small 0">
-          <Flex.Item align="start">
-            <Button
-              variant="circle-default"
-              margin="0 small 0 0"
-            >
-              {rubricValue}
-            </Button>
-          </Flex.Item>
-          <Flex.Item shrink grow>
-            <Text as="div">
-              <Text weight="bold" as="div">{rubricDescription}</Text>
-              {rubricSummary}
-            </Text>
-          </Flex.Item>
-        </Flex>
+      <div className={styles.rating}>
+        <label htmlFor={this.id}>
+          <input
+            className={styles.input}
+            id={this.id}
+            value={value}
+            name={name}
+            type="radio"
+          />
+          <span className={styles.facade}>
+            <span className={styles.value}>{value}</span>
+          </span>
+          <span className={styles.description}>{label}</span>
+          <div className={styles.summary}>{summary}</div>
+        </label>
       </div>
     )
   }
 }
+
+export default themeable(null, styles)(RubricCriteria)
