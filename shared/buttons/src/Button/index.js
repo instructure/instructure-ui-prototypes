@@ -75,10 +75,9 @@ class Button extends Component {
     color: PropTypes.oneOf([
       'primary',
       'primary-inverse',
-      'brand',
+      'secondary',
       'success',
-      'danger',
-      'light'
+      'danger'
     ]),
     shape: PropTypes.oneOf([
       'rectangle',

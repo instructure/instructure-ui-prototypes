@@ -71,16 +71,16 @@ export default ({ borders, colors, forms, spacing, typography }) => {
 
     ...generateButtonThemeVars({
       style: 'primary',
-      backgroundColor: colors.backgroundLight,
-      borderColor: colors.borderLight,
-      textColor: colors.textDarkest
-    }),
-
-    ...generateButtonThemeVars({
-      style: 'brand',
       backgroundColor: colors.backgroundBrand,
       borderColor: colors.borderBrand,
       textColor: colors.textBrand
+    }),
+
+    ...generateButtonThemeVars({
+      style: 'secondary',
+      backgroundColor: colors.backgroundLight,
+      borderColor: colors.borderLight,
+      textColor: colors.textDarkest
     }),
 
     ...generateButtonThemeVars({

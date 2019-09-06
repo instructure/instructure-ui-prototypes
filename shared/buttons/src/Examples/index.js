@@ -35,7 +35,7 @@ import { Button } from '../Button'
 
 const colors = [
   'primary',
-  'brand',
+  'secondary',
   'success',
   'danger',
   'primary-inverse'
