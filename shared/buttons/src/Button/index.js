@@ -75,10 +75,9 @@ class Button extends Component {
     color: PropTypes.oneOf([
       'primary',
       'primary-inverse',
-      'brand',
+      'secondary',
       'success',
-      'danger',
-      'light'
+      'danger'
     ]),
     shape: PropTypes.oneOf([
       'rectangle',
@@ -105,7 +104,9 @@ class Button extends Component {
     * Callback fired when the `Button` is clicked.
     */
     onClick: PropTypes.func,
-    renderIcon: PropTypes.oneOf([PropTypes.node, PropTypes.func])
+    onFocus: PropTypes.func,
+    onBlur: PropTypes.func,
+    renderIcon: PropTypes.oneOfType([PropTypes.node, PropTypes.func])
   }
 
   static defaultProps = {
@@ -123,7 +124,23 @@ class Button extends Component {
     cursor: 'pointer',
     href: undefined,
     onClick: undefined,
+    onFocus: (event) => {},
+    onBlur: (event) => {},
     renderIcon: undefined
+  }
+
+  state = {
+    isFocused: false
+  }
+
+  handleFocus = (event) => {
+    this.props.onFocus(event)
+    this.setState({ isFocused: true })
+  }
+
+  handleBlur = (event) => {
+    this.props.onBlur(event)
+    this.setState({ isFocused: false })
   }
 
   handleClick = (event) => {
@@ -193,6 +210,8 @@ class Button extends Component {
       ...props
     } = this.props
 
+    const { isFocused } = this.state
+
     const elementType = getElementType(Button, as)
 
     const classes = classnames({
@@ -207,12 +226,12 @@ class Button extends Component {
       [styles.hasOnlyIconVisible]: this.hasOnlyIconVisible
     })
 
-    const render = ({ focused }) => (
+    return (
       <View
         {...passthroughProps(props)}
-        ref={elementRef}
+        elementRef={elementRef}
         as={elementType}
-        isFocused={focused}
+        isFocused={isFocused}
         focusColor={color.includes('inverse') ? 'inverse' : 'info'}
         position="relative"
         display="inline-block"
@@ -225,14 +244,14 @@ class Button extends Component {
         href={href}
         type={href ? null : type}
         onClick={this.handleClick}
+        onFocus={this.handleFocus}
+        onBlur={this.handleBlur}
       >
         <span className={classes}>
           {this.renderChildren()}
         </span>
       </View>
     )
-
-    return <Focusable render={render} />
   }
 }
 

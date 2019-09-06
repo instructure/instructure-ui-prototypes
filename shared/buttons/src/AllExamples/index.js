@@ -35,7 +35,7 @@ import { Button } from '../Button'
 
 const colors = [
   'primary',
-  'brand',
+  'secondary',
   'success',
   'danger',
   'primary-inverse'
@@ -107,7 +107,7 @@ const propertyCollections = [
 ]
 
 // eslint-disable-next-line react/display-name
-const Examples = () => (
+const AllExamples = () => (
   <View as="div" margin="large">
     <Table caption="Button examples">
       <Table.Head>
@@ -148,4 +148,4 @@ const Examples = () => (
   </View>
 )
 
-export { Examples }
+export { AllExamples }

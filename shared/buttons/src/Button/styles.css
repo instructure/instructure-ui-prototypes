@@ -159,7 +159,7 @@ button.withBackground[type="reset"],
 a.withBackground,
 .withBackground {
   &.color--primary {
-    color: var(--primaryColor);
+    color: var(--primaryInverseColor);
     background: var(--primaryBackground);
     border-color: var(--primaryBorderColor);
 
@@ -173,8 +173,23 @@ a.withBackground,
     }
   }
 
+  &.color--secondary {
+    color: var(--secondaryColor);
+    background: var(--secondaryBackground);
+    border-color: var(--secondaryBorderColor);
+
+    &:hover {
+      background: var(--secondaryHoverBackground);
+    }
+
+    &:active {
+      background: var(--secondaryActiveBackground);
+      box-shadow: var(--secondaryActiveBoxShadow);
+    }
+  }
+
   &.color--primary-inverse {
-    color: var(--primaryColor);
+    color: var(--secondaryColor);
     background: var(--primaryInverseBackground);
     border-color: var(--primaryInverseBorderColor);
 
@@ -185,21 +200,6 @@ a.withBackground,
     &:active {
       background: var(--primaryInverseActiveBackground);
       box-shadow: var(--primaryInverseActiveBoxShadow);
-    }
-  }
-
-  &.color--brand {
-    color: var(--primaryInverseColor);
-    background: var(--brandBackground);
-    border-color: var(--brandBorderColor);
-
-    &:hover {
-      background: var(--brandHoverBackground);
-    }
-
-    &:active {
-      background: var(--brandActiveBackground);
-      box-shadow: var(--brandActiveBoxShadow);
     }
   }
 
@@ -256,6 +256,20 @@ a.withoutBackground,
     }
   }
 
+  &.color--secondary {
+    color: var(--secondaryColor);
+    border-color: var(--secondaryGhostBorderColor);
+
+    &:hover {
+      background: var(--secondaryGhostHoverBackground);
+    }
+
+    &:active {
+      background: var(--secondaryGhostActiveBackground);
+      box-shadow: var(--secondaryGhostActiveBoxShadow);
+    }
+  }
+
   &.color--primary-inverse {
     color: var(--primaryInverseColor);
     border-color: var(--primaryInverseGhostBorderColor);
@@ -267,20 +281,6 @@ a.withoutBackground,
     &:active {
       background: var(--primaryInverseGhostActiveBackground);
       box-shadow: var(--primaryInverseGhostActiveBoxShadow);
-    }
-  }
-
-  &.color--brand {
-    color: var(--brandColor);
-    border-color: var(--brandGhostBorderColor);
-
-    &:hover {
-      background: var(--brandGhostHoverBackground);
-    }
-
-    &:active {
-      background: var(--brandGhostActiveBackground);
-      box-shadow: var(--brandGhostActiveBoxShadow);
     }
   }
 

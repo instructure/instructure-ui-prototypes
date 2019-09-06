@@ -22,11 +22,42 @@
  * SOFTWARE.
  */
 
-import React from 'react'
-import { Examples } from './Examples'
+import React, { useState } from 'react'
+import { Tabs } from '@instructure/ui-tabs'
+
+import { AllExamples } from './AllExamples'
+import { ToggleButtonExamples } from './ToggleButtonExamples'
 
 import '@instructure/canvas-theme'
 
-const App = () => <Examples />
+const App = () => {
+  const [ selectedIndex, setSelectedIndex ] = useState(1)
+
+  const handleTabChange = (event, { index }) => {
+    setSelectedIndex(index)
+  }
+
+  return (
+    <Tabs
+      margin="large"
+      padding="medium"
+      onRequestTabChange={handleTabChange}
+    >
+      <Tabs.Panel
+        renderTitle="All Examples"
+        selected={selectedIndex === 0}
+      >
+        <AllExamples />
+      </Tabs.Panel>
+      <Tabs.Panel
+        renderTitle="Toggle Buttons"
+        padding="xx-large"
+        isSelected={selectedIndex === 1}
+      >
+        <ToggleButtonExamples />
+      </Tabs.Panel>
+    </Tabs>
+  )
+}
 
 export default App
