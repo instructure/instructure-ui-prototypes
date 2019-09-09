@@ -157,7 +157,10 @@ export default class RubricTray extends React.Component {
                   />
                 </View>
                 <View as="div" padding="small 0" textAlign="end">
-                  <Button margin="0 x-small 0 0">
+                  <Button
+                    margin="0 x-small 0 0"
+                    onClick={this.handleHideNoteInput}
+                  >
                     Cancel
                   </Button>
                   <Button
@@ -244,7 +247,10 @@ export default class RubricTray extends React.Component {
                   />
                 </View>
                 <View as="div" padding="small 0" textAlign="end">
-                  <Button margin="0 x-small 0 0">
+                  <Button
+                    margin="0 x-small 0 0"
+                    onClick={this.handleHideNoteInput}
+                  >
                     Cancel
                   </Button>
                   <Button
@@ -331,7 +337,10 @@ export default class RubricTray extends React.Component {
                   />
                 </View>
                 <View as="div" padding="small 0" textAlign="end">
-                  <Button margin="0 x-small 0 0">
+                  <Button
+                    margin="0 x-small 0 0"
+                    onClick={this.handleHideNoteInput}
+                  >
                     Cancel
                   </Button>
                   <Button
@@ -418,7 +427,10 @@ export default class RubricTray extends React.Component {
                   />
                 </View>
                 <View as="div" padding="small 0" textAlign="end">
-                  <Button margin="0 x-small 0 0">
+                  <Button
+                    margin="0 x-small 0 0"
+                    onClick={this.handleHideNoteInput}
+                  >
                     Cancel
                   </Button>
                   <Button

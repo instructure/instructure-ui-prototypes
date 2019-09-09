@@ -1,4 +1,4 @@
-/* stylelint-disable selector-max-type, selector-max-class, unit-blacklist, color-no-hex, property-blacklist */
+/* stylelint-disable selector-max-type, selector-max-class, unit-blacklist, color-no-hex, property-blacklist, length-zero-no-unit */
 .rating {
   position: relative;
 }
@@ -11,7 +11,7 @@
   display: inline-block;
   width: 40px;
   height: 40px;
-  margin: -2px 6px 0 0;
+  margin: -2px 8px 0 0;
   vertical-align: middle;
   cursor: pointer;
   border-radius: 50%;
@@ -32,6 +32,9 @@
 .input[type="radio"]:checked + .facade {
   background-color: #8b969e;
   border: 2px solid #8b969e;
+  box-shadow:
+    0px 0px 0px 2px #fff,
+    0px 0px 0px 4px #008ee2;
 
   .value {
     color: #fff;
@@ -46,6 +49,5 @@
 .summary {
   font-size: 1rem;
   line-height: 1.5;
-  margin-left: 50px;
-  margin-bottom: 6px;
+  margin: -8px 0 6px 52px;
 }

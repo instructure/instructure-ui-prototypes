@@ -124,17 +124,19 @@ export default class StudentTray extends React.Component {
             </Flex>
           </List.Item>
           <List.Item>
-            <Flex>
-              <Flex.Item width="1.5em">
+          <View as="div" background="light" padding="xxx-small 0">
+              <Flex>
+                <Flex.Item width="1.5em">
 
-              </Flex.Item>
-              <Flex.Item grow shrink>
-                <Button variant="link" href="#">Mabelle Thompson</Button>
-              </Flex.Item>
-              <Flex.Item>
+                </Flex.Item>
+                <Flex.Item grow shrink>
+                  <Button variant="link" href="#">Mabelle Thompson</Button>
+                </Flex.Item>
+                <Flex.Item>
 
-              </Flex.Item>
-            </Flex>
+                </Flex.Item>
+              </Flex>
+            </View>
           </List.Item>
           <List.Item>
             <Flex>
