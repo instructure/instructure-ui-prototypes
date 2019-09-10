@@ -44,13 +44,15 @@ import { ToggleButton } from '../ToggleButton'
 
 import { Button } from '../Button'
 
-const ToggleButtonWrapper = ({
+const ToggleButtonWrapper_A = ({
   renderUnpressedIcon,
   renderPressedIcon,
   renderUnpressedLabel,
   renderPressedLabel,
-  mountNode
-}) => {
+  mountNode,
+  pressedColor = 'success',
+  unpressedColor = 'secondary'
+} = {}) => {
   const [ isPressed, setPressed ] = useState(false)
 
   const handleTogglePressed = (event) => setPressed(isPressed => !isPressed)
@@ -62,7 +64,7 @@ const ToggleButtonWrapper = ({
     withBackground: false,
     margin: 'large',
     onClick: handleTogglePressed,
-    color: isPressed ? 'primary' : 'secondary',
+    color: isPressed ? pressedColor : unpressedColor,
     renderIcon: callRenderProp(isPressed ? renderPressedIcon : renderUnpressedIcon),
     children: <ScreenReaderContent>{label}</ScreenReaderContent>
   }
@@ -81,26 +83,83 @@ const ToggleButtonWrapper = ({
   return <ToggleButton render={render} renderTip={label} mountNode={mountNode} />
 }
 
-export const ToggleButtonExamples = () => {
+const ToggleButtonWrapper_B = ({
+  renderUnpressedIcon,
+  renderPressedIcon,
+  renderUnpressedLabel,
+  renderPressedLabel,
+  mountNode,
+  pressedColor = 'success',
+  unpressedColor = 'secondary'
+} = {}) => {
+  const [isPressed, setPressed] = useState(false)
+  const [isPreviewing, setIsPreviewing] = useState(false)
+
+  const handleTogglePressed = (event) => {
+    setPressed(isPressed => !isPressed)
+    setIsPreviewing(false)
+  }
+
+  const handleStartPreviewing = (event) => setIsPreviewing(true)
+  const handleStopPreviewing = (event) => setIsPreviewing(false)
+
+  const label = callRenderProp(isPressed ? renderPressedLabel : renderUnpressedLabel)
+
+  const shouldShowPressedState = () => isPreviewing ? !isPressed : isPressed
+
+  const buttonProps = {
+    withBorder: false,
+    withBackground: false,
+    margin: 'large',
+    onClick: handleTogglePressed,
+    // Note: For keyboard a11y, we'd want to do these on focus/blur, but only when the user
+    // is in keyboard input mode. Otherwise the previewing state will persist for mouse users
+    // until the element is no longer focused
+    onMouseEnter: handleStartPreviewing,
+    onMouseLeave: handleStopPreviewing,
+    onFocus: handleStartPreviewing,
+    onBlur: handleStopPreviewing,
+    color: shouldShowPressedState() ? pressedColor : unpressedColor,
+    renderIcon: callRenderProp(shouldShowPressedState() ? renderPressedIcon : renderUnpressedIcon),
+    children: <ScreenReaderContent>{label}</ScreenReaderContent>
+  }
+
+  const render = ({ getPressedProps, getUnpressedProps }) => {
+    const toggleProps = isPressed ? getPressedProps() : getUnpressedProps()
+
+    const props = {
+      ...buttonProps,
+      ...toggleProps
+    }
+
+    return <Button {...props} />
+  }
+
+  return <ToggleButton render={render} renderTip={label} mountNode={mountNode} />
+}
+
+const ToggleButtonWrapperCollection = ({ wrapper, pressedColor = 'success', unpressedColor = 'secondary' } = {}) => {
   const [containerRef, setContainerRef] = useState(null)
 
   const handleContainerRef = useCallback((el) => {
-    if (!containerRef || containerRef !== el) {
-      setContainerRef(el)
-    }
-  }, [])
+    setContainerRef(el)
+  }, [containerRef])
 
   const wrapperProps = {
     mountNode: () => containerRef
   }
 
+  const ToggleButtonWrapper = wrapper
+
   return (
-    <View elementRef={handleContainerRef}>
+    <View elementRef={handleContainerRef} display="block" margin="none none xx-large none" padding="large">
       <ToggleButtonWrapper
         renderUnpressedIcon={IconBookmarkLine}
         renderPressedIcon={IconBookmarkSolid}
         renderUnpressedLabel="Subscribe"
         renderPressedLabel="Unsubscribe"
+        pressedColor={pressedColor}
+        unpressedColor={unpressedColor}
         {...wrapperProps}
       />
       <ToggleButtonWrapper
@@ -108,6 +167,8 @@ export const ToggleButtonExamples = () => {
         renderPressedIcon={IconCalendarReservedSolid}
         renderUnpressedLabel="Add to calendar"
         renderPressedLabel="Remove from calendar"
+        pressedColor={pressedColor}
+        unpressedColor={unpressedColor}
         {...wrapperProps}
       />
       <ToggleButtonWrapper
@@ -115,6 +176,8 @@ export const ToggleButtonExamples = () => {
         renderPressedIcon={IconLockSolid}
         renderUnpressedLabel="Lock"
         renderPressedLabel="Unlock"
+        pressedColor={pressedColor}
+        unpressedColor={unpressedColor}
         {...wrapperProps}
       />
       <ToggleButtonWrapper
@@ -122,8 +185,19 @@ export const ToggleButtonExamples = () => {
         renderPressedIcon={IconPublishSolid}
         renderUnpressedLabel="Publish"
         renderPressedLabel="Unpublish"
+        pressedColor={pressedColor}
+        unpressedColor={unpressedColor}
         {...wrapperProps}
       />
     </View>
   )
 }
+
+export const ToggleButtonExamples = () => (
+  <View display="block">
+    Toggle Button Prototype A
+    <ToggleButtonWrapperCollection wrapper={ToggleButtonWrapper_A} />
+    Toggle Button Prototype B
+    <ToggleButtonWrapperCollection wrapper={ToggleButtonWrapper_B} />
+  </View>
+)

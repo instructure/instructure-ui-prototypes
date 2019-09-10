@@ -23,12 +23,12 @@
  */
 
 import React, { useState } from 'react'
+
+import '@instructure/canvas-theme'
 import { Tabs } from '@instructure/ui-tabs'
 
 import { AllExamples } from './AllExamples'
 import { ToggleButtonExamples } from './ToggleButtonExamples'
-
-import '@instructure/canvas-theme'
 
 const App = () => {
   const [ selectedIndex, setSelectedIndex ] = useState(1)
