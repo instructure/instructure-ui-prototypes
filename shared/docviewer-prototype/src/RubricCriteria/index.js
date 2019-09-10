@@ -48,6 +48,7 @@ class RubricCriteria extends React.Component {
   }
 
   static defaultProps = {
+    label: undefined,
     id: undefined,
     name: undefined,
     summary: undefined,
