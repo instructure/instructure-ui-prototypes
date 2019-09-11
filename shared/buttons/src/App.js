@@ -29,9 +29,10 @@ import { Tabs } from '@instructure/ui-tabs'
 
 import { AllExamples } from './AllExamples'
 import { ToggleButtonExamples } from './ToggleButtonExamples'
+import { FluidWidthExamples } from './FluidWidthExamples'
 
 const App = () => {
-  const [ selectedIndex, setSelectedIndex ] = useState(1)
+  const [ selectedIndex, setSelectedIndex ] = useState(2)
 
   const handleTabChange = (event, { index }) => {
     setSelectedIndex(index)
@@ -55,6 +56,12 @@ const App = () => {
         isSelected={selectedIndex === 1}
       >
         <ToggleButtonExamples />
+      </Tabs.Panel>
+      <Tabs.Panel
+        renderTitle="Fluid Width"
+        selected={selectedIndex === 2}
+      >
+        <FluidWidthExamples />
       </Tabs.Panel>
     </Tabs>
   )

@@ -25,12 +25,12 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
+import keycode from 'keycode'
 
 import { themeable, ThemeablePropTypes } from '@instructure/ui-themeable'
 import { getElementType, passthroughProps, callRenderProp } from '@instructure/ui-react-utils'
 
 import { hasVisibleChildren } from '@instructure/ui-a11y'
-import { Focusable } from '@instructure/ui-focusable'
 import { View } from '@instructure/ui-view'
 import { Flex } from '@instructure/ui-layout'
 
@@ -79,6 +79,7 @@ class Button extends Component {
       'success',
       'danger'
     ]),
+    display: PropTypes.oneOf(['inline-block', 'block']),
     shape: PropTypes.oneOf([
       'rectangle',
       'circle'
@@ -104,6 +105,7 @@ class Button extends Component {
     * Callback fired when the `Button` is clicked.
     */
     onClick: PropTypes.func,
+    onKeyDown: PropTypes.func,
     onFocus: PropTypes.func,
     onBlur: PropTypes.func,
     renderIcon: PropTypes.oneOfType([PropTypes.node, PropTypes.func])
@@ -116,14 +118,16 @@ class Button extends Component {
     elementRef: (el) => { },
     as: 'button',
     interaction: 'enabled',
-    color: 'primary',
+    color: 'secondary',
     shape: 'rectangle',
+    display: 'inline-block',
     withBackground: true,
     withBorder: true,
     margin: '0',
     cursor: 'pointer',
     href: undefined,
     onClick: undefined,
+    onKeyDown: (event) => {},
     onFocus: (event) => {},
     onBlur: (event) => {},
     renderIcon: undefined
@@ -133,14 +137,30 @@ class Button extends Component {
     isFocused: false
   }
 
+  _rootElement = null
+
+  get hasOnlyIconVisible () {
+    const { children, renderIcon } = this.props
+    return renderIcon && !hasVisibleChildren(children)
+  }
+
+  get elementType () {
+    return getElementType(Button, this.props)
+  }
+
+  handleElementRef = (el) => {
+    this._rootElement = el
+    this.props.elementRef(el)
+  }
+
   handleFocus = (event) => {
-    this.props.onFocus(event)
     this.setState({ isFocused: true })
+    this.props.onFocus(event)
   }
 
   handleBlur = (event) => {
-    this.props.onBlur(event)
     this.setState({ isFocused: false })
+    this.props.onBlur(event)
   }
 
   handleClick = (event) => {
@@ -153,13 +173,30 @@ class Button extends Component {
     }
 
     if (typeof onClick === 'function') {
-        onClick()
+        onClick(event)
     }
   }
 
-  get hasOnlyIconVisible () {
-    const { children, renderIcon } = this.props
-    return renderIcon && !hasVisibleChildren(children)
+  handleKeyDown = event => {
+    const { interaction, onClick, onKeyDown, href } = this.props
+
+    onKeyDown(event)
+
+    // behave like a button when space key is pressed
+    const { space, enter } = keycode.codes
+
+    if (this.elementType !== 'button' && [space, enter].includes(event.keyCode)) {
+      event.preventDefault()
+      event.stopPropagation()
+
+      if (typeof onClick === 'function' && interaction === 'enabled') {
+        onClick(event)
+      }
+
+      if (href) {
+        this._rootElement && this._rootElement.click()
+      }
+    }
   }
 
   renderChildren () {
@@ -173,22 +210,16 @@ class Button extends Component {
     const icon = <span className={styles.iconSVG}>{callRenderProp(renderIcon)}</span>
 
     const flexChildren = hasOnlyIconVisible ? [
-      <Flex.Item key="wrapper">{icon}{children}</Flex.Item>
+      <Flex.Item key="content">{icon}{children}</Flex.Item>
     ] : [
       <Flex.Item key="icon" padding="0 x-small 0 0">{icon}</Flex.Item>,
-      <Flex.Item key="children" grow shrink>{children}</Flex.Item>
+      <Flex.Item key="children" shrink>{children}</Flex.Item>
     ]
 
-    let flexProps = {
+    const flexProps = {
       height: '100%',
-      width: '100%'
-    }
-
-    if (hasOnlyIconVisible) {
-      flexProps = {
-        justifyItems: 'center',
-        ...flexProps
-      }
+      width: '100%',
+      justifyItems: 'center'
     }
 
     return <Flex {...flexProps}>{flexChildren}</Flex>
@@ -203,6 +234,7 @@ class Button extends Component {
       href,
       color,
       shape,
+      display,
       withBackground,
       withBorder,
       margin,
@@ -212,13 +244,12 @@ class Button extends Component {
 
     const { isFocused } = this.state
 
-    const elementType = getElementType(Button, as)
-
     const classes = classnames({
-      [styles.root]: true,
+      [styles.content]: true,
       [styles[`size--${size}`]]: true,
       [styles[`color--${color}`]]: true,
       [styles[`shape--${shape}`]]: true,
+      [styles[`display--${display}`]]: true,
       [styles.withBackground]: withBackground,
       [styles.withoutBackground]: !withBackground,
       [styles.withBorder]: withBorder,
@@ -229,12 +260,12 @@ class Button extends Component {
     return (
       <View
         {...passthroughProps(props)}
-        elementRef={elementRef}
-        as={elementType}
+        as={this.elementType}
         isFocused={isFocused}
         focusColor={color.includes('inverse') ? 'inverse' : 'info'}
         position="relative"
-        display="inline-block"
+        display={display}
+        width={display === 'block' ? '100%' : 'auto'}
         borderRadius={shape === 'circle' ? 'circle' : 'medium'}
         background="transparent"
         padding="none"
@@ -243,9 +274,13 @@ class Button extends Component {
         cursor={cursor}
         href={href}
         type={href ? null : type}
+        elementRef={this.handleElementRef}
         onClick={this.handleClick}
+        onKeyDown={this.handleKeyDown}
         onFocus={this.handleFocus}
         onBlur={this.handleBlur}
+        // TODO: See note below on className delima
+        className={styles.root}
       >
         <span className={classes}>
           {this.renderChildren()}
@@ -257,3 +292,17 @@ class Button extends Component {
 
 export { Button }
 export default Button
+
+// We need to get the active states for the interior component specific wrapper.
+// That is happening on the root View element. Examining options on how we can
+// do this:
+//
+// Options
+// Pass className to View that has no rules, but can be used as a selector
+// * pros: Still avoids collisions
+// * cons: We have to support className on View
+//
+// Use View as a wrapper, but move the button element inside of it
+// * pros: we can get the styling we want without having to keep className on View
+// * cons: not having button as the root element is unexpected for consumers
+// * for example, where do we pass the root props? it would break from current lib conditions

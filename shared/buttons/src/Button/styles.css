@@ -1,21 +1,19 @@
 /* stylelint-disable selector-max-class, selector-max-type, no-descending-specificity */
 
-button.root,
-button.root[type="submit"],
-button.root[type="button"],
-button.root[type="reset"],
-a.root,
-.root {
+button.content,
+button.content[type="submit"],
+button.content[type="button"],
+button.content[type="reset"],
+a.content,
+.content {
   appearance: none;
   box-sizing: border-box;
-  max-width: 100%;
+  width: 100%;
   display: inline-block;
   position: relative;
-  overflow: visible;
   direction: inherit;
   margin: 0;
   padding: 0;
-  width: auto;
   text-decoration: none; /* for links styled as buttons */
   user-select: none;
   touch-action: manipulation;
@@ -29,6 +27,8 @@ a.root,
   border-style: var(--borderStyle);
   border-width: var(--borderWidth);
   border-radius: var(--borderRadius);
+  line-height: var(--lineHeight);
+  text-align: var(--textAlign);
 
   &.disabled {
     pointer-events: none;
@@ -43,9 +43,8 @@ a.root,
     font-size: var(--smallFontSize);
     padding-left: var(--smallPadding); /* stylelint-disable-line property-blacklist */
     padding-right: var(--smallPadding); /* stylelint-disable-line property-blacklist */
-
-    /* subtract the top and bottom border */
-    line-height: calc(var(--smallHeight) - (var(--borderWidth) * 2));
+    padding-top: 0.26rem;
+    padding-bottom: 0.38rem;
 
     .iconSVG {
       font-size: var(--iconSizeSmall);
@@ -56,9 +55,8 @@ a.root,
     font-size: var(--mediumFontSize);
     padding-left: var(--mediumPadding); /* stylelint-disable-line property-blacklist */
     padding-right: var(--mediumPadding); /* stylelint-disable-line property-blacklist */
-
-    /* subtract the top and bottom border */
-    line-height: calc(var(--mediumHeight) - (var(--borderWidth) * 2));
+    padding-top: 0.5625rem;
+    padding-bottom: 0.5625rem;
 
     .iconSVG {
       font-size: var(--iconSizeMedium);
@@ -69,9 +67,8 @@ a.root,
     font-size: var(--largeFontSize);
     padding-left: var(--largePadding); /* stylelint-disable-line property-blacklist */
     padding-right: var(--largePadding); /* stylelint-disable-line property-blacklist */
-
-    /* subtract the top and bottom border */
-    line-height: calc(var(--largeHeight) - (var(--borderWidth) * 2));
+    padding-top: 0.6875rem;
+    padding-bottom: 0.6875rem;
 
     .iconSVG {
       font-size: var(--iconSizeLarge);
@@ -111,8 +108,6 @@ button.hasOnlyIconVisible[type="button"],
 button.hasOnlyIconVisible[type="reset"],
 a.hasOnlyIconVisible,
 .hasOnlyIconVisible {
-  text-decoration: none;
-  text-align: center;
   line-height: 1;
 
   &:focus,
@@ -166,11 +161,6 @@ a.withBackground,
     &:hover {
       background: var(--primaryHoverBackground);
     }
-
-    &:active {
-      background: var(--primaryActiveBackground);
-      box-shadow: var(--primaryActiveBoxShadow);
-    }
   }
 
   &.color--secondary {
@@ -180,11 +170,6 @@ a.withBackground,
 
     &:hover {
       background: var(--secondaryHoverBackground);
-    }
-
-    &:active {
-      background: var(--secondaryActiveBackground);
-      box-shadow: var(--secondaryActiveBoxShadow);
     }
   }
 
@@ -196,11 +181,6 @@ a.withBackground,
     &:hover {
       background: var(--primaryInverseHoverBackground);
     }
-
-    &:active {
-      background: var(--primaryInverseActiveBackground);
-      box-shadow: var(--primaryInverseActiveBoxShadow);
-    }
   }
 
   &.color--success {
@@ -211,11 +191,6 @@ a.withBackground,
     &:hover {
       background: var(--successHoverBackground);
     }
-
-    &:active {
-      background: var(--successActiveBackground);
-      box-shadow: var(--successActiveBoxShadow);
-    }
   }
 
   &.color--danger {
@@ -225,11 +200,6 @@ a.withBackground,
 
     &:hover {
       background: var(--dangerHoverBackground);
-    }
-
-    &:active {
-      background: var(--dangerActiveBackground);
-      box-shadow: var(--dangerActiveBoxShadow);
     }
   }
 }
@@ -249,11 +219,6 @@ a.withoutBackground,
     &:hover {
       background: var(--primaryGhostHoverBackground);
     }
-
-    &:active {
-      background: var(--primaryGhostActiveBackground);
-      box-shadow: var(--primaryGhostActiveBoxShadow);
-    }
   }
 
   &.color--secondary {
@@ -262,11 +227,6 @@ a.withoutBackground,
 
     &:hover {
       background: var(--secondaryGhostHoverBackground);
-    }
-
-    &:active {
-      background: var(--secondaryGhostActiveBackground);
-      box-shadow: var(--secondaryGhostActiveBoxShadow);
     }
   }
 
@@ -277,11 +237,6 @@ a.withoutBackground,
     &:hover {
       background: var(--primaryInverseGhostHoverBackground);
     }
-
-    &:active {
-      background: var(--primaryInverseGhostActiveBackground);
-      box-shadow: var(--primaryInverseGhostActiveBoxShadow);
-    }
   }
 
   &.color--success {
@@ -290,11 +245,6 @@ a.withoutBackground,
 
     &:hover {
       background: var(--successGhostHoverBackground);
-    }
-
-    &:active {
-      background: var(--successGhostActiveBackground);
-      box-shadow: var(--successGhostActiveBoxShadow);
     }
   }
 
@@ -305,8 +255,68 @@ a.withoutBackground,
     &:hover {
       background: var(--dangerGhostHoverBackground);
     }
+  }
+}
 
-    &:active {
+button.root,
+button.root[type="submit"],
+button.root[type="button"],
+button.root[type="reset"],
+a.root,
+.root {
+  /*
+    The button element is the root element so we need the selector there to
+    properly apply the active styles. This involves adding a className on View,
+    but we ensure here that the class is used as a selector only. We do not add
+    any styles to the root element that could conflict with View.
+  */
+  &:active {
+    .withBackground.color--primary {
+      background: var(--primaryActiveBackground);
+      box-shadow: var(--primaryActiveBoxShadow);
+    }
+
+    .withBackground.color--secondary {
+      background: var(--secondaryActiveBackground);
+      box-shadow: var(--secondaryActiveBoxShadow);
+    }
+
+    .withBackground.color--primary-inverse {
+      background: var(--primaryInverseActiveBackground);
+      box-shadow: var(--primaryInverseActiveBoxShadow);
+    }
+
+    .withBackground.color--success {
+      background: var(--successActiveBackground);
+      box-shadow: var(--successActiveBoxShadow);
+    }
+
+    .withBackground.color--danger {
+      background: var(--dangerActiveBackground);
+      box-shadow: var(--dangerActiveBoxShadow);
+    }
+
+    .withoutBackground.color--primary {
+      background: var(--primaryGhostActiveBackground);
+      box-shadow: var(--primaryGhostActiveBoxShadow);
+    }
+
+    .withoutBackground.color--secondary {
+      background: var(--secondaryGhostActiveBackground);
+      box-shadow: var(--secondaryGhostActiveBoxShadow);
+    }
+
+    .withoutBackground.color--primary-inverse {
+      background: var(--primaryInverseGhostActiveBackground);
+      box-shadow: var(--primaryInverseGhostActiveBoxShadow);
+    }
+
+    .withoutBackground.color--success {
+      background: var(--successGhostActiveBackground);
+      box-shadow: var(--successGhostActiveBoxShadow);
+    }
+
+    .withoutBackground.color--danger {
       background: var(--dangerGhostActiveBackground);
       box-shadow: var(--dangerGhostActiveBoxShadow);
     }

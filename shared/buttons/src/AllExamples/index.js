@@ -49,18 +49,27 @@ const generateLabel = ({ withBackground, withBorder }) => (
 )
 
 const generatePermutationProps = ({ iconOnlyPermutations = false } = {}) => {
+  const props = {
+    // eslint-disable-next-line no-console
+    onClick: (event) => { console.log('button received onClick event') },
+    // eslint-disable-next-line no-console
+    onKeyDown: (event) => { console.log('button received keydown event') }
+  }
+
   const permutations = [{
     key: 'iconOnlyRectangle',
     children: <ScreenReaderContent>Hello</ScreenReaderContent>,
     renderIcon: <IconAddLine />,
     shape: 'rectangle',
-    size: 'medium'
+    size: 'medium',
+    ...props
   }, {
     key: 'iconOnlyCircle',
     children: <ScreenReaderContent>Hello</ScreenReaderContent>,
     renderIcon: <IconAddLine />,
     shape: 'circle',
-    size: 'medium'
+    size: 'medium',
+    ...props
   }]
 
   return iconOnlyPermutations ? permutations : [
@@ -68,12 +77,14 @@ const generatePermutationProps = ({ iconOnlyPermutations = false } = {}) => {
       key: 'textOnly',
       children: 'Hello',
       size: 'medium',
+      ...props
     },
     {
       key: 'textAndIcon',
       children: 'Hello',
       renderIcon: <IconAddLine />,
-      size: 'medium'
+      size: 'medium',
+      ...props
     },
     ...permutations
   ]

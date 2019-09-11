@@ -1683,10 +1683,10 @@
   resolved "https://registry.yarnpkg.com/@instructure/config-loader/-/config-loader-6.9.0.tgz#e1461b36b6ecb1cd0446c78d20b65b1b62ca7f36"
   integrity sha512-Vyqja1bq2muOEBYl07Kq2yt64i/2UMYJnkjAiC4xHDz9X/dglelRP8NDo/1mvT4BShLHSZp1MBlNvO4Cskn1Mg==
 
-"@instructure/console@6.10.1-rc.7+9aeeb19b":
-  version "6.10.1-rc.7"
-  resolved "https://registry.yarnpkg.com/@instructure/console/-/console-6.10.1-rc.7.tgz#b45b62d15d0183869d2f9f66f58d017863821d64"
-  integrity sha512-sW6lOA8SDHeUZ8C5mBt+Virc0ryw5JN8C8wqm7jZ0HpsAMOlQ7KPC61qDsrAEEMwEd1nm8f+2cnVJO4RKSAX0Q==
+"@instructure/console@6.10.1-rc.10+5bdb65a3":
+  version "6.10.1-rc.10"
+  resolved "https://registry.yarnpkg.com/@instructure/console/-/console-6.10.1-rc.10.tgz#8e6ff3c1699f18432e5a96b0bd7eb26cebd5a2b5"
+  integrity sha512-lPse8jC/MOw4Xn/lkpHIyuvsmdOWL77xN53G1+cW0qO8Vpn8yMaX4SSwsHw5QUZe59ai/6fh6SPq7hFeZaWFzw==
   dependencies:
     "@babel/helper-annotate-as-pure" "^7.0.0"
     "@babel/helper-module-imports" "^7.0.0"
@@ -2133,10 +2133,10 @@
     keycode "^2"
     prop-types "^15"
 
-"@instructure/ui-color-utils@6.10.1-rc.7+9aeeb19b":
-  version "6.10.1-rc.7"
-  resolved "https://registry.yarnpkg.com/@instructure/ui-color-utils/-/ui-color-utils-6.10.1-rc.7.tgz#03360a9c86cb97a9125a3dc2ecab9e9432cd56c8"
-  integrity sha512-SBUhUkwn1a6di/9mPKml5ezs4zWx2QtaXXDjwud5ggAWZNu1sR4r93cJ/HK9AL3fXx+Vk585r+rnG2cvqgljgw==
+"@instructure/ui-color-utils@6.10.1-rc.10+5bdb65a3":
+  version "6.10.1-rc.10"
+  resolved "https://registry.yarnpkg.com/@instructure/ui-color-utils/-/ui-color-utils-6.10.1-rc.10.tgz#4b862c1bef000d334ffa4bbadc4752a747498a57"
+  integrity sha512-wIKQ0f3/X5GXYdLFYe/T7D0KWSrODi09YRCRPUtPvuX2+BrFahTppRfEUVaR2z7s2AzYSDDGfwjqqmYrRByBwg==
   dependencies:
     "@babel/runtime" "^7"
     tinycolor2 "^1.4.1"
@@ -2227,10 +2227,10 @@
     prop-types "^15"
     react-docgen "^4"
 
-"@instructure/ui-decorator@6.10.1-rc.7+9aeeb19b":
-  version "6.10.1-rc.7"
-  resolved "https://registry.yarnpkg.com/@instructure/ui-decorator/-/ui-decorator-6.10.1-rc.7.tgz#ab0fefcb57aaa7f8a8db3ff5fb0703520a180d1f"
-  integrity sha512-XUkN2EdxoXL4sRe9m/Fd6YKf593jxI33ZNdtWY6bcjdJ23Z1iIrfbSkNMjOBB2jEOksubN1e6o/0bYMlRyWltw==
+"@instructure/ui-decorator@6.10.1-rc.10+5bdb65a3":
+  version "6.10.1-rc.10"
+  resolved "https://registry.yarnpkg.com/@instructure/ui-decorator/-/ui-decorator-6.10.1-rc.10.tgz#c53c130227a4b1e0bcf8b7e5237dcb40bfa50a20"
+  integrity sha512-n5juEt6Xsb5r4CLEMvzobZgzrvpreza83TAI+G1HmEUr2e+yb3ySuTBuW9xb6ll4lrpYismqAwIJeRPboF4fUg==
   dependencies:
     "@babel/runtime" "^7"
 
@@ -2262,13 +2262,13 @@
   dependencies:
     "@babel/runtime" "^7"
 
-"@instructure/ui-dom-utils@6.10.1-rc.7+9aeeb19b":
-  version "6.10.1-rc.7"
-  resolved "https://registry.yarnpkg.com/@instructure/ui-dom-utils/-/ui-dom-utils-6.10.1-rc.7.tgz#4da18f09e48e0018308ab7e8c1a2ddb68c787039"
-  integrity sha512-iE7+3+SgP4ljBbHCl0QaDqwoBPrP+7Q6x8fwAlZAtSj8cPVsT9wXsBFZwJxCEMID1zMYHkWjcG+9+otozw9daw==
+"@instructure/ui-dom-utils@6.10.1-rc.10+5bdb65a3":
+  version "6.10.1-rc.10"
+  resolved "https://registry.yarnpkg.com/@instructure/ui-dom-utils/-/ui-dom-utils-6.10.1-rc.10.tgz#d2609c0b5092870eac91eb33b0b0f2ea2525f429"
+  integrity sha512-vA62DVty9usc9qDkiO9nH+0GxBu1iiKCsO2w/PI9oGUPnV7LibryKGzN7wQKqfyj3sO10QnGEtAdF7zc+uFudg==
   dependencies:
     "@babel/runtime" "^7"
-    "@instructure/console" "6.10.1-rc.7+9aeeb19b"
+    "@instructure/console" "6.10.1-rc.10+5bdb65a3"
 
 "@instructure/ui-dom-utils@^6.10.0":
   version "6.10.0"
@@ -2674,17 +2674,17 @@
     keycode "^2"
     prop-types "^15"
 
-"@instructure/ui-i18n@6.10.1-rc.7+9aeeb19b":
-  version "6.10.1-rc.7"
-  resolved "https://registry.yarnpkg.com/@instructure/ui-i18n/-/ui-i18n-6.10.1-rc.7.tgz#d1f56a0303dadb0d4db8d8757c29071acc8e06aa"
-  integrity sha512-l9FqITWG+fIAsJXYayoJ31G38YfA2Ua9hdswZUl1X0K5NmD0jaxMoA+1JznW9H3P3kiCx5+jM1joaLQ+VuBokQ==
+"@instructure/ui-i18n@6.10.1-rc.10+5bdb65a3":
+  version "6.10.1-rc.10"
+  resolved "https://registry.yarnpkg.com/@instructure/ui-i18n/-/ui-i18n-6.10.1-rc.10.tgz#4017561cb449187094c0aae77419b23d952760b3"
+  integrity sha512-YrTF9GAMeHmW+v3zhdsF9N1Ib9PWqZMjmsbmYcAyqLfEQtQxXr4DDirc8PZpd4snatgLT6Ut3zs1uYGWmiwOrw==
   dependencies:
     "@babel/runtime" "^7"
-    "@instructure/ui-decorator" "6.10.1-rc.7+9aeeb19b"
-    "@instructure/ui-dom-utils" "6.10.1-rc.7+9aeeb19b"
-    "@instructure/ui-prop-types" "6.10.1-rc.7+9aeeb19b"
-    "@instructure/ui-react-utils" "6.10.1-rc.7+9aeeb19b"
-    "@instructure/ui-utils" "6.10.1-rc.7+9aeeb19b"
+    "@instructure/ui-decorator" "6.10.1-rc.10+5bdb65a3"
+    "@instructure/ui-dom-utils" "6.10.1-rc.10+5bdb65a3"
+    "@instructure/ui-prop-types" "6.10.1-rc.10+5bdb65a3"
+    "@instructure/ui-react-utils" "6.10.1-rc.10+5bdb65a3"
+    "@instructure/ui-utils" "6.10.1-rc.10+5bdb65a3"
     decimal.js "^10"
     moment-timezone "^0.5"
     prop-types "^15"
@@ -3294,10 +3294,10 @@
     postcss-reporter "^6.0.1"
     postcss-simple-vars "^5.0.1"
 
-"@instructure/ui-prop-types@6.10.1-rc.7+9aeeb19b":
-  version "6.10.1-rc.7"
-  resolved "https://registry.yarnpkg.com/@instructure/ui-prop-types/-/ui-prop-types-6.10.1-rc.7.tgz#7788daaa690d727c95d208bfeea6b470dbe36f29"
-  integrity sha512-g7Ut0w533SMx3buVFL3erDAi5Y/PHe1dTf3oHrPIMy9Z4Pxm3au5dyaXGTTqgbc1dpprC/t5OYngVyb+yLQh0Q==
+"@instructure/ui-prop-types@6.10.1-rc.10+5bdb65a3":
+  version "6.10.1-rc.10"
+  resolved "https://registry.yarnpkg.com/@instructure/ui-prop-types/-/ui-prop-types-6.10.1-rc.10.tgz#54a3c367e3e871c2e4dffc244eb8573774f4d97f"
+  integrity sha512-OX1Yb+3+bwDd+gK8GB4NmbZCUueyg6MzcXIRTeEliQpJc6RWaweHC9FDnOz6Xk4KF5F9QH257/ANR6vr0FLuUg==
   dependencies:
     "@babel/runtime" "^7"
     prop-types ">= 15.7.0"
@@ -3334,17 +3334,17 @@
     "@babel/runtime" "^7"
     prop-types ">= 15.7.0"
 
-"@instructure/ui-react-utils@6.10.1-rc.7+9aeeb19b":
-  version "6.10.1-rc.7"
-  resolved "https://registry.yarnpkg.com/@instructure/ui-react-utils/-/ui-react-utils-6.10.1-rc.7.tgz#1c4f685a80693b01d78a81aed8f03c109623ac4f"
-  integrity sha512-BlxRt5nbAr2IWt9u5vx6lbUUTOts4OpySVJZL3QCVTrO9Bgvnm9WmVLgUQemTFYJZRKlLpABfouPwYaeFF+5vQ==
+"@instructure/ui-react-utils@6.10.1-rc.10+5bdb65a3":
+  version "6.10.1-rc.10"
+  resolved "https://registry.yarnpkg.com/@instructure/ui-react-utils/-/ui-react-utils-6.10.1-rc.10.tgz#553fb4e0214eee8b6586ec22a200c1c9b4596336"
+  integrity sha512-OhMIHpV0r3s2jDbwa905hT9iwQwiok/h2ImY8LG+u0VZarb26O4jZP1y2Ou1m6rQl/GK6L1ieLRcdf5PBXZQBA==
   dependencies:
     "@babel/runtime" "^7"
     "@emotion/is-prop-valid" "^0.8.2"
-    "@instructure/console" "6.10.1-rc.7+9aeeb19b"
-    "@instructure/ui-decorator" "6.10.1-rc.7+9aeeb19b"
-    "@instructure/ui-dom-utils" "6.10.1-rc.7+9aeeb19b"
-    "@instructure/ui-utils" "6.10.1-rc.7+9aeeb19b"
+    "@instructure/console" "6.10.1-rc.10+5bdb65a3"
+    "@instructure/ui-decorator" "6.10.1-rc.10+5bdb65a3"
+    "@instructure/ui-dom-utils" "6.10.1-rc.10+5bdb65a3"
+    "@instructure/ui-utils" "6.10.1-rc.10+5bdb65a3"
     prop-types "^15"
 
 "@instructure/ui-react-utils@^6.10.0":
@@ -3638,10 +3638,10 @@
     stylelint-config-standard "^18.3.0"
     stylelint-declaration-strict-value "^1.1.3"
 
-"@instructure/ui-stylesheet@6.10.1-rc.7+9aeeb19b":
-  version "6.10.1-rc.7"
-  resolved "https://registry.yarnpkg.com/@instructure/ui-stylesheet/-/ui-stylesheet-6.10.1-rc.7.tgz#afaedd2821ded23909d5b65a0715fc9562dc17ae"
-  integrity sha512-CzwfgjydECSrxp7z+6SyIw2YoNEYs7/8btRdkeNlsvQ2re9PLqCvrFZZHgqzSG0xblT1X8eV6K6Amx7w0pGBsw==
+"@instructure/ui-stylesheet@6.10.1-rc.10+5bdb65a3":
+  version "6.10.1-rc.10"
+  resolved "https://registry.yarnpkg.com/@instructure/ui-stylesheet/-/ui-stylesheet-6.10.1-rc.10.tgz#f943fece010d7097ab0e8376862eb944f54d352c"
+  integrity sha512-8DerkPiP7aPy17cIETthtoF8webRtlh3iIdviweAPqNRBvrNZ3hma/emRsWdbw7Y/dd62ZZU8VYK9+gHe8nYMw==
   dependencies:
     "@babel/runtime" "^7"
     glamor "^2.20.40"
@@ -3904,20 +3904,20 @@
     prop-types "^15"
     react "^15 || ^16"
 
-"@instructure/ui-themeable@6.10.1-rc.7+9aeeb19b":
-  version "6.10.1-rc.7"
-  resolved "https://registry.yarnpkg.com/@instructure/ui-themeable/-/ui-themeable-6.10.1-rc.7.tgz#592d724e9949041afdaf5a21e93ba7fb0737da80"
-  integrity sha512-do4R7G2k70h2sFmE4l/EhfLdh2e8QF3GjyZeXvXfShXPsQAmvqFz9Zi05mm2u9n0lEPEpU+MARHFUfrojwtGww==
+"@instructure/ui-themeable@6.10.1-rc.10+5bdb65a3":
+  version "6.10.1-rc.10"
+  resolved "https://registry.yarnpkg.com/@instructure/ui-themeable/-/ui-themeable-6.10.1-rc.10.tgz#50ce3cc2c32cc3e40cca00efa4d8e3c58624cc80"
+  integrity sha512-K6jS/+ll3OVm7GdyHe9gb+rbx1F4YC6zbsg8Vkhm9l/7eA2fFX6S9fLCX9hWkr8o3psVLbVLLJzWUvDhq5kd1A==
   dependencies:
     "@babel/runtime" "^7"
-    "@instructure/console" "6.10.1-rc.7+9aeeb19b"
-    "@instructure/ui-color-utils" "6.10.1-rc.7+9aeeb19b"
-    "@instructure/ui-decorator" "6.10.1-rc.7+9aeeb19b"
-    "@instructure/ui-dom-utils" "6.10.1-rc.7+9aeeb19b"
-    "@instructure/ui-react-utils" "6.10.1-rc.7+9aeeb19b"
-    "@instructure/ui-stylesheet" "6.10.1-rc.7+9aeeb19b"
-    "@instructure/ui-utils" "6.10.1-rc.7+9aeeb19b"
-    "@instructure/uid" "6.10.1-rc.7+9aeeb19b"
+    "@instructure/console" "6.10.1-rc.10+5bdb65a3"
+    "@instructure/ui-color-utils" "6.10.1-rc.10+5bdb65a3"
+    "@instructure/ui-decorator" "6.10.1-rc.10+5bdb65a3"
+    "@instructure/ui-dom-utils" "6.10.1-rc.10+5bdb65a3"
+    "@instructure/ui-react-utils" "6.10.1-rc.10+5bdb65a3"
+    "@instructure/ui-stylesheet" "6.10.1-rc.10+5bdb65a3"
+    "@instructure/ui-utils" "6.10.1-rc.10+5bdb65a3"
+    "@instructure/uid" "6.10.1-rc.10+5bdb65a3"
     prop-types "^15"
 
 "@instructure/ui-themeable@^6.10.0":
@@ -4016,14 +4016,14 @@
     classnames "^2"
     prop-types "^15"
 
-"@instructure/ui-utils@6.10.1-rc.7+9aeeb19b":
-  version "6.10.1-rc.7"
-  resolved "https://registry.yarnpkg.com/@instructure/ui-utils/-/ui-utils-6.10.1-rc.7.tgz#a19b4cf52829f5d4f02de8e13b69415fcbe49cd2"
-  integrity sha512-zt4pQCb/ny7KAJEnidASDMR9w/dLf1/vdABdVLSATeC4xOMdG77ak3vQGJs06ZtQrcNRngFZBAHUa3sfPW4BDA==
+"@instructure/ui-utils@6.10.1-rc.10+5bdb65a3":
+  version "6.10.1-rc.10"
+  resolved "https://registry.yarnpkg.com/@instructure/ui-utils/-/ui-utils-6.10.1-rc.10.tgz#f0ce7e4697e4e436f761a93b044fb34a565edf0b"
+  integrity sha512-NeCOsuGQI+zylpIELwvw20UxeGWWzuz6K76+YycmgLtCoEcVK6g5ycY6E84SiVhANUVjTltcZIeSX35h2A8R8Q==
   dependencies:
     "@babel/runtime" "^7"
-    "@instructure/console" "6.10.1-rc.7+9aeeb19b"
-    "@instructure/ui-dom-utils" "6.10.1-rc.7+9aeeb19b"
+    "@instructure/console" "6.10.1-rc.10+5bdb65a3"
+    "@instructure/ui-dom-utils" "6.10.1-rc.10+5bdb65a3"
     bowser "^1.9.4"
     fast-deep-equal "^2"
     keycode "^2"
@@ -4076,19 +4076,19 @@
     fast-deep-equal "^2"
     keycode "^2"
 
-"@instructure/ui-view@^6.10.0":
-  version "6.10.1-rc.7"
-  resolved "https://registry.yarnpkg.com/@instructure/ui-view/-/ui-view-6.10.1-rc.7.tgz#f860b3a6986fed8c7a296eba1b2fb32bd0ab5edc"
-  integrity sha512-QiONm/BuaGxS5HA/TWSxeJNQ+wztiBpvsjttybtT2ElLW6XV78yGtdD+gwSifXZVamKBxcIl5mSvCNNCH/n4jQ==
+"@instructure/ui-view@^6.10.1-rc.7":
+  version "6.10.1-rc.10"
+  resolved "https://registry.yarnpkg.com/@instructure/ui-view/-/ui-view-6.10.1-rc.10.tgz#72c430850f03f873711c8d0cb1b049e31faf0e4d"
+  integrity sha512-no/RZTTTPeeMg1g3xhoCvjRnDrmGhLzzGDky469tWrNLeL4mjAsHFWwa90/q/TiHi7BCb3RJfnQMZ5CKJCkcJw==
   dependencies:
     "@babel/runtime" "^7"
-    "@instructure/console" "6.10.1-rc.7+9aeeb19b"
-    "@instructure/ui-color-utils" "6.10.1-rc.7+9aeeb19b"
-    "@instructure/ui-dom-utils" "6.10.1-rc.7+9aeeb19b"
-    "@instructure/ui-i18n" "6.10.1-rc.7+9aeeb19b"
-    "@instructure/ui-prop-types" "6.10.1-rc.7+9aeeb19b"
-    "@instructure/ui-react-utils" "6.10.1-rc.7+9aeeb19b"
-    "@instructure/ui-themeable" "6.10.1-rc.7+9aeeb19b"
+    "@instructure/console" "6.10.1-rc.10+5bdb65a3"
+    "@instructure/ui-color-utils" "6.10.1-rc.10+5bdb65a3"
+    "@instructure/ui-dom-utils" "6.10.1-rc.10+5bdb65a3"
+    "@instructure/ui-i18n" "6.10.1-rc.10+5bdb65a3"
+    "@instructure/ui-prop-types" "6.10.1-rc.10+5bdb65a3"
+    "@instructure/ui-react-utils" "6.10.1-rc.10+5bdb65a3"
+    "@instructure/ui-themeable" "6.10.1-rc.10+5bdb65a3"
     classnames "^2"
     prop-types "^15"
 
@@ -4160,10 +4160,10 @@
     url-loader "^2.1.0"
     webpack "^4.39.0"
 
-"@instructure/uid@6.10.1-rc.7+9aeeb19b":
-  version "6.10.1-rc.7"
-  resolved "https://registry.yarnpkg.com/@instructure/uid/-/uid-6.10.1-rc.7.tgz#900e150b7b6991db0c36256fae0f93a0862d26eb"
-  integrity sha512-ZFuwyNkUlHV5JZZCwzq4ZUvQQ47iXea27GlO6DRCtHHOu0HwwSvYpy/aUeGxNq16eh8nGGskSfeQXmY62m5jrQ==
+"@instructure/uid@6.10.1-rc.10+5bdb65a3":
+  version "6.10.1-rc.10"
+  resolved "https://registry.yarnpkg.com/@instructure/uid/-/uid-6.10.1-rc.10.tgz#ceaa673fe8357195554c5de439260fe8d6eed78a"
+  integrity sha512-JeW9pbT4GpgJyrqmyoEei3ie8gNFY/D9+uSAFUaLNlPVs3FJJbcoOAmclffUmXVtMIDTtk8zSZNoOX8aurTnag==
   dependencies:
     "@babel/runtime" "^7"
 

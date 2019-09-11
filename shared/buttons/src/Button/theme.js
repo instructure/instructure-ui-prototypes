@@ -48,6 +48,7 @@ export default ({ borders, colors, forms, spacing, typography }) => {
     fontFamily: typography.fontFamily,
     fontWeight: typography.fontWeightNormal,
     textTransform: 'none',
+    textAlign: 'start',
     letterSpacing: 'normal',
     borderRadius: borders.radiusMedium,
     borderStyle: borders.style,
@@ -64,6 +65,7 @@ export default ({ borders, colors, forms, spacing, typography }) => {
     largeHeight: forms.inputHeightLarge,
     largePadding: spacing.medium,
     largeFontSize: typography.fontSizeLarge,
+    lineHeight: typography.lineHeightFit,
 
     iconSizeSmall: '1rem',
     iconSizeMedium: '1.25rem',
@@ -102,6 +104,12 @@ export default ({ borders, colors, forms, spacing, typography }) => {
       backgroundColor: colors.backgroundLightest,
       borderColor: colors.borderLightest,
       textColor: colors.textLightest
-    })
+    }),
+
+    // Overrides to match what was previously the light button
+    primaryInverseBorderColor: darken(colors.borderLight, 10),
+    primaryInverseHoverBackground: darken(colors.backgroundLightest, 5),
+    primaryInverseActiveBackground: colors.backgroundLightest,
+    primaryInverseActiveBoxShadow: `${activeShadow} ${darken(colors.borderLightest, 25)}`
   }
 }
