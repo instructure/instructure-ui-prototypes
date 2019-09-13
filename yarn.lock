@@ -2952,6 +2952,28 @@
     "@instructure/ui-utils" "^6.9.0"
     prop-types "^15"
 
+"@instructure/ui-navigation@^6.10.0":
+  version "6.10.0"
+  resolved "https://registry.yarnpkg.com/@instructure/ui-navigation/-/ui-navigation-6.10.0.tgz#676328360db4c4032ddaf7a085a2deb9c738c17c"
+  integrity sha512-XDD57YhyKxazqp6mc6c6xIzBsia1gu6WM/HCgBE3UIlvspEElgzSsVxVqs5ajXHGFNPqZCpFen1d7sc1yuINVQ==
+  dependencies:
+    "@babel/runtime" "^7"
+    "@instructure/console" "^6.10.0"
+    "@instructure/ui-a11y" "^6.10.0"
+    "@instructure/ui-dom-utils" "^6.10.0"
+    "@instructure/ui-elements" "^6.10.0"
+    "@instructure/ui-focusable" "^6.10.0"
+    "@instructure/ui-icons" "^6.10.0"
+    "@instructure/ui-layout" "^6.10.0"
+    "@instructure/ui-overlays" "^6.10.0"
+    "@instructure/ui-prop-types" "^6.10.0"
+    "@instructure/ui-react-utils" "^6.10.0"
+    "@instructure/ui-testable" "^6.10.0"
+    "@instructure/ui-themeable" "^6.10.0"
+    "@instructure/ui-utils" "^6.10.0"
+    classnames "^2"
+    prop-types "^15"
+
 "@instructure/ui-navigation@^6.6.0":
   version "6.6.0"
   resolved "https://registry.yarnpkg.com/@instructure/ui-navigation/-/ui-navigation-6.6.0.tgz#08900dbac30e0cf121baf1d4e567be5a1cef799b"

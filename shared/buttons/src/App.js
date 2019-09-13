@@ -29,7 +29,7 @@ import { Tabs } from '@instructure/ui-tabs'
 
 import { AllExamples } from './AllExamples'
 import { ToggleButtonExamples } from './ToggleButtonExamples'
-import { FluidWidthExamples } from './FluidWidthExamples'
+import { LinkButtonExamples } from './LinkButtonExamples'
 
 const App = () => {
   const [ selectedIndex, setSelectedIndex ] = useState(2)
@@ -45,7 +45,7 @@ const App = () => {
       onRequestTabChange={handleTabChange}
     >
       <Tabs.Panel
-        renderTitle="All Examples"
+        renderTitle="All Buttons"
         selected={selectedIndex === 0}
       >
         <AllExamples />
@@ -58,10 +58,11 @@ const App = () => {
         <ToggleButtonExamples />
       </Tabs.Panel>
       <Tabs.Panel
-        renderTitle="Fluid Width"
+        renderTitle="Link Buttons"
+        padding="xx-large"
         selected={selectedIndex === 2}
       >
-        <FluidWidthExamples />
+        <LinkButtonExamples />
       </Tabs.Panel>
     </Tabs>
   )

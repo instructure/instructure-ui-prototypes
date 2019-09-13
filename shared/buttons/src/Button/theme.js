@@ -48,7 +48,6 @@ export default ({ borders, colors, forms, spacing, typography }) => {
     fontFamily: typography.fontFamily,
     fontWeight: typography.fontWeightNormal,
     textTransform: 'none',
-    textAlign: 'start',
     letterSpacing: 'normal',
     borderRadius: borders.radiusMedium,
     borderStyle: borders.style,

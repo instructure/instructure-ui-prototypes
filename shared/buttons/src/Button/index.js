@@ -80,12 +80,14 @@ class Button extends Component {
       'danger'
     ]),
     display: PropTypes.oneOf(['inline-block', 'block']),
+    textAlign: PropTypes.oneOf(['start', 'center']),
     shape: PropTypes.oneOf([
       'rectangle',
       'circle'
     ]),
     withBackground: PropTypes.bool,
     withBorder: PropTypes.bool,
+    withPadding: PropTypes.bool,
     /**
     * Valid values are `0`, `none`, `auto`, `xxx-small`, `xx-small`, `x-small`,
     * `small`, `medium`, `large`, `x-large`, `xx-large`. Apply these values via
@@ -121,8 +123,10 @@ class Button extends Component {
     color: 'secondary',
     shape: 'rectangle',
     display: 'inline-block',
+    textAlign: 'start',
     withBackground: true,
     withBorder: true,
+    withPadding: true,
     margin: '0',
     cursor: 'pointer',
     href: undefined,
@@ -200,7 +204,7 @@ class Button extends Component {
   }
 
   renderChildren () {
-    const { renderIcon, children } = this.props
+    const { renderIcon, children, textAlign } = this.props
 
     if (!renderIcon) {
       return children
@@ -209,9 +213,7 @@ class Button extends Component {
     const { hasOnlyIconVisible } = this
     const icon = <span className={styles.iconSVG}>{callRenderProp(renderIcon)}</span>
 
-    const flexChildren = hasOnlyIconVisible ? [
-      <Flex.Item key="content">{icon}{children}</Flex.Item>
-    ] : [
+    const flexChildren = hasOnlyIconVisible ? <Flex.Item>{icon}{children}</Flex.Item> : [
       <Flex.Item key="icon" padding="0 x-small 0 0">{icon}</Flex.Item>,
       <Flex.Item key="children" shrink>{children}</Flex.Item>
     ]
@@ -219,7 +221,7 @@ class Button extends Component {
     const flexProps = {
       height: '100%',
       width: '100%',
-      justifyItems: 'center'
+      justifyItems: (hasOnlyIconVisible || textAlign === 'center') ? 'center' : 'start'
     }
 
     return <Flex {...flexProps}>{flexChildren}</Flex>
@@ -233,10 +235,12 @@ class Button extends Component {
       as,
       href,
       color,
+      textAlign,
       shape,
       display,
       withBackground,
       withBorder,
+      withPadding,
       margin,
       cursor,
       ...props
@@ -248,10 +252,12 @@ class Button extends Component {
       [styles.content]: true,
       [styles[`size--${size}`]]: true,
       [styles[`color--${color}`]]: true,
+      [styles[`textAlign--${textAlign}`]]: true,
       [styles[`shape--${shape}`]]: true,
       [styles[`display--${display}`]]: true,
       [styles.withBackground]: withBackground,
       [styles.withoutBackground]: !withBackground,
+      [styles.withoutPadding]: !withPadding,
       [styles.withBorder]: withBorder,
       [styles.withoutBorder]: !withBorder,
       [styles.hasOnlyIconVisible]: this.hasOnlyIconVisible

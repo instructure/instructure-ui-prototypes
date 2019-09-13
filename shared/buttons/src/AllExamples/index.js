@@ -113,7 +113,7 @@ const propertyCollections = [
       withBackground: false,
       withBorder: false
     },
-    permutationProps: generatePermutationProps({ iconOnlyPermutations: true })
+    permutationProps: generatePermutationProps()
   },
 ]
 
