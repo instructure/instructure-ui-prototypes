@@ -319,7 +319,7 @@ class RightSide extends Component {
                   <ScreenReaderContent>View Outcome</ScreenReaderContent>
                 </Button>
                 <Tray
-                  label="Rubric"
+                  label="Outcome"
                   open={this.state.showOutcome}
                   placement="end"
                   size="regular"

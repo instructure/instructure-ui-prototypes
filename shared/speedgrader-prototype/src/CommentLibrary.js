@@ -50,9 +50,9 @@ export default class CommentLibrary extends React.Component {
     onRequestHideLibrary: () => {}
   }
 
-state = {
-      showCommentInput: false
-    }
+  state = {
+    showCommentInput: false
+  }
 
   handleShowCommentInput = () => {
     this.setState({

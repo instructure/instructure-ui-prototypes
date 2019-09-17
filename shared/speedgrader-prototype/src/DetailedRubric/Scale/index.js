@@ -22,20 +22,13 @@
  * SOFTWARE.
  */
 
-
-//  TODO: if certain button is selected it needs to switch from 'circle-default' to
-//  circle-primary (this does not match the mock-up but the closest thing we currently
-//  have in instui). Based on which button is selected the rubric Description and
-//  rubricSummary need to switch out ... this functionality is really a radio button
-//  How to make it look right but be the correct pieces under the hood?
-
 import React from 'react'
 import PropTypes from 'prop-types'
 
 import { themeable } from '@instructure/ui-themeable'
 import styles from './styles.css'
 
-class RubricCriteria extends React.Component {
+class Scale extends React.Component {
   static propTypes = {
     label: PropTypes.node.isRequired,
     value: PropTypes.oneOfType([
@@ -100,4 +93,5 @@ class RubricCriteria extends React.Component {
   }
 }
 
-export default themeable(null, styles)(RubricCriteria)
+const ThemeableItem = themeable(null, styles)(Scale)
+export { ThemeableItem as Scale }

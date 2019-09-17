@@ -80,7 +80,7 @@ class Scale extends Component {
             </label>
           </div>
             { !this.state.showNoteInput ? (
-              <View as="div" padding="x-small 0" textAlign="end">
+              <View as="div" padding="x-small 0">
                 <Button
                   variant="icon"
                   icon={IconNoteLine}
