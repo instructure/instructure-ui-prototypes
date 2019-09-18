@@ -31,13 +31,21 @@ import { Button } from '../Button'
 
 export const CondensedButtonExamples = () => (
   <>
-    <ExampleDescription label="Standard button with reduced padding" />
+    <ExampleDescription label="Standard button with no padding" />
     <ExampleFrame width="70rem">
       <MasteryExample condensedButton={CondensedButtonA} />
+    </ExampleFrame>
+    <ExampleDescription label="Standard button with no horizontal padding, slight vertical padding" />
+    <ExampleFrame width="70rem">
+      <MasteryExample condensedButton={CondensedButtonB} />
     </ExampleFrame>
   </>
 )
 
 const CondensedButtonA = (props) => (
-  <Button color="primary" withBackground={false} withBorder={false} withPadding={false} {...props} />
+  <Button color="primary" withBackground={false} withBorder={false} padding="none" {...props} />
+)
+
+const CondensedButtonB = (props) => (
+  <Button color="primary" withBackground={false} withBorder={false} padding="reduced" {...props} />
 )

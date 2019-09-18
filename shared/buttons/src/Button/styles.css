@@ -82,11 +82,18 @@ a.content,
     }
   }
 
-  &.withoutPadding {
+  &.padding--reduced {
     padding-left: 0; /* stylelint-disable-line property-blacklist */
     padding-right: 0; /* stylelint-disable-line property-blacklist */
     padding-top: 0.25rem;
     padding-bottom: 0.25rem;
+  }
+
+  &.padding--none {
+    padding-left: 0; /* stylelint-disable-line property-blacklist */
+    padding-right: 0; /* stylelint-disable-line property-blacklist */
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
   &.background--brand {
