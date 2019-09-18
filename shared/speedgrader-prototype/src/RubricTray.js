@@ -31,7 +31,8 @@ import { ScreenReaderContent } from '@instructure/ui-a11y'
 import { IconXLine } from '@instructure/ui-icons'
 
 import DetailedRubric from './DetailedRubric'
-import SingleSelect from './SingleSelect'
+import ConciseRubric from './ConciseRubric'
+import { Select } from './Select'
 
 export default class RubricTray extends React.Component {
   static propTypes = {
@@ -43,7 +44,8 @@ export default class RubricTray extends React.Component {
   }
 
   state = {
-    showNoteInput: false
+    showNoteInput: false,
+    isDetailed: true,
   }
 
   handleShowNoteInput = () => {
@@ -60,6 +62,12 @@ export default class RubricTray extends React.Component {
 
   handleRubricClose = () => {
     this.props.onRequestHideRubric()
+  }
+
+  handleViewChange = (event, option) => {
+    this.setState((state) => ({
+      isDetailed: !state.isDetailed
+    }))
   }
 
   render() {
@@ -93,7 +101,7 @@ export default class RubricTray extends React.Component {
           </View>
         </View>
         <View as="div" padding="medium">
-          <DetailedRubric />
+          { this.state.isDetailed ? <DetailedRubric /> : <ConciseRubric /> }
         </View>
         <View
           padding="medium"
@@ -107,14 +115,16 @@ export default class RubricTray extends React.Component {
         >
           <Flex justifyItems="space-between">
             <Flex.Item shrink>
-              <SingleSelect
-                selectLabel={<ScreenReaderContent>Rubric View</ScreenReaderContent>}
-                selectedOptionId="1"
-                options={[
-                  { id: '1', label: 'Detail View' },
-                  { id: '2', label: 'Quick View' },
-                ]}
-              />
+              <Select
+                name="rubric view"
+                renderLabel={<ScreenReaderContent>Rubric View</ScreenReaderContent>}
+                onChange={this.handleViewChange}
+                value={this.state.isDetailed ? "detailed" : "concise"}
+              >
+                <option value="detailed" label="Detailed View">Detailed View</option>
+                <option value="concise" label="Quick View"> Quick View</option>
+              </Select>
+
             </Flex.Item>
             <Flex.Item grow textAlign="end">
               <Button variant="light" margin="0 x-small 0 0" onClick={this.handleRubricClose}>Cancel</Button>

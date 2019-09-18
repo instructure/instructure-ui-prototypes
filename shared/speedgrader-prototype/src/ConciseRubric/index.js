@@ -35,15 +35,6 @@ import { IconNoteLine, IconInfoLine } from '@instructure/ui-icons'
 import { Scale } from './Scale'
 
 export default class ConciseRubric extends React.Component {
-  static propTypes = {
-    rubricTitle: PropTypes.string,
-    rubricDescription: PropTypes.string,
-  }
-
-  static defaultProps = {
-    rubricTitle: undefined,
-    rubricDescription: undefined
-  }
 
   state = {
     showNoteInput: false,
@@ -63,21 +54,177 @@ export default class ConciseRubric extends React.Component {
   }
 
   render() {
-      const {
-        rubricTitle,
-        rubricDescription,
-      } = this.props
 
     return (
-      <View as="div" borderWidth="small 0 0 0" padding="small 0">
-        <Flex padding="small 0">
+      <div>
+        <View as="div" borderWidth="small 0 0 0" padding="small 0">
+          <Flex>
+            <Flex.Item>
+              <Text weight="bold" size="large">Setting</Text>
+            </Flex.Item>
+            <Flex.Item>
+              <Tooltip
+                tip={
+                  <View as="div" padding="small" maxWidth="15rem">
+                    <Text>How well can the student describe the setting of their story. This relates to location, time period and moods and attitudes of the socal structure.</Text>
+                  </View>
+                }
+                variant="default"
+                placement="end"
+                on={['click', 'hover', 'focus']}
+              >
+                <Button variant="icon" icon={<IconInfoLine inline={false} />}>
+                  <ScreenReaderContent>Toggle Setting Description</ScreenReaderContent>
+                </Button>
+              </Tooltip>
+            </Flex.Item>
+          </Flex>
+          <View as="form" padding="small 0">
+            <Scale
+              id="exceptional"
+              name="setting"
+              value="4"
+              label="Exceptional"
+              summary="Many vivid, descriptive words are used to tell when and where the story took place."
+            />
+            <Scale
+              id="good"
+              name="setting"
+              value="3"
+              label="Good"
+              summary="Some vivid, descriptive words are used to tell the audience when and where the story took place."
+            />
+            <Scale
+              id="fair"
+              name="setting"
+              value="2"
+              label="Fair"
+              summary="The reader can figure out when and where the story took place, but the author didn't supply much detail."
+            />
+            <Scale
+              id="poor"
+              name="setting"
+              value="1"
+              label="Poor"
+              summary="The reader has trouble figuring out when and where the story took place."
+            />
+          </View>
+        </View>
+        <View as="div" borderWidth="small 0 0 0" padding="small 0">
+          <Flex>
+            <Flex.Item>
+              <Text weight="bold" size="large">Characters</Text>
+            </Flex.Item>
+            <Flex.Item>
+              <Tooltip
+                tip={
+                  <View as="div" padding="small" maxWidth="15rem">
+                    <Text>How well does the student flesh out their characters.</Text>
+                  </View>
+                }
+                variant="default"
+                placement="end"
+                on={['click', 'hover', 'focus']}
+              >
+                <Button variant="icon" icon={<IconInfoLine inline={false} />}>
+                  <ScreenReaderContent>Toggle Character Description</ScreenReaderContent>
+                </Button>
+              </Tooltip>
+            </Flex.Item>
+          </Flex>
+          <View as="form" padding="small 0">
+            <Scale
+              id="exceptional"
+              name="character"
+              value="4"
+              label="Exceptional"
+              summary="The main characters are named and clearly described. Most readers could describe the characters accurately."
+            />
+            <Scale
+              id="good"
+              name="character"
+              value="3"
+              label="Good"
+              summary="The main characters are named and described. Most readers would have some idea of what the characters looked like."
+            />
+            <Scale
+              id="fair"
+              name="character"
+              value="2"
+              label="Fair"
+              summary="The main characters are named. The reader knows very little about the characters."
+            />
+            <Scale
+              id="poor"
+              name="character"
+              value="1"
+              label="Poor"
+              summary="It is hard to tell who the main characters are."
+            />
+          </View>
+        </View>
+        <View as="div" borderWidth="small 0 0 0" padding="small 0">
+          <Flex>
+            <Flex.Item>
+              <Text weight="bold" size="large">Dialogue</Text>
+            </Flex.Item>
+            <Flex.Item>
+              <Tooltip
+                tip={
+                  <View as="div" padding="small" maxWidth="15rem">
+                    <Text>How well can the student describe the setting of their story. This relates to location, time period and moods and attitudes of the socal structure.</Text>
+                  </View>
+                }
+                variant="default"
+                placement="end"
+                on={['click', 'hover', 'focus']}
+              >
+                <Button variant="icon" icon={<IconInfoLine inline={false} />}>
+                  <ScreenReaderContent>Toggle Dialoge Description</ScreenReaderContent>
+                </Button>
+              </Tooltip>
+            </Flex.Item>
+          </Flex>
+          <View as="form" padding="small 0">
+            <Scale
+              id="exceptional"
+              name="dialogue"
+              value="4"
+              label="Exceptional"
+              summary="Many vivid, descriptive words are used to tell when and where the story took place."
+            />
+            <Scale
+              id="good"
+              name="dialogue"
+              value="3"
+              label="Good"
+              summary="Some vivid, descriptive words are used to tell the audience when and where the story took place."
+            />
+            <Scale
+              id="fair"
+              name="dialogue"
+              value="2"
+              label="Fair"
+              summary="The reader can figure out when and where the story took place, but the author didn't supply much detail."
+            />
+            <Scale
+              id="poor"
+              name="dialogue"
+              value="1"
+              label="Poor"
+              summary="The reader has trouble figuring out when and where the story took place."
+            />
+          </View>
+        </View>  
+        <View as="div" borderWidth="small 0 0 0" padding="small 0">
+        <Flex>
           <Flex.Item>
             <Text weight="bold" size="large">Organization</Text>
           </Flex.Item>
           <Flex.Item>
             <Tooltip
               tip={
-                <View padding="medium" maxWidth="15rem">
+                <View as="div" padding="small" maxWidth="15rem">
                   <Text>How well can the student describe the setting of their story. This relates to location, time period and moods and attitudes of the socal structure.</Text>
                 </View>
               }
@@ -121,27 +268,8 @@ export default class ConciseRubric extends React.Component {
             summary="It is hard to tell who the main characters are."
           />
         </View>
-        { !this.state.showNoteInput ? (
-          <View as="div" padding="x-small 0">
-            <Button
-              variant="icon"
-              icon={<IconNoteLine inline={false} />}
-              onClick={this.handleShowNoteInput}
-            >
-              <ScreenReaderContent>Add a Note</ScreenReaderContent>
-            </Button>
-          </View>
-        ) : null }
-
-        { this.state.showNoteInput ? (
-          <View as="div" padding="medium 0">
-            <TextArea
-              label="Rating Note"
-              onClick={this.handleHideNoteInput}
-            />
-          </View>
-        ) : null }
-    </View>
+      </View>
+    </div>
     )
   }
 }

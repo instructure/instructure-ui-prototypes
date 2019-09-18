@@ -1645,7 +1645,7 @@
     classnames "^2"
     prop-types "^15"
 
-"@instructure/ui-forms@^6.12.0", "@instructure/ui-forms@^6.6.0", "@instructure/ui-forms@^6.7.0":
+"@instructure/ui-forms@^6.12.0", "@instructure/ui-forms@^6.6.0":
   version "6.12.0"
   resolved "https://registry.yarnpkg.com/@instructure/ui-forms/-/ui-forms-6.12.0.tgz#9c245c579f82cf9ae4945edacbcedf2b2b266db2"
   integrity sha512-4kYKJnA3rgygebv4XhPoBIqoHEeUhC/nRPm3phIF3g/ELn2+km0KrgkaKcwQxyHt6BEREq4tsTPzr1kOoS2+qQ==
@@ -1803,7 +1803,7 @@
     classnames "^2"
     prop-types "^15"
 
-"@instructure/ui-number-input@^6.12.0", "@instructure/ui-number-input@^6.6.0", "@instructure/ui-number-input@^6.7.0":
+"@instructure/ui-number-input@^6.12.0", "@instructure/ui-number-input@^6.6.0":
   version "6.12.0"
   resolved "https://registry.yarnpkg.com/@instructure/ui-number-input/-/ui-number-input-6.12.0.tgz#208fac42b6e6da71fd4b3d84cbce18a1ebda7e45"
   integrity sha512-CGgVA/OK9KWAsqeFEbB5CCvd4pvJWy/0yXpQnoHYSG6FtPnoiD9NzQF4e8E+68wPy/JpYxw5crMqipkvDQ1YHw==
@@ -1836,7 +1836,7 @@
     prop-types "^15"
     react "^15 || ^16"
 
-"@instructure/ui-overlays@^6.12.0", "@instructure/ui-overlays@^6.6.0", "@instructure/ui-overlays@^6.7.0":
+"@instructure/ui-overlays@^6.12.0", "@instructure/ui-overlays@^6.6.0":
   version "6.12.0"
   resolved "https://registry.yarnpkg.com/@instructure/ui-overlays/-/ui-overlays-6.12.0.tgz#6f48219bc1f21320cf0356edb44ea91f0a88a8fe"
   integrity sha512-rvur50P1WD3gehGTNo6/fJ4PJx+6/td1oK4pvmb+qtvinjP5DjQuBJ8SwneUGoQtol10CW8FK/UMhcp3L2MjZQ==
@@ -1919,7 +1919,7 @@
     postcss-reporter "^6.0.1"
     postcss-simple-vars "^5.0.1"
 
-"@instructure/ui-prop-types@^6.12.0", "@instructure/ui-prop-types@^6.6.0", "@instructure/ui-prop-types@^6.7.0":
+"@instructure/ui-prop-types@^6.12.0", "@instructure/ui-prop-types@^6.6.0":
   version "6.12.0"
   resolved "https://registry.yarnpkg.com/@instructure/ui-prop-types/-/ui-prop-types-6.12.0.tgz#a73f430e4b423ca96a878a818e802736da45f72a"
   integrity sha512-6O4WAPZ1Rp2VUMXuvm69ZeGH87XJ2Y864UJuiD0JUZeo8L6HGurDbdCVSStVdfPOJKSqJydQON6rKUYZoi1j9Q==
@@ -1984,7 +1984,7 @@
     "@storybook/react" "^4 || ^5"
     storybook-chromatic "^2"
 
-"@instructure/ui-select@^6.6.0", "@instructure/ui-select@^6.7.0":
+"@instructure/ui-select@^6.12.0", "@instructure/ui-select@^6.6.0", "@instructure/ui-select@^6.7.0":
   version "6.12.0"
   resolved "https://registry.yarnpkg.com/@instructure/ui-select/-/ui-select-6.12.0.tgz#c41c84ea8b19d81017a414d5123c3ebb34ec6f9b"
   integrity sha512-OnWDoRvpPgIxeXOft8pHsGHdUohMgH9P4Sdv96p/pQebsQCezt1tcPiDbLmhTgwyxliVvByy9mPVjjY7BnQfTA==
@@ -2043,7 +2043,7 @@
     "@babel/runtime" "^7"
     glamor "^2.20.40"
 
-"@instructure/ui-svg-images@^6.12.0", "@instructure/ui-svg-images@^6.6.0", "@instructure/ui-svg-images@^6.7.0":
+"@instructure/ui-svg-images@^6.12.0", "@instructure/ui-svg-images@^6.6.0":
   version "6.12.0"
   resolved "https://registry.yarnpkg.com/@instructure/ui-svg-images/-/ui-svg-images-6.12.0.tgz#0ab1c895f704d4868a6cf11c35bc10441207117e"
   integrity sha512-5duLDLMDV5HZLHr1ue9GmZRLj4vt1Uc0FGzAgTGwh29cIT6/aD+Fwhsin+o4ud06iNxlg2ZulWb0YEnujPtX+g==
@@ -2104,7 +2104,7 @@
   dependencies:
     "@instructure/ui-decorator" "^6.12.0"
 
-"@instructure/ui-text-input@^6.12.0", "@instructure/ui-text-input@^6.6.0", "@instructure/ui-text-input@^6.7.0":
+"@instructure/ui-text-input@^6.12.0", "@instructure/ui-text-input@^6.6.0":
   version "6.12.0"
   resolved "https://registry.yarnpkg.com/@instructure/ui-text-input/-/ui-text-input-6.12.0.tgz#d47e0c93e5cbe18ee860ca0133108684a6cb1b2e"
   integrity sha512-jULh/Ynef49buzfL9JS+nU808Hxh2yYqcDMOMKP5nfiHuq1e4vdpBn0Q5Dvx22OFQu2GLcqIApBGxw8rARj+oA==
@@ -9143,7 +9143,7 @@ humanize-url@^1.0.0:
     normalize-url "^1.0.0"
     strip-url-auth "^1.0.0"
 
-"humps@github:CompuIves/humps":
+humps@CompuIves/humps:
   version "2.0.0"
   resolved "https://codeload.github.com/CompuIves/humps/tar.gz/7ee34e874c808cf60e7119ee71ac71b8bf2189b7"
 

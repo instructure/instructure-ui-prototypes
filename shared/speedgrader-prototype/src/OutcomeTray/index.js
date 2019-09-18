@@ -35,7 +35,6 @@ import { ToggleDetails } from '@instructure/ui-toggle-details'
 import { ScreenReaderContent } from '@instructure/ui-a11y'
 import { IconXLine } from '@instructure/ui-icons'
 
-import SingleSelect from '../SingleSelect'
 import { Scale } from './Scale'
 
 export default class OutcomeTray extends React.Component {
@@ -123,22 +122,10 @@ export default class OutcomeTray extends React.Component {
           insetInlineEnd="0"
           insetBlockEnd="0"
         >
-          <Flex justifyItems="space-between">
-            <Flex.Item shrink>
-              <SingleSelect
-                selectLabel={<ScreenReaderContent>Rubric View</ScreenReaderContent>}
-                selectedOptionId="1"
-                options={[
-                  { id: '1', label: 'Detail View' },
-                  { id: '2', label: 'Quick View' },
-                ]}
-              />
-            </Flex.Item>
-            <Flex.Item grow textAlign="end">
-              <Button variant="light" margin="0 x-small 0 0" onClick={this.handleOutcomeClose}>Cancel</Button>
-              <Button variant="primary">Save</Button>
-            </Flex.Item>
-          </Flex>
+          <View as="div" textAlign="end">
+            <Button variant="light" margin="0 x-small 0 0" onClick={this.handleOutcomeClose}>Cancel</Button>
+            <Button variant="primary">Save</Button>
+          </View>
         </View>
       </View>
     )
