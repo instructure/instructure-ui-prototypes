@@ -30,9 +30,10 @@ import { Tabs } from '@instructure/ui-tabs'
 import { AllExamples } from './AllExamples'
 import { ToggleButtonExamples } from './ToggleButtonExamples'
 import { LinkButtonExamples } from './LinkButtonExamples'
+import { CondensedButtonExamples } from './CondensedButtonExamples'
 
 const App = () => {
-  const [ selectedIndex, setSelectedIndex ] = useState(2)
+  const [ selectedIndex, setSelectedIndex ] = useState(3)
 
   const handleTabChange = (event, { index }) => {
     setSelectedIndex(index)
@@ -63,6 +64,13 @@ const App = () => {
         selected={selectedIndex === 2}
       >
         <LinkButtonExamples />
+      </Tabs.Panel>
+      <Tabs.Panel
+        renderTitle="Condensed Buttons"
+        padding="xx-large"
+        selected={selectedIndex === 3}
+      >
+        <CondensedButtonExamples />
       </Tabs.Panel>
     </Tabs>
   )

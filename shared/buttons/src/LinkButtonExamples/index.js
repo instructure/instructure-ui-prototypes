@@ -25,16 +25,15 @@
 import React from 'react'
 
 import { View } from '@instructure/ui-view'
-import {  Heading, List } from '@instructure/ui-elements'
 
 import { IconAddLine, IconTrashLine } from '@instructure/ui-icons'
 import { Button as InstuiButton } from '@instructure/ui-buttons'
-import { ScreenReaderContent } from '@instructure/ui-a11y'
 
+import { ExampleContainer, ExampleFrame, ExampleDescription } from '../ExampleHelpers'
 import { Button } from '../Button'
 import { Link } from '../Link'
+
 import { CourseNavExample } from './CourseNavExample'
-import { SpeedGraderExample } from './SpeedGraderExample'
 import { GaugeAssessmentExample } from './GaugeAssessmentExample'
 
 export const LinkButtonExamples = () => (
@@ -117,41 +116,6 @@ export const LinkButtonExamples = () => (
         <iframe title="link as button example 2" src="https://share.getcloudapp.com/7Ku2KR08?branding=true&amp;embed=true&amp;title=true" width="100%" height="100%" style={{ border: 'none', }} frameBorder="0" allowTransparency="true" allowFullscreen="true"></iframe>
       </ExampleFrame>
     </ExampleContainer>
-  </View>
-)
-
-const ExampleContainer = ({ children, count, description }) => (
-  <View display="block" maxWidth="60rem">
-    <><Heading level="h3" as="h3">Situation {count}: {description}</Heading></>
-    {children}
-  </View>
-)
-
-const ExampleFrame = ({ children, description, height = 'auto', withBorder = true } = {}) => (
-  <View display="block" margin="medium none large none">
-    {description}
-    <View
-      margin="small none none none"
-      display="block"
-      borderWidth={withBorder ? 'medium' : 'none'}
-      borderColor="primary"
-      width="60rem"
-      height={height}
-      overflowX="hidden"
-    >
-      {children}
-    </View>
-  </View>
-)
-
-const ExampleDescription = ({ label, children }) => (
-  <View display="block" margin="medium none none">
-    {label && <Heading margin="none none xx-small none" level="h4" as="h3">{label}</Heading>}
-    {children && (
-      <List>
-        {children.map(child => <List.Item key={child}>{child}</List.Item>)}
-      </List>
-    )}
   </View>
 )
 
