@@ -102,19 +102,19 @@ export const LinkButtonExamples = () => (
     </ExampleContainer>
     <ExampleContainer count={4} description="Button that looks identical to link in every way but is being used as a button">
       <ExampleFrame height="600px">
-        <iframe title="link as button example 1" src="https://share.getcloudapp.com/BluplBB0?branding=true&amp;embed=true&amp;title=true" width="100%" height="100%" style={{ border: 'none' }} frameBorder="0" allowTransparency="true" allowFullscreen="true"></iframe>
+        <iframe title="link as button example 1" src="https://share.getcloudapp.com/BluplBB0?branding=true&amp;embed=true&amp;title=true" width="100%" height="100%" style={{ border: 'none', }} frameBorder="0" allowTransparency="true" allowFullscreen="true"></iframe>
       </ExampleFrame>
       <ExampleFrame height="600px">
-        <iframe title="link as button example 2" src="https://share.getcloudapp.com/qGugeoor?branding=true&amp;embed=true&amp;title=true" width="100%" height="100%" style={{ border: 'none' }} frameBorder="0" allowTransparency="true" allowFullscreen="true"></iframe>
+        <iframe title="link as button example 2" src="https://share.getcloudapp.com/qGugeoor?branding=true&amp;embed=true&amp;title=true" width="100%" height="100%" style={{ border: 'none', }} frameBorder="0" allowTransparency="true" allowFullscreen="true"></iframe>
       </ExampleFrame>
       <ExampleFrame height="600px">
-        <iframe title="link as button example 2" src="https://share.getcloudapp.com/GGuLGNNG?branding=true&amp;embed=true&amp;title=true" width="100%" height="100%" style={{ border: 'none' }} frameBorder="0" allowTransparency="true" allowFullscreen="true"></iframe>
+        <iframe title="link as button example 2" src="https://share.getcloudapp.com/GGuLGNNG?branding=true&amp;embed=true&amp;title=true" width="100%" height="100%" style={{ border: 'none', }} frameBorder="0" allowTransparency="true" allowFullscreen="true"></iframe>
       </ExampleFrame>
       <ExampleFrame height="600px">
-        <iframe title="link as button example 2" src="https://share.getcloudapp.com/ApuNprj6?branding=true&amp;embed=true&amp;title=true" width="100%" height="100%" style={{ border: 'none' }} frameBorder="0" allowTransparency="true" allowFullscreen="true"></iframe>
+        <iframe title="link as button example 2" src="https://share.getcloudapp.com/ApuNprj6?branding=true&amp;embed=true&amp;title=true" width="100%" height="100%" style={{ border: 'none', }} frameBorder="0" allowTransparency="true" allowFullscreen="true"></iframe>
       </ExampleFrame>
       <ExampleFrame height="600px">
-        <iframe title="link as button example 2" src="https://share.getcloudapp.com/7Ku2KR08?branding=true&amp;embed=true&amp;title=true" width="100%" height="100%" style={{ border: 'none' }} frameBorder="0" allowTransparency="true" allowFullscreen="true"></iframe>
+        <iframe title="link as button example 2" src="https://share.getcloudapp.com/7Ku2KR08?branding=true&amp;embed=true&amp;title=true" width="100%" height="100%" style={{ border: 'none', }} frameBorder="0" allowTransparency="true" allowFullscreen="true"></iframe>
       </ExampleFrame>
     </ExampleContainer>
   </View>
