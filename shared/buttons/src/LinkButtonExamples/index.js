@@ -22,171 +22,143 @@
  *
  */
 
-import React, { useState } from 'react'
+import React from 'react'
 
 import { View } from '@instructure/ui-view'
-import { DrawerLayout, Flex } from '@instructure/ui-layout'
-import { Navigation } from '@instructure/ui-navigation'
-import { Avatar, Badge, Heading, Text } from '@instructure/ui-elements'
+import {  Heading, List } from '@instructure/ui-elements'
+
+import { IconAddLine, IconTrashLine } from '@instructure/ui-icons'
+import { Button as InstuiButton } from '@instructure/ui-buttons'
 import { ScreenReaderContent } from '@instructure/ui-a11y'
-import { CloseButton } from '@instructure/ui-buttons'
-import {
-  IconInstructureLine,
-  IconAdminLine,
-  IconDashboardLine,
-  IconCoursesLine,
-  IconInboxLine,
-  IconXLine
-} from '@instructure/ui-icons'
 
 import { Button } from '../Button'
+import { Link } from '../Link'
+import { CourseNavExample } from './CourseNavExample'
+import { SpeedGraderExample } from './SpeedGraderExample'
+import { GaugeAssessmentExample } from './GaugeAssessmentExample'
 
 export const LinkButtonExamples = () => (
   <View display="block">
+    <ExampleContainer count={1} description="The link is contained within body text">
+      <ExampleDescription>
+        {[
+          'A simple Link component is used',
+          'The link is permanently underlined so it is distinguishable from surrounding text'
+        ]}
+      </ExampleDescription>
+      <ExampleFrame>
+        <View display="block" margin="large">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor <Link href="#">incididunt ut labore</Link> et dolore magna
+          aliqua. Ut enim ad minim veniam, quis nostrud <Link href="#">exercitation ullamco</Link> laboris nisi ut aliquip ex ea commodo consequat.
+          Duis aute <Link href="#">irure dolor in</Link> reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+          occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </View>
+      </ExampleFrame>
+    </ExampleContainer>
+    <ExampleContainer count={2} description="The link is outside body text">
+      <ExampleDescription label="Course Navigation">
+        {[
+          'A simple Link component is used',
+          'Link is configured to only show the underline on hover'
+        ]}
+      </ExampleDescription>
+      <ExampleFrame height="40rem">
+        <CourseNavExample/>
+      </ExampleFrame>
+      {/* <ExampleFrame height="40rem" description="Gradebook">
+        <SpeedGraderExample />
+      </ExampleFrame> */}
+    </ExampleContainer>
+    <ExampleContainer count={3} description="Button without border and background that is used with other buttons or inputs">
+      <ExampleDescription label="Currently InstUI has a text-only button, it's the `link` variant">
+        {[
+          'It has padding consistent with other buttons so that it can be aligned with form elements (inputs, etc)',
+          'It has no background or border so it resembles a link at first glance',
+          'It has a completely different hover and focus state from other buttons currently, it underlines'
+        ]}
+      </ExampleDescription>
+      <ExampleFrame withBorder={false}>
+        <InstuiButton margin="large" variant="link">Hello world</InstuiButton>
+        <InstuiButton margin="large" variant="link" icon={IconTrashLine}>Hello world</InstuiButton>
+      </ExampleFrame>
+      <ExampleDescription label="With our button refactor, we should consider clearing some confusion by removing the association between this type of button and link (if we decide to even continue using it)">
+        {[
+          'The user doesn\'t use the word `link` to specify this type of button, they just turn off the background and border',
+          'We replace the underline focus/hover states (since those are visual cues for link) with focus/hover states that are consistent with ghost button and other icon buttons'
+        ]}
+      </ExampleDescription>
+      <ExampleFrame withBorder={false}>
+        <Button margin="large" withBackground={false} withBorder={false} color="primary">Hello world</Button>
+        <Button margin="large" withBackground={false} withBorder={false} color="primary" renderIcon={IconTrashLine}>Hello world</Button>
+      </ExampleFrame>
+      <ExampleDescription label="Gauge assessment with existing InstUI button (link variant)" />
+      <ExampleFrame>
+        <GaugeAssessmentExample addButton={InstuiAddButton} />
+      </ExampleFrame>
+      <ExampleDescription label="Gauge assessment with possible updated button" />
+      <ExampleFrame>
+        <GaugeAssessmentExample addButton={AddButton} />
+      </ExampleFrame>
+    </ExampleContainer>
+    <ExampleContainer count={4} description="Button that looks identical to link in every way but is being used as a button">
+      <ExampleFrame height="600px">
+        <iframe title="link as button example 1" src="https://share.getcloudapp.com/BluplBB0?branding=true&amp;embed=true&amp;title=true" width="100%" height="100%" style={{ border: 'none' }} frameBorder="0" allowTransparency="true" allowFullscreen="true"></iframe>
+      </ExampleFrame>
+      <ExampleFrame height="600px">
+        <iframe title="link as button example 2" src="https://share.getcloudapp.com/qGugeoor?branding=true&amp;embed=true&amp;title=true" width="100%" height="100%" style={{ border: 'none' }} frameBorder="0" allowTransparency="true" allowFullscreen="true"></iframe>
+      </ExampleFrame>
+      <ExampleFrame height="600px">
+        <iframe title="link as button example 2" src="https://share.getcloudapp.com/GGuLGNNG?branding=true&amp;embed=true&amp;title=true" width="100%" height="100%" style={{ border: 'none' }} frameBorder="0" allowTransparency="true" allowFullscreen="true"></iframe>
+      </ExampleFrame>
+      <ExampleFrame height="600px">
+        <iframe title="link as button example 2" src="https://share.getcloudapp.com/ApuNprj6?branding=true&amp;embed=true&amp;title=true" width="100%" height="100%" style={{ border: 'none' }} frameBorder="0" allowTransparency="true" allowFullscreen="true"></iframe>
+      </ExampleFrame>
+      <ExampleFrame height="600px">
+        <iframe title="link as button example 2" src="https://share.getcloudapp.com/7Ku2KR08?branding=true&amp;embed=true&amp;title=true" width="100%" height="100%" style={{ border: 'none' }} frameBorder="0" allowTransparency="true" allowFullscreen="true"></iframe>
+      </ExampleFrame>
+    </ExampleContainer>
+  </View>
+)
+
+const ExampleContainer = ({ children, count, description }) => (
+  <View display="block" maxWidth="60rem">
+    <><Heading level="h3" as="h3">Situation {count}: {description}</Heading></>
+    {children}
+  </View>
+)
+
+const ExampleFrame = ({ children, description, height = 'auto', withBorder = true } = {}) => (
+  <View display="block" margin="medium none large none">
+    {description}
     <View
+      margin="small none none none"
       display="block"
-      borderWidth="medium"
+      borderWidth={withBorder ? 'medium' : 'none'}
       borderColor="primary"
       width="60rem"
-      height="40rem"
+      height={height}
       overflowX="hidden"
     >
-      <Flex alignItems="stretch" height="100%">
-        <Flex.Item>
-          <DemoNavigation />
-        </Flex.Item>
-        <Flex.Item grow>
-          <View display="block" height="100%" overflowX="hidden">
-            <DrawerLayout minWidth="40rem">
-              <DrawerLayout.Tray
-                open
-                label="courses"
-              >
-                <View
-                  display="block"
-                  width="24rem"
-                  padding="large"
-                >
-                  <View position="absolute" insetInlineEnd="0" insetBlockStart="0" margin="small">
-                    <Button
-                      withBorder={false}
-                      withBackground={false}
-                      renderIcon={IconXLine}
-                    >
-                      <ScreenReaderContent>Close</ScreenReaderContent>
-                    </Button>
-                  </View>
-                  <Heading as="h2">Courses</Heading>
-                  <View
-                    display="block"
-                    margin="medium none"
-                    padding="medium none"
-                    borderWidth="small none"
-                  >
-                    <CourseLink name={`History of B&M`} />
-                    <CourseLink name={`RMC Replacement Process`} />
-                    <CourseLink name={`Action Park and the Art of Disaster`} />
-                    <CourseLink name={`Intro to Model Roller Coasters`} />
-                  </View>
-                  <LinkButton>All Courses</LinkButton>
-                  <View display="block" margin="medium none">
-                    <Text>
-                      {`Welcome to your courses! To customize the list of courses, click on the "All Courses" link and star the courses to display.`}
-                    </Text>
-                  </View>
-                </View>
-              </DrawerLayout.Tray>
-              <DrawerLayout.Content label="empty content" />
-            </DrawerLayout>
-          </View>
-        </Flex.Item>
-      </Flex>
+      {children}
     </View>
   </View>
 )
 
-const CourseLink = ({ name, term = 'Default Term' } = {}) => (
-  <View display="block" margin="none none medium none">
-    <View display="block">
-      <LinkButton>{name}</LinkButton>
-    </View>
-    <Text size="small" color="secondary">{term}</Text>
+const ExampleDescription = ({ label, children }) => (
+  <View display="block" margin="medium none none">
+    {label && <Heading margin="none none xx-small none" level="h4" as="h3">{label}</Heading>}
+    {children && (
+      <List>
+        {children.map(child => <List.Item key={child}>{child}</List.Item>)}
+      </List>
+    )}
   </View>
 )
 
-const LinkButton = ({ children }) => (
-  <Button
-    color="primary"
-    withBorder={false}
-    withBackground={false}
-    withPadding={false}
-  >
-    {children}
-  </Button>
+const AddButton = (props) => (
+  <Button color="primary" withBorder={false} withBackground={false} renderIcon={IconAddLine} {...props} />
 )
 
-const DemoNavigation = () => {
-  const [ isMinimized, setMinimized ] = useState(false)
-
-  const handleMinimized = (event, isMinimized) => setMinimized(isMinimized)
-
-  const logoContainerProps = isMinimized ? {
-    height: '2.5rem',
-    padding: 'none xx-small x-small xx-small'
-  } : {
-    height: '2.85rem',
-    margin: 'x-small none xx-small none',
-    padding: 'none small xx-small small',
-    display: 'block'
-  }
-
-  return (
-    <Navigation
-      onMinimized={handleMinimized}
-      label="Main navigation"
-      toggleLabel={{
-        expandedLabel: 'Minimize Navigation',
-        minimizedLabel: 'Expand Navigation'
-      }}
-    >
-      <Navigation.Item
-        icon={
-          <View
-            display="block"
-            {...logoContainerProps}
-          >
-            <IconInstructureLine width="100%" height="100%" />
-          </View>
-        }
-        label={<ScreenReaderContent>Home</ScreenReaderContent>}
-        href="#"
-      />
-      <Navigation.Item
-        icon={<Avatar name="Ziggy Marley" size="x-small" />}
-        label="Account"
-        href="#"
-      />
-      <Navigation.Item
-        icon={<IconAdminLine />}
-        label="Admin"
-        href="#"
-      />
-      <Navigation.Item
-        icon={<IconDashboardLine />}
-        label="Dashboard"
-        href="#"
-      />
-      <Navigation.Item
-        selected
-        icon={<IconCoursesLine />}
-        label="Courses"
-        href="#"
-      />
-      <Navigation.Item
-        icon={<Badge count={99}><IconInboxLine /></Badge>}
-        label="Inbox"
-        href="#"
-      />
-    </Navigation>
-  )
-}
+const InstuiAddButton = (props) => (
+  <InstuiButton icon={IconAddLine} variant="link" {...props} />
+)

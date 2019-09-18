@@ -4380,6 +4380,31 @@
     "@instructure/canvas-high-contrast-theme" "^6.6.0"
     "@instructure/canvas-theme" "^6.6.0"
 
+"@instructure/ui-toggle-details@^6.10.0":
+  version "6.11.0"
+  resolved "https://registry.yarnpkg.com/@instructure/ui-toggle-details/-/ui-toggle-details-6.11.0.tgz#1c253aa961a40cc2675f1b67119e8c3fb77c2cb9"
+  integrity sha512-eH39w9Ms6Sn+LCKmhUKZXzoW2ryznbcfxvHJSzgmq+FqwxJhD6H/Z603NHY8Gw8AdzU97m2DAKGKR8r9sZPpaQ==
+  dependencies:
+    "@babel/runtime" "^7"
+    "@instructure/ui-a11y-content" "^6.11.0"
+    "@instructure/ui-buttons" "^6.11.0"
+    "@instructure/ui-dom-utils" "^6.11.0"
+    "@instructure/ui-elements" "^6.11.0"
+    "@instructure/ui-flex" "^6.11.0"
+    "@instructure/ui-icons" "^6.11.0"
+    "@instructure/ui-layout" "^6.11.0"
+    "@instructure/ui-menu" "^6.11.0"
+    "@instructure/ui-motion" "^6.11.0"
+    "@instructure/ui-prop-types" "^6.11.0"
+    "@instructure/ui-react-utils" "^6.11.0"
+    "@instructure/ui-testable" "^6.11.0"
+    "@instructure/ui-themeable" "^6.11.0"
+    "@instructure/ui-utils" "^6.11.0"
+    "@instructure/ui-view" "^6.11.0"
+    "@instructure/uid" "^6.11.0"
+    classnames "^2"
+    prop-types "^15"
+
 "@instructure/ui-toggle-details@^6.7.0":
   version "6.7.0"
   resolved "https://registry.yarnpkg.com/@instructure/ui-toggle-details/-/ui-toggle-details-6.7.0.tgz#7b658ff5dc511959a9e5999c51d79e2f795fcd4b"
@@ -4488,6 +4513,22 @@
     "@instructure/ui-prop-types" "6.10.1-rc.9+2eb42d7b"
     "@instructure/ui-react-utils" "6.10.1-rc.9+2eb42d7b"
     "@instructure/ui-themeable" "6.10.1-rc.9+2eb42d7b"
+    classnames "^2"
+    prop-types "^15"
+
+"@instructure/ui-view@^6.11.0":
+  version "6.11.0"
+  resolved "https://registry.yarnpkg.com/@instructure/ui-view/-/ui-view-6.11.0.tgz#6f30d39e938d8685e369353d3db79abde8467300"
+  integrity sha512-tnBtEbBecpdTrtSD+RZVQw8DvRVJbzb/quGdFOPut23p4028gw2IkICBjav7Vro5QeMvOupz1PrYwO92a+R9Lw==
+  dependencies:
+    "@babel/runtime" "^7"
+    "@instructure/console" "^6.11.0"
+    "@instructure/ui-color-utils" "^6.11.0"
+    "@instructure/ui-dom-utils" "^6.11.0"
+    "@instructure/ui-i18n" "^6.11.0"
+    "@instructure/ui-prop-types" "^6.11.0"
+    "@instructure/ui-react-utils" "^6.11.0"
+    "@instructure/ui-themeable" "^6.11.0"
     classnames "^2"
     prop-types "^15"
 

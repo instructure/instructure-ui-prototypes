@@ -26,6 +26,7 @@
 		"@instructure/ui-tabs": "^6.10.0",
 		"@instructure/ui-text-input": "^6.10.0",
 		"@instructure/ui-themeable": "^6.10.0",
+		"@instructure/ui-toggle-details": "^6.10.0",
 		"@instructure/ui-view": "^6.10.1-rc.7",
 		"classnames": "^2.2.6",
 		"keycode": "^2",
