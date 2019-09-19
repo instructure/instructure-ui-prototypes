@@ -35,7 +35,7 @@ import { IconAssignmentLine } from '@instructure/ui-icons'
 import { Button } from '../Button'
 
 const CondensedButton = (props) => (
-  <Button color="primary" withBackground={false} withBorder={false} padding="none" {...props} />
+  <Button color="primary" withBackground={false} withBorder={false} isCondensed {...props} />
 )
 
 export const CondensedButtonExamples = () => (
@@ -43,6 +43,19 @@ export const CondensedButtonExamples = () => (
     <ExampleDescription label="Condensed button in gradebook" />
     <ExampleFrame width="70rem">
       <GradebookExample condensedButton={CondensedButton} />
+    </ExampleFrame>
+    <ExampleDescription label="Condensed button with icons" />
+    <ExampleFrame width="70rem">
+      <View display="block" padding="large">
+        <CondensedButton size="small" margin="small" renderIcon={IconAssignmentLine}>Hello world</CondensedButton>
+        <CondensedButton size="small" margin="small">Hello world</CondensedButton>
+        <br />
+        <CondensedButton size="medium" margin="small" renderIcon={IconAssignmentLine}>Hello world</CondensedButton>
+        <CondensedButton size="medium" margin="small">Hello world</CondensedButton>
+        <br />
+        <CondensedButton size="large" margin="small" renderIcon={IconAssignmentLine}>Hello world</CondensedButton>
+        <CondensedButton size="large" margin="small">Hello world</CondensedButton>
+      </View>
     </ExampleFrame>
     {/* <ExampleDescription label="Condensed button with icon set" />
     <ExampleFrame width="70rem">
