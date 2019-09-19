@@ -87,6 +87,7 @@ class Button extends Component {
     ]),
     withBackground: PropTypes.bool,
     withBorder: PropTypes.bool,
+    focusPosition: PropTypes.oneOf(['offset', 'inset']),
     padding: PropTypes.oneOf(['full', 'reduced', 'none']),
     /**
     * Valid values are `0`, `none`, `auto`, `xxx-small`, `xx-small`, `x-small`,
@@ -126,6 +127,7 @@ class Button extends Component {
     textAlign: 'start',
     withBackground: true,
     withBorder: true,
+    focusPosition: 'offset',
     padding: 'full',
     margin: '0',
     cursor: 'pointer',
@@ -240,6 +242,7 @@ class Button extends Component {
       display,
       withBackground,
       withBorder,
+      focusPosition,
       padding,
       margin,
       cursor,
@@ -269,6 +272,7 @@ class Button extends Component {
         as={this.elementType}
         isFocused={isFocused}
         focusColor={color.includes('inverse') ? 'inverse' : 'info'}
+        focusPosition={focusPosition}
         position="relative"
         display={display}
         width={display === 'block' ? '100%' : 'auto'}

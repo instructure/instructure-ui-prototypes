@@ -22,34 +22,7 @@
  * SOFTWARE.
  */
 
-import React from 'react'
-
-import { View } from '@instructure/ui-view'
-
-import { ExampleFrame, ExampleDescription } from '../ExampleHelpers'
-import { GradebookExample } from './GradebookExample'
-// import { MasteryExample } from './MasteryExample'
-
-import { IconAssignmentLine } from '@instructure/ui-icons'
-
-import { Button } from '../Button'
-
-const CondensedButton = (props) => (
-  <Button color="primary" withBackground={false} withBorder={false} padding="none" {...props} />
-)
-
-export const CondensedButtonExamples = () => (
-  <>
-    <ExampleDescription label="Condensed button in gradebook" />
-    <ExampleFrame width="70rem">
-      <GradebookExample condensedButton={CondensedButton} />
-    </ExampleFrame>
-    {/* <ExampleDescription label="Condensed button with icon set" />
-    <ExampleFrame width="70rem">
-      <View display="block" margin="large">
-        <CondensedButton renderIcon={IconAssignmentLine} size="small">Hello world</CondensedButton>
-        <CondensedButton size="small">Hello world</CondensedButton>
-      </View>
-    </ExampleFrame> */}
-  </>
-)
+export default ({ colors, borders }) => ({
+  border: `${borders.widthSmall} ${borders.style} ${colors.borderMedium}`,
+  filledCellBackground: colors.backgroundLight
+})
