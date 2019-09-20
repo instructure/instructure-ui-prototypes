@@ -39,7 +39,7 @@ const CondensedButtonA = (props) => (
 )
 
 const CondensedButtonB = (props) => (
-  <CondensedButtonA renderIcon={IconAssignmentLine} {...props} />
+  <CondensedButtonA {...props} />
 )
 
 export const CondensedButtonExamples = () => (

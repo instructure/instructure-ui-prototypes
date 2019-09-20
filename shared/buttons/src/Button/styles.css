@@ -46,20 +46,11 @@ a.content,
     text-align: center;
   }
 
-  .iconSVG {
-    display: inline-flex;
-    align-items: center;
-  }
-
   &.isCondensed {
     padding-left: 0; /* stylelint-disable-line property-blacklist */
     padding-right: 0; /* stylelint-disable-line property-blacklist */
     padding-top: 0;
     padding-bottom: 0;
-
-    .iconSVG {
-      display: block;
-    }
   }
 
   &::-moz-focus-inner {
@@ -102,6 +93,16 @@ a.size--small,
       font-size: var(--smallFontSize);
     }
   }
+}
+
+button.iconSVG,
+button.iconSVG[type="submit"],
+button.iconSVG[type="button"],
+button.iconSVG[type="reset"],
+a.iconSVG,
+.iconSVG {
+  display: inline-flex;
+  align-items: center;
 }
 
 button.size--medium,
