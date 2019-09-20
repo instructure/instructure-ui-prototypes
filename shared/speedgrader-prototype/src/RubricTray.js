@@ -75,64 +75,70 @@ export default class RubricTray extends React.Component {
       <View
         as="div"
         height="100vh"
-        position="relative"
       >
-        <View
-          as="div"
-          padding="medium"
-          textAlign="start"
+        <Flex
+          height="100%"
+          direction="column"
+          justifyItems="space-between"
+          alignitems="stretch"
         >
-          <Flex justifyItems="space-between" margin="0 0 small 0">
-            <Flex.Item grow shrink>
-              <Heading level="h3" margin="0 0 small 0">Rubric</Heading>
-            </Flex.Item>
-            <Flex.Item>
-              <Button
-                variant="icon"
-                icon={IconXLine}
-                onClick={this.handleRubricClose}
-              >
-                <ScreenReaderContent>Close</ScreenReaderContent>
-              </Button>
-            </Flex.Item>
-          </Flex>
-          <View as="div" textAlign="end">
-            <Text size="large">Total Score -/16</Text>
-          </View>
-        </View>
-        <View as="div" padding="medium">
-          { this.state.isDetailed ? <DetailedRubric /> : <ConciseRubric /> }
-        </View>
-        <View
-          padding="medium"
-          as="div"
-          background="light"
-          width="100%"
-          position="absolute"
-          insetInlineStart="0"
-          insetInlineEnd="0"
-          insetBlockEnd="0"
-        >
-          <Flex justifyItems="space-between">
-            <Flex.Item shrink>
-              <Select
-                name="rubric view"
-                renderLabel={<ScreenReaderContent>Rubric View</ScreenReaderContent>}
-                onChange={this.handleViewChange}
-                value={this.state.isDetailed ? "detailed" : "concise"}
-              >
-                <option value="detailed" label="Detailed View">Detailed View</option>
-                <option value="concise" label="Quick View"> Quick View</option>
-              </Select>
+          <Flex.Item>
+            <View
+              as="div"
+              padding="medium"
+              textAlign="start"
+            >
+              <Flex justifyItems="space-between" margin="0 0 small 0">
+                <Flex.Item grow shrink>
+                  <Heading level="h3" margin="0 0 small 0">Rubric</Heading>
+                </Flex.Item>
+                <Flex.Item>
+                  <Button
+                    variant="icon"
+                    icon={IconXLine}
+                    onClick={this.handleRubricClose}
+                  >
+                    <ScreenReaderContent>Close</ScreenReaderContent>
+                  </Button>
+                </Flex.Item>
+              </Flex>
+              <View as="div" textAlign="end">
+                <Text size="large">Total Score -/16</Text>
+              </View>
+            </View>
+            <View as="div" padding="medium">
+              { this.state.isDetailed ? <DetailedRubric /> : <ConciseRubric /> }
+            </View>
+          </Flex.Item>
+          <Flex.Item>
+            <View
+              padding="medium"
+              as="div"
+              background="light"
+              width="100%"
+            >
+              <Flex justifyItems="space-between">
+                <Flex.Item shrink>
+                  <Select
+                    name="rubric view"
+                    renderLabel={<ScreenReaderContent>Rubric View</ScreenReaderContent>}
+                    onChange={this.handleViewChange}
+                    value={this.state.isDetailed ? "detailed" : "concise"}
+                  >
+                    <option value="detailed" label="Detailed View">Detailed View</option>
+                    <option value="concise" label="Quick View"> Quick View</option>
+                  </Select>
 
-            </Flex.Item>
-            <Flex.Item grow textAlign="end">
-              <Button variant="light" margin="0 x-small 0 0" onClick={this.handleRubricClose}>Cancel</Button>
-              <Button variant="primary">Save</Button>
-            </Flex.Item>
-          </Flex>
-        </View>
-    </View>
+                </Flex.Item>
+                <Flex.Item grow textAlign="end">
+                  <Button variant="light" margin="0 x-small 0 0" onClick={this.handleRubricClose}>Cancel</Button>
+                  <Button variant="primary">Save</Button>
+                </Flex.Item>
+              </Flex>
+            </View>
+          </Flex.Item>
+        </Flex>
+      </View>
     )
   }
 }

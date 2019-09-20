@@ -55,78 +55,89 @@ export default class OutcomeTray extends React.Component {
       <View
         as="div"
         height="100vh"
-        padding="medium"
-        textAlign="start"
       >
-        <Flex justifyItems="space-between" margin="0 0 small 0">
-          <Flex.Item grow shrink>
-            <Heading level="h3" margin="0 0 small 0">Outcomes</Heading>
+        <Flex
+          height="100%"
+          direction="column"
+          justifyItems="space-between"
+          alignitems="stretch"
+        >
+          <Flex.Item>
+            <View
+              as="div"
+              padding="medium"
+              textAlign="start"
+            >
+              <Flex justifyItems="space-between" margin="0 0 small 0">
+                <Flex.Item grow shrink>
+                  <Heading level="h3" margin="0 0 small 0">Outcomes</Heading>
+                </Flex.Item>
+                <Flex.Item>
+                  <Button
+                    variant="icon"
+                    icon={IconXLine}
+                    onClick={this.handleOutcomeClose}
+                  >
+                    <ScreenReaderContent>Close</ScreenReaderContent>
+                  </Button>
+                </Flex.Item>
+              </Flex>
+              <View as="div" borderWidth="0 0 small 0" padding="medium 0" margin="small 0">
+                <ToggleDetails
+                  defaultExpanded
+                  fluidWidth
+                  summary={
+                    <Text weight="bold" size="large" transform="uppercase">ccss.ela-literacy.rl.5.1</Text>
+                  }
+                >
+                  <View as="div" padding="small 0">
+                    <Text>Quote accurately from a text when explaining what the text says explicitly and when drawing inferences from the text.</Text>
+                  </View>
+                  <Scale />
+                </ToggleDetails>
+              </View>
+              <View as="div" borderWidth="0 0 small 0" padding="medium 0" margin="small 0">
+                <ToggleDetails
+                  fluidWidth
+                  summary={
+                    <Text weight="bold" size="large" transform="uppercase">ccss.ela-literacy.rl.5.2</Text>
+                  }
+                >
+                  <View as="div" padding="small 0">
+                    <Text>Quote accurately from a text when explaining what the text says explicitly and when drawing inferences from the text.</Text>
+                  </View>
+                  <Scale />
+                </ToggleDetails>
+              </View>
+              <View as="div" borderWidth="0 0 small 0" padding="medium 0" margin="small 0">
+                <ToggleDetails
+                  fluidWidth
+                  summary={
+                    <Text weight="bold" size="large" transform="uppercase">ccss.ela-literacy.rl.5.3</Text>
+                  }
+                >
+                  <View as="div" padding="small 0">
+                    <Text>Quote accurately from a text when explaining what the text says explicitly and when drawing inferences from the text.</Text>
+                  </View>
+                  <Scale />
+                </ToggleDetails>
+              </View>
+            </View>
           </Flex.Item>
           <Flex.Item>
-            <Button
-              variant="icon"
-              icon={IconXLine}
-              onClick={this.handleOutcomeClose}
+            <View
+              padding="medium"
+              as="div"
+              background="light"
+              width="100%"
             >
-              <ScreenReaderContent>Close</ScreenReaderContent>
-            </Button>
+              <View as="div" textAlign="end">
+                <Button variant="light" margin="0 x-small 0 0" onClick={this.handleOutcomeClose}>Cancel</Button>
+                <Button variant="primary">Save</Button>
+              </View>
+            </View>
           </Flex.Item>
         </Flex>
-        <View as="div" borderWidth="0 0 small 0" padding="medium 0" margin="small 0">
-          <ToggleDetails
-            defaultExpanded
-            fluidWidth
-            summary={
-              <Text weight="bold" size="large" transform="uppercase">ccss.ela-literacy.rl.5.1</Text>
-            }
-          >
-            <View as="div" padding="small 0">
-              <Text>Quote accurately from a text when explaining what the text says explicitly and when drawing inferences from the text.</Text>
-            </View>
-            <Scale />
-          </ToggleDetails>
-        </View>
-        <View as="div" borderWidth="0 0 small 0" padding="medium 0" margin="small 0">
-          <ToggleDetails
-            fluidWidth
-            summary={
-              <Text weight="bold" size="large" transform="uppercase">ccss.ela-literacy.rl.5.2</Text>
-            }
-          >
-            <View as="div" padding="small 0">
-              <Text>Quote accurately from a text when explaining what the text says explicitly and when drawing inferences from the text.</Text>
-            </View>
-            <Scale />
-          </ToggleDetails>
-        </View>
-        <View as="div" borderWidth="0 0 small 0" padding="medium 0" margin="small 0">
-          <ToggleDetails
-            fluidWidth
-            summary={
-              <Text weight="bold" size="large" transform="uppercase">ccss.ela-literacy.rl.5.3</Text>
-            }
-          >
-            <View as="div" padding="small 0">
-              <Text>Quote accurately from a text when explaining what the text says explicitly and when drawing inferences from the text.</Text>
-            </View>
-            <Scale />
-          </ToggleDetails>
-        </View>
-        <View
-          padding="medium"
-          as="div"
-          background="light"
-          width="100%"
-          position="absolute"
-          insetInlineStart="0"
-          insetInlineEnd="0"
-          insetBlockEnd="0"
-        >
-          <View as="div" textAlign="end">
-            <Button variant="light" margin="0 x-small 0 0" onClick={this.handleOutcomeClose}>Cancel</Button>
-            <Button variant="primary">Save</Button>
-          </View>
-        </View>
       </View>
     )
   }
