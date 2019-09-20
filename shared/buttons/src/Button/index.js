@@ -87,7 +87,8 @@ class Button extends Component {
     ]),
     withBackground: PropTypes.bool,
     withBorder: PropTypes.bool,
-    withPadding: PropTypes.bool,
+    isCondensed: PropTypes.bool,
+    focusPosition: PropTypes.oneOf(['offset', 'inset']),
     /**
     * Valid values are `0`, `none`, `auto`, `xxx-small`, `xx-small`, `x-small`,
     * `small`, `medium`, `large`, `x-large`, `xx-large`. Apply these values via
@@ -126,7 +127,8 @@ class Button extends Component {
     textAlign: 'start',
     withBackground: true,
     withBorder: true,
-    withPadding: true,
+    isCondensed: false,
+    focusPosition: 'offset',
     margin: '0',
     cursor: 'pointer',
     href: undefined,
@@ -240,7 +242,8 @@ class Button extends Component {
       display,
       withBackground,
       withBorder,
-      withPadding,
+      isCondensed,
+      focusPosition,
       margin,
       cursor,
       ...props
@@ -257,7 +260,7 @@ class Button extends Component {
       [styles[`display--${display}`]]: true,
       [styles.withBackground]: withBackground,
       [styles.withoutBackground]: !withBackground,
-      [styles.withoutPadding]: !withPadding,
+      [styles.isCondensed]: isCondensed,
       [styles.withBorder]: withBorder,
       [styles.withoutBorder]: !withBorder,
       [styles.hasOnlyIconVisible]: this.hasOnlyIconVisible
@@ -269,6 +272,7 @@ class Button extends Component {
         as={this.elementType}
         isFocused={isFocused}
         focusColor={color.includes('inverse') ? 'inverse' : 'info'}
+        focusPosition={focusPosition}
         position="relative"
         display={display}
         width={display === 'block' ? '100%' : 'auto'}

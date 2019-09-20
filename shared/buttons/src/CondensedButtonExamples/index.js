@@ -24,20 +24,53 @@
 
 import React from 'react'
 
+import { View } from '@instructure/ui-view'
+
 import { ExampleFrame, ExampleDescription } from '../ExampleHelpers'
-import { MasteryExample } from './MasteryExample'
+import { GradebookExample } from './GradebookExample'
+// import { MasteryExample } from './MasteryExample'
+
+import { IconAssignmentLine } from '@instructure/ui-icons'
 
 import { Button } from '../Button'
 
-export const CondensedButtonExamples = () => (
-  <>
-    <ExampleDescription label="Standard button with reduced padding" />
-    <ExampleFrame width="70rem">
-      <MasteryExample condensedButton={CondensedButtonA} />
-    </ExampleFrame>
-  </>
+const CondensedButtonA = (props) => (
+  <Button color="primary" withBackground={false} withBorder={false} isCondensed {...props} />
 )
 
-const CondensedButtonA = (props) => (
-  <Button color="primary" withBackground={false} withBorder={false} withPadding={false} {...props} />
+const CondensedButtonB = (props) => (
+  <CondensedButtonA {...props} />
+)
+
+export const CondensedButtonExamples = () => (
+  <>
+    <ExampleDescription label="Condensed button in gradebook" />
+    <ExampleFrame width="70rem">
+      <GradebookExample condensedButton={CondensedButtonA} />
+    </ExampleFrame>
+    <ExampleDescription label="Condensed button with Icon in gradebook" />
+    <ExampleFrame width="70rem">
+      <GradebookExample condensedButton={CondensedButtonB} />
+    </ExampleFrame>
+    <ExampleDescription label="Condensed button with icons" />
+    <ExampleFrame width="70rem">
+      <View display="block" padding="large">
+        <CondensedButtonA size="small" margin="small" renderIcon={IconAssignmentLine}>Hello world</CondensedButtonA>
+        <CondensedButtonB size="small" margin="small">Hello world</CondensedButtonB>
+        <br />
+        <CondensedButtonA size="medium" margin="small" renderIcon={IconAssignmentLine}>Hello world</CondensedButtonA>
+        <CondensedButtonB size="medium" margin="small">Hello world</CondensedButtonB>
+        <br />
+        <CondensedButtonA size="large" margin="small" renderIcon={IconAssignmentLine}>Hello world</CondensedButtonA>
+        <CondensedButtonB size="large" margin="small">Hello world</CondensedButtonB>
+      </View>
+    </ExampleFrame>
+    {/* <ExampleDescription label="Condensed button with icon set" />
+    <ExampleFrame width="70rem">
+      <View display="block" margin="large">
+        <CondensedButton renderIcon={IconAssignmentLine} size="small">Hello world</CondensedButton>
+        <CondensedButton size="small">Hello world</CondensedButton>
+      </View>
+    </ExampleFrame> */}
+  </>
 )

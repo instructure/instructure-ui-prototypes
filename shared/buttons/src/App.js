@@ -31,9 +31,10 @@ import { AllExamples } from './AllExamples'
 import { ToggleButtonExamples } from './ToggleButtonExamples'
 import { LinkButtonExamples } from './LinkButtonExamples'
 import { CondensedButtonExamples } from './CondensedButtonExamples'
+import { Docs } from './Docs'
 
 const App = () => {
-  const [ selectedIndex, setSelectedIndex ] = useState(3)
+  const [ selectedIndex, setSelectedIndex ] = useState(4)
 
   const handleTabChange = (event, { index }) => {
     setSelectedIndex(index)
@@ -71,6 +72,13 @@ const App = () => {
         selected={selectedIndex === 3}
       >
         <CondensedButtonExamples />
+      </Tabs.Panel>
+      <Tabs.Panel
+        renderTitle="Docs"
+        padding="xx-large"
+        selected={selectedIndex === 4}
+      >
+        <Docs />
       </Tabs.Panel>
     </Tabs>
   )

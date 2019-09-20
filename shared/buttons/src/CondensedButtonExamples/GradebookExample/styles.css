@@ -1,0 +1,30 @@
+.root {
+  border-collapse: collapse;
+  border-top: var(--border);
+  border-left: var(--border);
+  margin: 4rem;
+}
+
+.head {
+  background: var(--filledCellBackground);
+}
+
+.body {
+  tr:nth-child(even) {
+    background: var(--filledCellBackground);
+  }
+
+  td:nth-child(even) {
+    background: var(--filledCellBackground);
+  }
+}
+
+.cell {
+  border-bottom: var(--border);
+  border-right: var(--border);
+  width: 10rem;
+}
+
+.headerCell {
+  padding: 0.5rem 1rem;
+}
