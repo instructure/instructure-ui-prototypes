@@ -1,0 +1,171 @@
+.fill--1 {
+  fill: var(--fillLight3);
+}
+
+.fill--2 {
+  fill: var(--fillDark2);
+}
+
+.fill--3 {
+  fill: var(--fillLight4);
+}
+
+.fill--4 {
+  fill: var(--fillLight7);
+}
+
+.fill--5 {
+  fill: var(--fillLight6);
+}
+
+.fill--6 {
+  fill: var(--fillLight2);
+}
+
+.fill--7 {
+  fill: var(--fillLight1);
+}
+
+.fill--8 {
+  fill: var(--fillLight5);
+}
+
+.fill--9 {
+  fill: var(--fillLight8);
+}
+
+.fill--10 {
+  fill: var(--fillDark4);
+}
+
+.fill--11 {
+  fill: var(--fillDark1);
+}
+
+.fill--12 {
+  fill: var(--fillDark3);
+}
+
+.backdrop {
+  fill: var(--fillDark1);
+}
+
+.ears,
+.nose {
+  > [class*="fill"] {
+    stroke-linecap: round;
+    stroke-linejoin: bevel;
+    stroke: rgba(0, 0, 0, 0.25);
+  }
+}
+
+.status--inactive {
+  .statusColorFill {
+    visibility: hidden;
+  }
+}
+
+.status--success {
+  .statusColorFill {
+    fill: var(--colorSuccess);
+  }
+}
+
+.status--danger {
+  .statusColorFill {
+    fill: var(--colorDanger);
+  }
+}
+
+.status--info {
+  .statusColorFill {
+    fill: var(--colorInfo);
+    animation-name: statusColorFillInfo;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+  }
+}
+
+.status--success,
+.status--danger {
+  .eyeColorFill {
+  }
+}
+
+.eyeColorFill {
+  stroke: rgba(0, 0, 0, 0.2);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: bevel;
+}
+
+.statusColorFills--start,
+.statusColorFills--end {
+  opacity: 0.8;
+}
+
+.status--active {
+  .statusColorFill {
+    opacity: 0;
+    animation-name: statusColorFillActive;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+  }
+
+  .statusColorFill:nth-child(1) {
+    fill: var(--colorSuccess);
+  }
+
+  .statusColorFill:nth-child(2) {
+    fill: var(--colorInfo);
+    animation-delay: 0.2s;
+  }
+
+  .statusColorFill:nth-child(3) {
+    fill: var(--colorAlert);
+    animation-delay: 0.4s;
+  }
+
+  .statusColorFill:nth-child(4) {
+    fill: var(--colorWarning);
+    animation-delay: 0.6s;
+  }
+
+  .statusColorFill:nth-child(5) {
+    fill: var(--colorDanger);
+    animation-delay: 0.8s;
+  }
+
+  .statusColorFills--end {
+    .statusColorFill {
+      animation-direction: reverse;
+    }
+  }
+}
+
+@keyframes statusColorFillActive {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes statusColorFillInfo {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,35 @@
+.root {
+  display: flex;
+  height: 100%;
+  opacity: 0.9;
+}
+
+.colorBlock {
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+.colorBlock:nth-child(1) {
+  background: var(--colorInfo);
+  flex-basis: 25%;
+}
+
+.colorBlock:nth-child(2) {
+  background: var(--colorWarning);
+  flex-basis: 15%
+}
+
+.colorBlock:nth-child(3) {
+  background: var(--colorAlert);
+  flex-basis: 20%
+}
+
+.colorBlock:nth-child(4) {
+  background: var(--colorSuccess);
+  flex-basis: 30%;
+}
+
+.colorBlock:nth-child(5) {
+  background: var(--colorDanger);
+  flex-basis: 10%;
+}

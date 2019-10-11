@@ -1,0 +1,6 @@
+.makeSelectGreatAgain {
+  /* fix font-size for large */
+  input {
+    font-size: 1.125rem !important;
+  }
+}
