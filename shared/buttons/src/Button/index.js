@@ -271,7 +271,7 @@ class Button extends Component {
         {...passthroughProps(props)}
         as={this.elementType}
         isFocused={isFocused}
-        focusColor={color.includes('inverse') ? 'inverse' : 'info'}
+        focusColor="inverse"
         focusPosition={focusPosition}
         position="relative"
         display={display}

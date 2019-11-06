@@ -25,63 +25,23 @@
 import React, { useState } from 'react'
 
 import '@instructure/canvas-theme'
-import { Tabs } from '@instructure/ui-tabs'
+// import { Tabs } from '@instructure/ui-tabs'
 
-import { AllExamples } from './AllExamples'
+// import { AllExamples } from './AllExamples'
+import { View } from '@instructure/ui-view'
 import { ToggleButtonExamples } from './ToggleButtonExamples'
-import { LinkButtonExamples } from './LinkButtonExamples'
-import { CondensedButtonExamples } from './CondensedButtonExamples'
-import { Docs } from './Docs'
+// import { LinkButtonExamples } from './LinkButtonExamples'
+// import { CondensedButtonExamples } from './CondensedButtonExamples'
+// import { Docs } from './Docs'
 
 const App = () => {
-  const [ selectedIndex, setSelectedIndex ] = useState(4)
+  // const [ selectedIndex, setSelectedIndex ] = useState(4)
 
-  const handleTabChange = (event, { index }) => {
-    setSelectedIndex(index)
-  }
+  // const handleTabChange = (event, { index }) => {
+  //   setSelectedIndex(index)
+  // }
 
-  return (
-    <Tabs
-      margin="large"
-      padding="medium"
-      onRequestTabChange={handleTabChange}
-    >
-      <Tabs.Panel
-        renderTitle="All Buttons"
-        selected={selectedIndex === 0}
-      >
-        <AllExamples />
-      </Tabs.Panel>
-      <Tabs.Panel
-        renderTitle="Toggle Buttons"
-        padding="xx-large"
-        isSelected={selectedIndex === 1}
-      >
-        <ToggleButtonExamples />
-      </Tabs.Panel>
-      <Tabs.Panel
-        renderTitle="Link Buttons"
-        padding="xx-large"
-        selected={selectedIndex === 2}
-      >
-        <LinkButtonExamples />
-      </Tabs.Panel>
-      <Tabs.Panel
-        renderTitle="Condensed Buttons"
-        padding="xx-large"
-        selected={selectedIndex === 3}
-      >
-        <CondensedButtonExamples />
-      </Tabs.Panel>
-      <Tabs.Panel
-        renderTitle="Docs"
-        padding="xx-large"
-        selected={selectedIndex === 4}
-      >
-        <Docs />
-      </Tabs.Panel>
-    </Tabs>
-  )
+  return <View display="block" margin="xx-large" padding="xx-large"><ToggleButtonExamples /></View>
 }
 
 export default App

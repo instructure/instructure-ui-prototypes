@@ -27,9 +27,11 @@ import React, { useState, useCallback } from 'react'
 import {
   IconBookmarkLine,
   IconBookmarkSolid,
+  IconRemoveBookmarkLine,
   IconCalendarAddLine,
   IconCalendarReservedSolid,
   IconLockLine,
+  IconUnlockLine,
   IconLockSolid,
   IconUnpublishedLine,
   IconPublishSolid
@@ -84,8 +86,10 @@ const ToggleButtonWrapper_A = ({
 }
 
 const ToggleButtonWrapper_B = ({
+  renderPreviewUnpressedIcon,
   renderUnpressedIcon,
   renderPressedIcon,
+  renderPreviewPressedIcon,
   renderUnpressedLabel,
   renderPressedLabel,
   mountNode,
@@ -107,6 +111,15 @@ const ToggleButtonWrapper_B = ({
 
   const shouldShowPressedState = () => isPreviewing ? !isPressed : isPressed
 
+  const renderIcon = () => {
+    if (!isPressed && !isPreviewing) return renderUnpressedIcon
+    if (!isPressed && isPreviewing) return renderPreviewPressedIcon
+    if (isPressed && !isPreviewing) return renderPressedIcon
+    if (isPressed && isPreviewing) return renderPreviewUnpressedIcon
+
+    return renderUnpressedIcon
+  }
+
   const buttonProps = {
     withBorder: false,
     withBackground: false,
@@ -120,7 +133,7 @@ const ToggleButtonWrapper_B = ({
     onFocus: handleStartPreviewing,
     onBlur: handleStopPreviewing,
     color: shouldShowPressedState() ? pressedColor : unpressedColor,
-    renderIcon: callRenderProp(shouldShowPressedState() ? renderPressedIcon : renderUnpressedIcon),
+    renderIcon: callRenderProp(renderIcon()),
     children: <ScreenReaderContent>{label}</ScreenReaderContent>
   }
 
@@ -154,7 +167,9 @@ const ToggleButtonWrapperCollection = ({ wrapper, pressedColor = 'success', unpr
   return (
     <View elementRef={handleContainerRef} display="block" margin="none none xx-large none" padding="large">
       <ToggleButtonWrapper
+        renderPreviewUnpressedIcon={IconRemoveBookmarkLine}
         renderUnpressedIcon={IconBookmarkLine}
+        renderPreviewPressedIcon={IconBookmarkSolid}
         renderPressedIcon={IconBookmarkSolid}
         renderUnpressedLabel="Subscribe"
         renderPressedLabel="Unsubscribe"
@@ -163,16 +178,9 @@ const ToggleButtonWrapperCollection = ({ wrapper, pressedColor = 'success', unpr
         {...wrapperProps}
       />
       <ToggleButtonWrapper
-        renderUnpressedIcon={IconCalendarAddLine}
-        renderPressedIcon={IconCalendarReservedSolid}
-        renderUnpressedLabel="Add to calendar"
-        renderPressedLabel="Remove from calendar"
-        pressedColor={pressedColor}
-        unpressedColor={unpressedColor}
-        {...wrapperProps}
-      />
-      <ToggleButtonWrapper
-        renderUnpressedIcon={IconLockLine}
+        renderPreviewUnpressedIcon={IconUnlockLine}
+        renderUnpressedIcon={IconUnlockLine}
+        renderPreviewPressedIcon={IconLockSolid}
         renderPressedIcon={IconLockSolid}
         renderUnpressedLabel="Lock"
         renderPressedLabel="Unlock"
@@ -181,7 +189,9 @@ const ToggleButtonWrapperCollection = ({ wrapper, pressedColor = 'success', unpr
         {...wrapperProps}
       />
       <ToggleButtonWrapper
+        renderPreviewUnpressedIcon={IconUnpublishedLine}
         renderUnpressedIcon={IconUnpublishedLine}
+        renderPreviewPressedIcon={IconPublishSolid}
         renderPressedIcon={IconPublishSolid}
         renderUnpressedLabel="Publish"
         renderPressedLabel="Unpublish"
