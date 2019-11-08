@@ -132,7 +132,7 @@ export default class RubricTray extends React.Component {
                 </Flex.Item>
                 <Flex.Item grow textAlign="end">
                   <Button variant="light" margin="0 x-small 0 0" onClick={this.handleRubricClose}>Cancel</Button>
-                  <Button variant="primary">Save</Button>
+                  <Button variant="primary" onClick={this.handleRubricClose}>Save</Button>
                 </Flex.Item>
               </Flex>
             </View>

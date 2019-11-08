@@ -133,7 +133,7 @@ export default class OutcomeTray extends React.Component {
             >
               <View as="div" textAlign="end">
                 <Button variant="light" margin="0 x-small 0 0" onClick={this.handleOutcomeClose}>Cancel</Button>
-                <Button variant="primary">Save</Button>
+                <Button variant="primary" onClick={this.handleOutcomeClose}>Save</Button>
               </View>
             </View>
           </Flex.Item>

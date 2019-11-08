@@ -382,8 +382,9 @@ class RightSide extends Component {
                     selectedOptionId="1"
                     options={[
                       { id: '1', label: 'None' },
-                      { id: '2', label: 'Closed' },
-                      { id: '3', label: 'Open' }
+                      { id: '2', label: 'Late' },
+                      { id: '3', label: 'Missing' },
+                      { id: '4', label: 'Excused' }
                     ]}
                   />
             </View>
