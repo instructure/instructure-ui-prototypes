@@ -32,8 +32,10 @@ import { Avatar, Text } from '@instructure/ui-elements'
 import { View, Flex } from '@instructure/ui-layout'
 import { Button } from '@instructure/ui-buttons'
 import { NumberInput } from '@instructure/ui-number-input'
+import { Menu } from '@instructure/ui-menu'
 import { TextArea } from '@instructure/ui-forms'
 import { Tray } from '@instructure/ui-overlays'
+import { Tooltip } from '@instructure/ui-tooltip'
 import { ScreenReaderContent } from '@instructure/ui-a11y'
 import {
   IconGradebookLine,
@@ -45,7 +47,10 @@ import {
   IconOutcomesLine,
   IconArrowOpenStartLine,
   IconArrowOpenEndLine,
-  IconMoreLine } from '@instructure/ui-icons'
+  IconMoreLine,
+  IconPaperclipLine,
+  IconVideoLine,
+  IconAudioLine } from '@instructure/ui-icons'
 
 import SingleSelect from '../SingleSelect'
 import HelpTray from '../HelpTray'
@@ -150,28 +155,46 @@ class RightSide extends Component {
         borderWidth="0 0 0 small"
       >
         <View as="div" textAlign="center" margin="auto" padding="small 0">
-          <Button
-            variant="icon"
-            icon={IconGradebookLine}
-            margin="x-small"
+          <Tooltip
+            renderTip="Gradebook"
+            placement="bottom"
+            on={['hover', 'focus']}
           >
-              <ScreenReaderContent>Gradebook</ScreenReaderContent>
-          </Button>
-          <Button
-            variant="icon"
-            icon={IconQuizStatsTimeLine}
-            margin="x-small"
-          >
-              <ScreenReaderContent>Submissions</ScreenReaderContent>
-          </Button>
-          <Button
-            variant="icon"
-            icon={IconQuestionLine}
-            margin="x-small"
-            onClick={this.handleShowHelp}
+            <Button
+              variant="icon"
+              icon={IconGradebookLine}
+              margin="x-small"
             >
-            <ScreenReaderContent>Help</ScreenReaderContent>
-          </Button>
+              <ScreenReaderContent>Gradebook</ScreenReaderContent>
+            </Button>
+          </Tooltip>
+          <Tooltip
+            renderTip="Assessment Audit"
+            placement="bottom"
+            on={['hover', 'focus']}
+          >
+            <Button
+              variant="icon"
+              icon={IconQuizStatsTimeLine}
+              margin="x-small"
+            >
+                <ScreenReaderContent>Assessment Audit</ScreenReaderContent>
+            </Button>
+          </Tooltip>
+          <Tooltip
+            renderTip="Help"
+            placement="bottom"
+            on={['hover', 'focus']}
+          >
+            <Button
+              variant="icon"
+              icon={IconQuestionLine}
+              margin="x-small"
+              onClick={this.handleShowHelp}
+              >
+              <ScreenReaderContent>Help</ScreenReaderContent>
+            </Button>
+          </Tooltip>
           <Tray
             label="Canvas Help"
             open={this.state.showHelp}
@@ -181,14 +204,20 @@ class RightSide extends Component {
           >
             <HelpTray onRequestHideHelp={this.handleHideHelp} />
           </Tray>
-          <Button
-            variant="icon"
-            icon={IconCommentLine}
-            margin="x-small"
-            onClick={this.handleShowLibrary}
+          <Tooltip
+            renderTip="Comment Library"
+            placement="bottom"
+            on={['hover', 'focus']}
           >
-            <ScreenReaderContent>Comment Library</ScreenReaderContent>
-          </Button>
+            <Button
+              variant="icon"
+              icon={IconCommentLine}
+              margin="x-small"
+              onClick={this.handleShowLibrary}
+            >
+              <ScreenReaderContent>Comment Library</ScreenReaderContent>
+            </Button>
+          </Tooltip>
           <Tray
             label="Canvas Help"
             open={this.state.showLibrary}
@@ -282,9 +311,15 @@ class RightSide extends Component {
                 />
               </Flex.Item>
               <Flex.Item >
-                <Button icon={IconDownloadLine}>
-                  <ScreenReaderContent>Download Submission</ScreenReaderContent>
-                </Button>
+                <Tooltip
+                  renderTip="Download Submission"
+                  placement="bottom"
+                  on={['hover', 'focus']}
+                >
+                  <Button icon={IconDownloadLine}>
+                    <ScreenReaderContent>Download Submission</ScreenReaderContent>
+                  </Button>
+                </Tooltip>
               </Flex.Item>
             </Flex>
             <Flex padding="small 0">
@@ -295,12 +330,18 @@ class RightSide extends Component {
                 />
               </Flex.Item>
               <Flex.Item margin="0 x-small 0 0" align="end">
-                <Button
-                  icon={IconRubricLine}
-                  onClick={this.handleShowRubric}
-                >
-                  <ScreenReaderContent>View Rubric</ScreenReaderContent>
-                </Button>
+                <Tooltip
+                    renderTip="View Rubric"
+                    placement="bottom"
+                    on={['hover', 'focus']}
+                  >
+                  <Button
+                    icon={IconRubricLine}
+                    onClick={this.handleShowRubric}
+                  >
+                    <ScreenReaderContent>View Rubric</ScreenReaderContent>
+                  </Button>
+                </Tooltip>
                 <Tray
                   label="Rubric"
                   open={this.state.showRubric}
@@ -312,12 +353,18 @@ class RightSide extends Component {
                 </Tray>
               </Flex.Item>
               <Flex.Item align="end">
-                <Button
-                  icon={IconOutcomesLine}
-                  onClick={this.handleShowOutcome}
-                >
-                  <ScreenReaderContent>View Outcome</ScreenReaderContent>
-                </Button>
+                <Tooltip
+                    renderTip="View Outcome"
+                    placement="bottom"
+                    on={['hover', 'focus']}
+                  >
+                  <Button
+                    icon={IconOutcomesLine}
+                    onClick={this.handleShowOutcome}
+                  >
+                    <ScreenReaderContent>View Outcome</ScreenReaderContent>
+                  </Button>
+                </Tooltip>
                 <Tray
                   label="Outcome"
                   open={this.state.showOutcome}
@@ -346,9 +393,39 @@ class RightSide extends Component {
               />
             </View>
             <View as="div" padding="small 0" textAlign="end">
-              <Button margin="0 x-small 0 0" icon={IconMoreLine}>
-                <ScreenReaderContent>Show Options</ScreenReaderContent>
-              </Button>
+              <Menu
+                placement="bottom"
+                trigger={
+                  <Button margin="0 x-small 0 0" icon={IconMoreLine}>
+                    <ScreenReaderContent>Show Options</ScreenReaderContent>
+                  </Button>
+                }
+              >
+                <Menu.Item>
+                  <Flex>
+                    <Flex.Item padding="0 x-small 0 0"><IconPaperclipLine /></Flex.Item>
+                    <Flex.Item>Attachment</Flex.Item>
+                  </Flex>
+                </Menu.Item>
+                <Menu.Item>
+                  <Flex>
+                    <Flex.Item padding="0 x-small 0 0"><IconVideoLine /></Flex.Item>
+                    <Flex.Item>Video</Flex.Item>
+                  </Flex>
+                </Menu.Item>
+                <Menu.Item>
+                  <Flex>
+                    <Flex.Item padding="0 x-small 0 0"><IconAudioLine /></Flex.Item>
+                    <Flex.Item>Audio</Flex.Item>
+                  </Flex>
+                </Menu.Item>
+                <Menu.Item>
+                  <Flex>
+                    <Flex.Item padding="0 x-small 0 0"><IconDownloadLine /></Flex.Item>
+                    <Flex.Item>Download Comments</Flex.Item>
+                  </Flex>
+                </Menu.Item>
+              </Menu>
               <Button margin="0 0 0 0">
                 Add Comment
               </Button>

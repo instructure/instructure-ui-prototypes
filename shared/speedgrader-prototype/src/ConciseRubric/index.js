@@ -69,7 +69,7 @@ export default class ConciseRubric extends React.Component {
                     <Text>How well can the student describe the setting of their story. This relates to location, time period and moods and attitudes of the socal structure.</Text>
                   </View>
                 }
-                variant="default"
+                variant="inverse"
                 placement="end"
                 on={['click', 'hover', 'focus']}
               >
@@ -122,7 +122,7 @@ export default class ConciseRubric extends React.Component {
                     <Text>How well does the student flesh out their characters.</Text>
                   </View>
                 }
-                variant="default"
+                variant="inverse"
                 placement="end"
                 on={['click', 'hover', 'focus']}
               >
@@ -175,7 +175,7 @@ export default class ConciseRubric extends React.Component {
                     <Text>How well can the student describe the setting of their story. This relates to location, time period and moods and attitudes of the socal structure.</Text>
                   </View>
                 }
-                variant="default"
+                variant="inverse"
                 placement="end"
                 on={['click', 'hover', 'focus']}
               >
@@ -225,10 +225,10 @@ export default class ConciseRubric extends React.Component {
             <Tooltip
               tip={
                 <View as="div" padding="small" maxWidth="15rem">
-                  <Text>How well can the student describe the setting of their story. This relates to location, time period and moods and attitudes of the socal structure.</Text>
+                  <Text>How well can the student describe the setting of their story. This relates to location, time period and moods and attitudes of the social structure.</Text>
                 </View>
               }
-              variant="default"
+              variant="inverse"
               placement="end"
               on={['click', 'hover', 'focus']}
             >

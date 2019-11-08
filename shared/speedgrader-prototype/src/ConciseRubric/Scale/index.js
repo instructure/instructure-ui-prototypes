@@ -26,6 +26,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { View } from '@instructure/ui-layout'
+import { Text } from '@instructure/ui-elements'
 import { Tooltip } from '@instructure/ui-overlays'
 import { themeable } from '@instructure/ui-themeable'
 import styles from './styles.css'
@@ -39,7 +40,8 @@ class Scale extends React.Component {
     ]),
     id: PropTypes.string,
     name: PropTypes.string,
-    summary: PropTypes.string
+    summary: PropTypes.string,
+    isChecked: PropTypes.bool
   }
 
   static defaultProps = {
@@ -47,7 +49,8 @@ class Scale extends React.Component {
     id: undefined,
     name: undefined,
     summary: undefined,
-    value: undefined
+    value: undefined,
+    isChecked: false
   }
 
   state = {
@@ -81,8 +84,8 @@ class Scale extends React.Component {
           constrain="scroll-parent"
           tip={
             <View as="div" padding="small" maxWidth="17em">
-              <div className={styles.description}>{label}</div>
-              <div className={styles.summary}>{summary}</div>
+              <Text as="div" weight="bold" lineHeight="condensed">{label}</Text>
+              <Text>{summary}</Text>
             </View>
           }
           placement="bottom"
@@ -95,18 +98,13 @@ class Scale extends React.Component {
               value={value}
               name={name}
               type="radio"
+              isChecked={this.isChecked}
             />
             <span className={styles.facade}>
               <span className={styles.value}>{value}</span>
             </span>
           </label>
         </Tooltip>
-        { this.state.isChecked ? (
-          <View as="div" padding="small" maxWidth="17em">
-            <div className={styles.description}>{label}</div>
-            <div className={styles.summary}>{summary}</div>
-          </View>
-        ) : null }
       </div>
     )
   }

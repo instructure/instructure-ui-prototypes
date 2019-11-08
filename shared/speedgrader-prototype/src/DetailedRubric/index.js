@@ -55,7 +55,7 @@ export default class DetailedRubric extends React.Component {
     return (
       <div>
         <View as="div" borderWidth="small 0 0 0" padding="small 0" textAlign="start">
-          <ToggleDetails fluidWidth
+          <ToggleDetails fluidWidth defaultExpanded
             summary={
               <Flex padding="small 0">
                 <Flex.Item grow>
