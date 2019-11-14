@@ -249,7 +249,7 @@ class RightSide extends Component {
             </Flex.Item>
             <Flex.Item grow shrink>
               <Button fluidWidth variant="link" onClick={this.handleShowAssignments}>
-                <View as="div" textAlign="center">Week 2: Write a short story with five characters</View>
+                <View as="div" textAlign="center">Week 2: Write a short<br/> story with five characters</View>
               </Button>
               <Tray
                 label="Assignments"
