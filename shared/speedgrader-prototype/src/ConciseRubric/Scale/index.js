@@ -84,8 +84,8 @@ class Scale extends React.Component {
           constrain="scroll-parent"
           tip={
             <View as="div" padding="small" maxWidth="17em">
-              <Text as="div" weight="bold" lineHeight="condensed">{label}</Text>
-              <Text>{summary}</Text>
+              <div className={styles.title}>{label}</div>
+              <span className={styles.content}>{summary}</span>
             </View>
           }
           placement="bottom"
