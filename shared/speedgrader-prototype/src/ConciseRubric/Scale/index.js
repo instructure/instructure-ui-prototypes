@@ -28,10 +28,10 @@ import PropTypes from 'prop-types'
 import { View } from '@instructure/ui-layout'
 import { Text } from '@instructure/ui-elements'
 import { Tooltip } from '@instructure/ui-overlays'
-import { themeable } from '@instructure/ui-themeable'
+
 import styles from './styles.css'
 
-class Scale extends React.Component {
+export default class Scale extends React.Component {
   static propTypes = {
     label: PropTypes.node.isRequired,
     value: PropTypes.oneOfType([
@@ -41,7 +41,9 @@ class Scale extends React.Component {
     id: PropTypes.string,
     name: PropTypes.string,
     summary: PropTypes.string,
-    isChecked: PropTypes.bool
+    isChecked: PropTypes.bool,
+    onClick: PropTypes.func,
+    onChange: PropTypes.func
   }
 
   static defaultProps = {
@@ -50,7 +52,9 @@ class Scale extends React.Component {
     name: undefined,
     summary: undefined,
     value: undefined,
-    isChecked: false
+    isChecked: false,
+    onClick: function (event) {},
+    onChange: function (event) {}
   }
 
   state = {
@@ -59,7 +63,8 @@ class Scale extends React.Component {
 
   handleShowNoteInput = () => {
     this.setState({
-      showNoteInput: true
+      showNoteInput: true,
+      checked: false
     })
   }
 
@@ -69,7 +74,7 @@ class Scale extends React.Component {
     })
   }
 
-  render() {
+  renderViews = () => {
     const {
       label,
       value,
@@ -77,20 +82,42 @@ class Scale extends React.Component {
       summary,
     } = this.props
 
-    return (
-      <div className={styles.rating}>
-        <Tooltip
-          variant="default"
-          constrain="scroll-parent"
-          tip={
-            <View as="div" padding="small" maxWidth="17em">
-              <div className={styles.title}>{label}</div>
-              <span className={styles.content}>{summary}</span>
-            </View>
-          }
-          placement="bottom"
-          mountNode={() => document.getElementById('main')}
-        >
+    if (value !== this.isChecked) {
+      return (
+        <span>
+          <Tooltip
+            variant="default"
+            constrain="scroll-parent"
+            tip={
+              <View as="div" padding="x-small small" maxWidth="17em">
+                <Text as="div" weight="bold" lineHeight="double">{label}</Text>
+                <Text>{summary}</Text>
+              </View>
+            }
+            placement="bottom"
+            mountNode={() => document.getElementById('main')}
+          >
+            <label htmlFor={this.id}>
+              <input
+                className={styles.input}
+                id={this.id}
+                value={value}
+                name={name}
+                type="radio"
+                checked={this.isChecked}
+              />
+              <span className={styles.facade}>
+                <span className={styles.value}>
+                  {value}
+                </span>
+              </span>
+            </label>
+          </Tooltip>
+        </span>
+      )
+    } else {
+      return (
+        <span>
           <label htmlFor={this.id}>
             <input
               className={styles.input}
@@ -98,17 +125,22 @@ class Scale extends React.Component {
               value={value}
               name={name}
               type="radio"
-              isChecked={this.isChecked}
+              checked={this.isChecked}
             />
             <span className={styles.facade}>
               <span className={styles.value}>{value}</span>
             </span>
           </label>
-        </Tooltip>
-      </div>
+        </span>
+      )
+    }
+  }
+
+  render() {
+    return (
+      <span>
+        {this.renderViews()}
+      </span>
     )
   }
 }
-
-const ThemeableItem = themeable(null, styles)(Scale)
-export { ThemeableItem as Scale }

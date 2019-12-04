@@ -24,7 +24,6 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Children as ChildrenPropTypes } from '@instructure/ui-prop-types'
 import { View, Flex } from '@instructure/ui-layout'
 import { Button } from '@instructure/ui-buttons'
 import { TextArea } from '@instructure/ui-forms'
@@ -32,13 +31,21 @@ import { Tooltip } from '@instructure/ui-overlays'
 import { Text } from '@instructure/ui-elements'
 import { ScreenReaderContent } from '@instructure/ui-a11y'
 import { IconNoteLine, IconInfoLine } from '@instructure/ui-icons'
-import { Scale } from '../Scale'
+import Scale from '../Scale'
+
+import styles from './styles.css'
 
 export default class Block extends React.Component {
   static propTypes = {
     blockTitle: PropTypes.string.isRequired,
     blockDescription: PropTypes.string.isRequired,
-    children: ChildrenPropTypes.oneOf([Scale])
+    scale: PropTypes.arrayOf(PropTypes.shape({
+      value: PropTypes.number,
+      label: PropTypes.string,
+      description: PropTypes.string,
+      id: PropTypes.string,
+      name: PropTypes.string
+    })).isRequired
   }
 
   static defaultProps = {
@@ -68,13 +75,13 @@ export default class Block extends React.Component {
       <View as="div" borderWidth="small 0 0 0" padding="small 0">
         <Flex>
           <Flex.Item>
-            <Text weight="bold" size="large">{this.lockTitle}</Text>
+            <Text weight="bold" size="large">{this.props.blockTitle}</Text>
           </Flex.Item>
           <Flex.Item>
             <Tooltip
               tip={
                 <View as="div" padding="small" maxWidth="15rem">
-                  <Text>{this.blockDescription}</Text>
+                  <Text>{this.props.blockDescription}</Text>
                 </View>
               }
               variant="default"
@@ -87,39 +94,20 @@ export default class Block extends React.Component {
             </Tooltip>
           </Flex.Item>
         </Flex>
-        <View as="form" padding="small 0">
-          {this.props.children}
+        <View as="form" padding="small 0" display="inline">
+          {this.props.scale.map((scaleButton) => {
+            return (
+              <Scale
+                id={scaleButton.id}
+                name={scaleButton.name}
+                value={scaleButton.value}
+                label={scaleButton.label}
+                summary={scaleButton.summary}
+                key={scaleButton.value}
+              />
+            )
+          })}
         </View>
-
-        { !this.state.showFullDescription ? (
-          <div>
-            <Text weight="bold" size="large">{this.lockTitle}</Text>
-            <View as="div" padding="small" maxWidth="15rem">
-              <Text>{this.blockDescription}</Text>
-
-            { !this.state.showNoteInput ? (
-                <View as="div" padding="x-small 0">
-                  <Button
-                    variant="icon"
-                    icon={<IconNoteLine inline={false} />}
-                    onClick={this.handleShowNoteInput}
-                  >
-                    <ScreenReaderContent>Add a Note</ScreenReaderContent>
-                  </Button>
-                </View>
-              ) : null }
-
-              { this.state.showNoteInput ? (
-                <View as="div" padding="medium 0">
-                  <TextArea
-                    label="Rating Note"
-                    onClick={this.handleHideNoteInput}
-                  />
-                </View>
-              ) : null }
-            </View>
-          </div>
-        ) : null }
       </View>
     )
   }

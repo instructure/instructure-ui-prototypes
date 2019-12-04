@@ -1,9 +1,4 @@
 /* stylelint-disable selector-max-type, selector-max-class, unit-blacklist, color-no-hex, property-blacklist, length-zero-no-unit */
-.rating {
-  position: relative;
-  display: inline-block;
-}
-
 .input[type="radio"] {
   display: none;
 }

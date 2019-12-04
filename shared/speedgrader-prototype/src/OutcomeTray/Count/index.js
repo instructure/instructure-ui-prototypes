@@ -33,7 +33,7 @@ import { ScreenReaderContent } from '@instructure/ui-a11y'
 import { themeable } from '@instructure/ui-themeable'
 import styles from './styles.css'
 
-class Scale extends Component {
+class Count extends Component {
 
   state = {
     showNoteInput: false
@@ -105,5 +105,5 @@ class Scale extends Component {
       }
     }
 
-    const ThemeableItem = themeable(null, styles)(Scale)
-    export { ThemeableItem as Scale }
+    const ThemeableItem = themeable(null, styles)(Count)
+    export { ThemeableItem as Count }

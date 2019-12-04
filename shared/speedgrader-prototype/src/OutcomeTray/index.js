@@ -35,7 +35,7 @@ import { ToggleDetails } from '@instructure/ui-toggle-details'
 import { ScreenReaderContent } from '@instructure/ui-a11y'
 import { IconXLine } from '@instructure/ui-icons'
 
-import { Scale } from './Scale'
+import { Count } from './Count'
 
 export default class OutcomeTray extends React.Component {
   static propTypes = {
@@ -93,7 +93,7 @@ export default class OutcomeTray extends React.Component {
                   <View as="div" padding="small 0">
                     <Text>Quote accurately from a text when explaining what the text says explicitly and when drawing inferences from the text.</Text>
                   </View>
-                  <Scale />
+                  <Count />
                 </ToggleDetails>
               </View>
               <View as="div" borderWidth="0 0 small 0" padding="medium 0" margin="small 0">
@@ -106,7 +106,7 @@ export default class OutcomeTray extends React.Component {
                   <View as="div" padding="small 0">
                     <Text>Quote accurately from a text when explaining what the text says explicitly and when drawing inferences from the text.</Text>
                   </View>
-                  <Scale />
+                  <Count />
                 </ToggleDetails>
               </View>
               <View as="div" borderWidth="0 0 small 0" padding="medium 0" margin="small 0">
@@ -119,7 +119,7 @@ export default class OutcomeTray extends React.Component {
                   <View as="div" padding="small 0">
                     <Text>Quote accurately from a text when explaining what the text says explicitly and when drawing inferences from the text.</Text>
                   </View>
-                  <Scale />
+                  <Count />
                 </ToggleDetails>
               </View>
             </View>
