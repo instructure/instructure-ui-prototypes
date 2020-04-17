@@ -110,3 +110,8 @@ export default MyThemeableComponent
 We can use the import from `styles.css` to apply the classes we defined there. Observe how we added `className={styles.root}` to the containing div.
 
 As a last step, we now wrap our component with the `themeable` HOC and pass it the theme and styles.
+
+### Some Notes
+* You can call your variables defined in `theme.js` anything you want and you don't have to worry about collisions. When the `themeable` loader builds your component, it will automatically add a unique identifier to the variable names. This unique identifier is created by generating a hash of the CSS source.
+* You can call your css classes defined in `styles.css` anything you want for the same reason as above. Each class is processed and given a unique identifier.
+* Themeable currently is only compatible with class components. It needs a ref to your component, and prior to React 16, we couldn't get refs to functional components. We'll look to support this soon as we are dropping support for React 15 in version 7.0.
