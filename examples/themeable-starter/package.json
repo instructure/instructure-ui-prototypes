@@ -1,0 +1,42 @@
+{
+  "name": "themeable-starter",
+  "version": "1.0.0",
+  "description": "A simple themeable integration example",
+  "license": "MIT",
+  "author": "Instructure, Inc. Engineering and Product Design",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/instructure/instructure-ui-prototypes.git"
+  },
+  "homepage": "https://github.com/instructure/instructure-ui-prototypes#readme",
+  "bugs": {
+    "url": "https://github.com/instructure/instructure-ui-prototypes/issues"
+  },
+  "scripts": {
+    "start": "yarn devserver",
+    "clean": "rimraf -rf public/dist/",
+    "dist": "yarn clean && webpack -p --config webpack.config.prod.js",
+    "devserver": "webpack-dev-server --content-base public/"
+  },
+  "dependencies": {
+    "@instructure/canvas-theme": "^6.24.0",
+    "@instructure/ui-themeable": "^6.24.0",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-react": "^7.9.4",
+    "@instructure/ui-webpack-config": "^6.24.0",
+    "autoprefixer": "^9.7.6",
+    "babel-loader": "^8.1.0",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "browserslist": [
+    "last 2 version",
+    "> 2%"
+  ]
+}

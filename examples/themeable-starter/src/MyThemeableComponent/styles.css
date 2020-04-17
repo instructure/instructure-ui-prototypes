@@ -1,0 +1,12 @@
+/*
+  The styles here are using the variables defined over in 'theme.js'
+*/
+.root {
+  background: var(--componentBackground);
+  margin: var(--componentMargin);
+  padding: var(--componentPadding);
+}
+
+.content {
+  color: var(--componentTextColor);
+}
