@@ -13,7 +13,8 @@
   },
   "workspaces": {
     "packages": [
-      "shared/*"
+      "shared/*",
+      "examples/*"
     ]
   },
   "scripts": {
