@@ -1,11 +1,16 @@
 # Themeable Starter
 This should demo everything you need to start writing themeable components. More comprehensive documentation can be found here https://instructure.design/#ui-themeable.
 
+## Context: Why would I need to use themeable?
+Instructure UI includes components for most common UI elements (buttons, links, dropdowns, modals, etc). Your application, however, may have a need for a custom component that doesn't exist in our library. If it can't be created by composing existing elements you can build it using themeable.
+
+Themeable gives you access to all the style tokens (variables) that we use in our Instructure UI components. This allows you to build new components that have a look and feel consistent with the ones you are already importing from our library.
+
 ## Setup
 In this example, we're going to integrate themeable with an existing project. This codebase is just about the simplest React app we can spin up. It has a minimal webpack configuration and very few babel presets.
 
 ### Configure webpack
-> Note: If you don't already have a webpack or babel configuration for your project, we publish all our instructure-ui build presets. See https://instructure.design/#ui-babel-preset and also https://instructure.design/#ui-webpack-config. If you opt to use these, skip this section as these presets will already include the themeable setup for webpack.
+> Note: If you don't already have a webpack or babel configuration for your project, we publish all our Instructure UI build presets. See https://instructure.design/#ui-babel-preset and also https://instructure.design/#ui-webpack-config. If you opt to use these, skip this section as these presets will already include the themeable setup for webpack.
 
 * Add `@instructure/ui-webpack-config` to your project using your npm client of choice.
 * Add an entry to your `webpack.config.js` rules specifying to load files with the `css` extension via the themeable loader
