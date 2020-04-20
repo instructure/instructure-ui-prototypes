@@ -1,5 +1,5 @@
 # Themeable Starter
-This should demo everything you need to start writing themeable components. More comprehensive documentation can be found here https://instructure.design/#ui-themeable.
+This should demo everything you need to start writing themeable components using Instructure UI. More comprehensive documentation can be found here https://instructure.design/#ui-themeable.
 
 ## Context: Why would I need to use themeable?
 Instructure UI includes components for most common UI elements (buttons, links, dropdowns, modals, etc). Your application, however, may have a need for a custom component that doesn't exist in our library. If it can't be created by composing existing elements you can build it using themeable.
