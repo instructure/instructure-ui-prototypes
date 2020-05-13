@@ -1,0 +1,43 @@
+{
+  "name": "themeable-starter",
+  "version": "1.0.0",
+  "description": "Exploration of CSS loading via webpack for Pivotal UI",
+  "license": "MIT",
+  "author": "Instructure, Inc. Engineering and Product Design",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/instructure/instructure-ui-prototypes.git"
+  },
+  "homepage": "https://github.com/instructure/instructure-ui-prototypes#readme",
+  "bugs": {
+    "url": "https://github.com/instructure/instructure-ui-prototypes/issues"
+  },
+  "scripts": {
+    "start": "yarn devserver",
+    "clean": "rimraf -rf public/dist/",
+    "dist": "yarn clean && webpack -p --config webpack.config.prod.js",
+    "devserver": "webpack-dev-server --content-base public/"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "autoprefixer": "^9.7.6",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^3.5.3",
+    "file-loader": "^6.0.0",
+    "fs-extra": "^9.0.0",
+    "html-loader": "^1.1.0",
+    "node-html-parser": "^1.2.16",
+    "pivotal-ui": "^19.2.4",
+    "postcss-modules": "^2.0.0",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3",
+    "html-webpack-plugin": "^4.3.0"
+  },
+  "browserslist": [
+    "last 2 version",
+    "> 2%"
+  ]
+}
