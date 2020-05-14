@@ -14,7 +14,8 @@
   "workspaces": {
     "packages": [
       "shared/*",
-      "examples/*"
+      "examples/*",
+      "design-system-exploration/*"
     ]
   },
   "scripts": {
